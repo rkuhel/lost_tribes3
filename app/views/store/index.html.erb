@@ -1,0 +1,18 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<h1>Beer Catalog Page</h1>
+
+<% @beers.each do |beer| %>
+	<div class="entry">
+		<%= image_tag(beer.image_url) %>
+		<h3><%= beer.title %></h3>
+		<p><%= sanitize(beer.description) %></p>
+		<div class="price_line">
+			<span class="price"><%= number_to_currency(beer.price) %></span>
+			<%= button_to 'Add to Cart', line_items_path(beer_id: beer) %>
+		</div>
+	</div>
+	<%end%>
+
+
