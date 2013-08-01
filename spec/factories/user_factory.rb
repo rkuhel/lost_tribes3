@@ -3,7 +3,6 @@ FactoryGirl.define do
     # id 1
     name Faker::Name.name
     email Faker::Internet.email
-    zip_code 44122
     password "password"
     password_confirmation "password"
   end
