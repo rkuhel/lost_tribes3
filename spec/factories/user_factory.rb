@@ -23,6 +23,15 @@ FactoryGirl.define do
     password_confirmation "wordpass"
   end
 
+  factory :admin, class: User do
+    # id 3
+    name Faker::Name.name
+    email Faker::Internet.email
+    zip_code 44122
+    password "password"
+    password_confirmation "password"
+    role "admin"
+  end
 
   factory :invalid_user, class: User do
     name nil
