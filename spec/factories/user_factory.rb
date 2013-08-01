@@ -15,7 +15,7 @@ FactoryGirl.define do
     email Faker::Internet.email
     vendor true 
     zip_code 44122
-    street_address "2333 norwood rd"
+    street_address1 "2333 norwood rd"
     city "beachwood"
     state 'Ohio'
     phone_number "215 666 7777"
