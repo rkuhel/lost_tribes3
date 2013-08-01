@@ -8,8 +8,6 @@ development:
   password:
   host: localhost
 
-
-
 test:
   adapter: postgresql
   encoding: unicode
@@ -28,5 +26,8 @@ production:
   username: ryankuhel
   password:
   host: localhost
+
+
+
 
 

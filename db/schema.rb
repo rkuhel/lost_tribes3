@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20130801200803) do
-=======
-ActiveRecord::Schema.define(version: 20130730214537) do
->>>>>>> chris
+ActiveRecord::Schema.define(version: 20130801225130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +25,6 @@ ActiveRecord::Schema.define(version: 20130730214537) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
   create_table "carts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -82,11 +77,10 @@ ActiveRecord::Schema.define(version: 20130730214537) do
     t.string   "state"
     t.string   "zip_code"
     t.string   "role"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-=======
->>>>>>> chris
 end
