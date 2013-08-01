@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   def validate_vendor
     if self.role == 'vendor'
-      return ( !street_address1.blank? && !city.blank? && !state.blank? )
+      return ( !street_address1.blank? && !city.blank? && !state.blank? && !phone.blank? && !zip_code.blank? )
       # return !city.blank?
     end
     true

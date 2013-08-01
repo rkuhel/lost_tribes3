@@ -9,10 +9,10 @@ describe User do
     it {should validate_presence_of(:name)}
   end
 
-  describe 'vendor role' do
-    # subject(:vendor) {build(:vendor)}
+  
 
-    it "Can't be created without location related parameters" do
+  describe 'vendor role' do
+    it "Can't be created without required parameters" do
       user.role = 'vendor'
       user.save.should be_false
       user.street_address1 = '2333 norwood rd'
@@ -20,6 +20,10 @@ describe User do
       user.city = 'Pompton Lakes'
       user.save.should be_false
       user.state = 'NY'
+      user.save.should be_false
+      user.phone = '555-555-5555'
+      user.save.should be_false
+      user.zip_code = '22222'
       user.save.should be_true
     end
   end
@@ -30,22 +34,6 @@ describe User do
       user.role.should eq 'admin'
     end
   end
-
-  #    it "vendors should have city" do
-  #      vendor = create(:vendor)
-  #      vendor.city = nil
-  #      expect(vendor).to be_invalid
-  #    end
-  #    it "vendors should have a state" do
-  #      vendor = create(:vendor)
-  #      vendor.state = nil
-  #      expect(vendor).to be_invalid
-  #    end
-  #    it "vendors must have a phone number" do
-  #      vendor = create(:vendor)
-  #      vendor.phone_number = nil
-  #      expect(vendor).to be_invalid
-  #    end
 end
 
 #  context "Users" do
