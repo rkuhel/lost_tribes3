@@ -3,7 +3,24 @@ require "cancan/matchers"
 
 
 describe User do
- subject(:user) {create(:user)}
+ subject(:user) {build(:user)}
+ describe 'vendor user' do
+  it 'can manage something' do
+    user.role = 'vendor'
+    p user
+    user.save.should be_false
+  end
+ end
+
+ describe 'admin user' do
+  it 'can manage something' do
+    user.role = 'admin'
+    p user
+    user.save.should be_true
+  end
+ end
+
+
   describe 'validations' do
     it {should validate_presence_of(:name)}
   end

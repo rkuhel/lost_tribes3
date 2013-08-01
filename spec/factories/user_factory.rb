@@ -13,12 +13,12 @@ FactoryGirl.define do
     # id 2
     name Faker::Name.name
     email Faker::Internet.email
-    vendor true 
+    role "vendor" 
     zip_code 44122
     street_address1 "2333 norwood rd"
     city "beachwood"
     state 'Ohio'
-    phone_number "215 666 7777"
+    phone "215 666 7777"
     password "wordpass"
     password_confirmation "wordpass"
   end
