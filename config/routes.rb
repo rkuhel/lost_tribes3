@@ -1,15 +1,9 @@
 LostTribes3::Application.routes.draw do
 
   devise_for :users
-  resources :line_items
-
-  resources :carts
-
-  resources :events
-
-  get "store/index"
+  devise_for :views
   resources :beers
-  root to: 'store#index', as: 'store'
 
+  root 'beers#index'
 
 end

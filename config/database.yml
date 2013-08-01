@@ -6,6 +6,8 @@ development:
   pool: 5
   username: ryankuhel
   password:
+  host: localhost
+
 
 
 test:
@@ -15,6 +17,8 @@ test:
   pool: 5
   username: ryankuhel
   password:
+  host: localhost
+
 
 production:
   adapter: postgresql
@@ -23,5 +27,6 @@ production:
   pool: 5
   username: ryankuhel
   password:
+  host: localhost
 
 

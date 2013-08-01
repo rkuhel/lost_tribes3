@@ -18,7 +18,7 @@
       <tr>
         <td><%= beer.title %></td>
         <td><%= beer.description %></td>
-        <td><%= beer.image_url %></td>
+        <td class="beer_tag"><%= image_tag(beer.image_url) %></td>
         <td><%= beer.price %></td>
         <td><%= link_to 'Show', beer %></td>
         <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
