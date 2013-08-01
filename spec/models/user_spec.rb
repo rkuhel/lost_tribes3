@@ -62,7 +62,6 @@ describe User do
   #      expect(vendor).to be_invalid
   #    end
 end
-
 #  context "Users" do
 #    it "users do not require street address" do
 #      subject.street_address = nil
@@ -91,4 +90,3 @@ end
 #      it { should have_and_belong_to_many(:events) }
 #    end
 #  end
-
