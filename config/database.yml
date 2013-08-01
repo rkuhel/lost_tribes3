@@ -4,8 +4,12 @@ development:
   encoding: unicode
   database: lost_tribes_3_development
   pool: 5
+<<<<<<< HEAD
   username: ryankuhel
   password:
+=======
+  username: michaelreinhart
+>>>>>>> 304fbd4cd401a1d86302a223520e391e807f4e66
   host: localhost
 
 test:
@@ -13,8 +17,12 @@ test:
   encoding: unicode
   database: lost_tribes_3_test
   pool: 5
+<<<<<<< HEAD
   username: ryankuhel
   password:
+=======
+  username: michaelreinhart
+>>>>>>> 304fbd4cd401a1d86302a223520e391e807f4e66
   host: localhost
 
 
