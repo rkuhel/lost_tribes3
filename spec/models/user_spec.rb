@@ -8,6 +8,14 @@ describe User do
     it {should validate_presence_of(:name)}
   end
 
+  context "Admins" do 
+    it "has the role admin" do
+      vendor = create(:admin)
+      vendor.role.should_be 'admin'
+    end
+  end
+
+
   context "Vendors" do 
     it "requires vendors to have street address" do
       vendor = create(:vendor)

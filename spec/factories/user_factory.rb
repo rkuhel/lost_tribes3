@@ -21,8 +21,18 @@ FactoryGirl.define do
     phone_number "215 666 7777"
     password "wordpass"
     password_confirmation "wordpass"
+    role "vendor"
   end
 
+  factory :admin, class: User do
+    # id 3
+    name Faker::Name.name
+    email Faker::Internet.email
+    zip_code 44122
+    password "password"
+    password_confirmation "password"
+    role "admin"
+  end
 
   factory :invalid_user, class: User do
     name nil
