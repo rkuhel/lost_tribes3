@@ -3,7 +3,7 @@ FactoryGirl.define do
     # id 1
     name Faker::Name.name
     email Faker::Internet.email
-    zip 44122
+    zip_code 44122
     password "password"
     password_confirmation "password"
   end
@@ -14,7 +14,7 @@ FactoryGirl.define do
     name Faker::Name.name
     email Faker::Internet.email
     vendor true 
-    zip 44122
+    zip_code 44122
     street_address "2333 norwood rd"
     city "beachwood"
     state 'Ohio'
