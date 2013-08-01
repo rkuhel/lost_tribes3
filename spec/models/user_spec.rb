@@ -4,48 +4,33 @@ require "cancan/matchers"
 
 describe User do
   subject(:user) {build(:user)}
-  describe 'vendor' do
-    it "Can't be created without a street address" do
-      user.role = 'vendor'
-      user.save.should be_false
-    end
-    it 'can manage something' do
-      user.role = 'vendor'
-      user.street_address1 = 'I live here!'
-      user.save.should be_true
-    end
-  end
-
-  describe 'admin user' do
-    it 'can manage something' do
-      user.role = 'admin'
-      # p user
-      user.save.should be_true
-    end
-  end
-
+  subject(:vendor) {build(:vendor)}
 
   describe 'validations' do
     it {should validate_presence_of(:name)}
   end
 
-  context "Admins" do
-    it "has the role admin" do
-      admin = create(:admin)
-      admin.role.should eq 'admin'
+  describe 'vendor role' do
+    it "Can't be created without a street address" do
+      user.role = 'vendor'
+      user.save.should be_false
+      user.street_address1 = '2333 norwood rd'
+      user.save.should be_true
+    end
+
+    it "Can't be created without a city" do 
+      # vendor.city = nil
+      # vendor.save.should be_false
     end
   end
 
-  # context "Vendors" do
-  #   it "requires vendors to have street address" do
-  #     vendor = create(:vendor)
-  #     p vendor
-  #     expect(vendor).to be_valid
-  #     vendor.street_address1 = nil
-  #     p vendor
-  #     vendor.save.should be_false
-  #   end
-  # end
+  describe 'admin role' do
+    it 'can be properly created' do
+      user.role = 'admin'
+      user.role.should eq 'admin'
+    end
+  end
+
   #    it "vendors should have city" do
   #      vendor = create(:vendor)
   #      vendor.city = nil
