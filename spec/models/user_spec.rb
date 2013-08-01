@@ -10,11 +10,10 @@ describe User do
 
   context "Admins" do 
     it "has the role admin" do
-      vendor = create(:admin)
-      vendor.role.should_be 'admin'
+      admin = create(:admin)
+      admin.role.should eq 'admin'
     end
   end
-
 
   context "Vendors" do 
     it "requires vendors to have street address" do
