@@ -9,8 +9,6 @@ describe User do
     it {should validate_presence_of(:name)}
   end
 
-  
-
   describe 'vendor role' do
     it "Can't be created without required parameters" do
       user.role = 'vendor'
@@ -35,30 +33,6 @@ describe User do
     end
   end
 end
-
-#  context "Users" do
-#    it "users do not require street address" do
-#      subject.street_address = nil
-#      expect(subject).to be_valid
-#    end
-#    it "users do not require city" do
-#      subject.city = nil
-#      expect(subject).to be_valid
-#    end
-#    it "users do not require a state" do
-#      subject.state = nil
-#      expect(subject).to be_valid
-#    end
-#    it "users do not require phone number" do
-#      subject.phone_number = nil
-#      expect(subject).to be_valid
-#    end
-#    it "users should require a zip" do
-#      subject.zip = nil
-#      expect(subject).to be_invalid
-#    end
-#  end
-
 
 #    describe 'associations' do
 #      it { should have_and_belong_to_many(:events) }
