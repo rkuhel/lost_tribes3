@@ -36,8 +36,8 @@ end
     it "requires vendors to have street address" do
       vendor = create(:vendor)
       expect(vendor).to be_valid
-      vendor.street_address1 = nil 
-      expect(vendor).to be_invalid
+      vendor.street_address1 = nil
+      expect(vendor).save.should be_false
     end
  #    it "vendors should have city" do 
  #      vendor = create(:vendor)
