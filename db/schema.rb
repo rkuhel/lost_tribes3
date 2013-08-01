@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20130731012019) do
   end
 
   create_table "line_items", force: true do |t|
-    t.integer  "product_id"
+    t.integer  "beer_id"
     t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"

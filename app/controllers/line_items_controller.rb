@@ -1,4 +1,6 @@
 class LineItemsController < ApplicationController
+  include CurrentCart
+  before_action :set_cart, only: [:create]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -24,17 +26,17 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    @line_item = LineItem.new(line_item_params)
+    # @line_item = LineItem.new(line_item_params)
     @cart = current_cart
 
 
-    event = Event.find(params[:event_id])
-    @line_item = @cart.line_items.build 
-    @line_item.event = event
+    # event = Event.find(params[:event_id])
+    # @line_item = @cart.line_items.build 
+    # @line_item.event = event
 
     beer = Beer.find(params[:beer_id])
-    @line_item = @cart.line_items.build 
-    @line_item.beer = beer
+    @line_item = @cart.line_items.build(beer: beer)
+    # @line_item.beer = beer
 
     respond_to do |format|
       if @line_item.save
@@ -79,6 +81,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:beer_id, :event_id, :cart_id)
+      params.require(:line_item).permit(:beer_id, :cart_id)
     end
 end
