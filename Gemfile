@@ -10,10 +10,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'haml'
 gem 'devise', '3.0.0'
 gem 'cancan'
-<<<<<<< HEAD
 gem 'protected_attributes'
-=======
->>>>>>> chris
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -44,7 +41,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'pry-stack_explorer'
-<<<<<<< HEAD
   gem 'annotate'
   gem 'meta_request'
    gem 'rb-fsevent'
@@ -63,20 +59,11 @@ group :test do
   gem 'database_cleaner'
   gem 'guard-rspec'
   gem 'faker'
-=======
-
-  gem 'annotate'
-
-  # gem 'quiet_assets'
-  # gem 'binding_of_caller'
-  gem 'meta_request'
->>>>>>> chris
 end
 
 group :development do
   #causes problem in conjunction with rspec test
   gem 'better_errors'
-<<<<<<< HEAD
 end
 
 group :test do
@@ -90,6 +77,3 @@ group :test do
   gem 'guard-rspec'
   gem 'faker'
 end
-=======
-end
->>>>>>> chris
