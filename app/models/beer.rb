@@ -1,4 +1,5 @@
 class Beer < ActiveRecord::Base
+<<<<<<< HEAD
 	attr_accessible :title, :description, :image_url, :price
 
 	has_many :line_items, dependent: :destroy 
@@ -17,3 +18,6 @@ class Beer < ActiveRecord::Base
 end
 
 
+=======
+end
+>>>>>>> chris

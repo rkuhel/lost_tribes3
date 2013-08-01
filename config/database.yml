@@ -4,14 +4,20 @@ development:
   encoding: unicode
   database: lost_tribes_3_development
   pool: 5
+<<<<<<< HEAD
   username: chriseichler
   host: localhost
+=======
+  username: michaelreinhart
+  password:
+>>>>>>> chris
 
 test:
   adapter: postgresql
   encoding: unicode
   database: lost_tribes_3_test
   pool: 5
+<<<<<<< HEAD
   username: chriseichler
   host: localhost
 
@@ -24,3 +30,15 @@ test:
 #   password:
 
 
+=======
+  username: michaelreinhart
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: lost_tribes_3_production
+  pool: 5
+  username: michaelreinhart
+  password:
+>>>>>>> chris
