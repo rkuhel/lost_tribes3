@@ -13,13 +13,13 @@ class User < ActiveRecord::Base
   
   before_create :validate_vendor
 
-  private 
+  private
 
   def validate_vendor
     if self.role == 'vendor'
-      return !street_address1.blank? || !city.blank?
+      return ( !street_address1.blank? && !city.blank? && !state.blank? )
+      # return !city.blank?
     end
-
     true
   end
 end

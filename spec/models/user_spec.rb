@@ -4,23 +4,23 @@ require "cancan/matchers"
 
 describe User do
   subject(:user) {build(:user)}
-  subject(:vendor) {build(:vendor)}
 
   describe 'validations' do
     it {should validate_presence_of(:name)}
   end
 
   describe 'vendor role' do
-    it "Can't be created without a street address" do
+    # subject(:vendor) {build(:vendor)}
+
+    it "Can't be created without location related parameters" do
       user.role = 'vendor'
       user.save.should be_false
       user.street_address1 = '2333 norwood rd'
+      user.save.should be_false
+      user.city = 'Pompton Lakes'
+      user.save.should be_false
+      user.state = 'NY'
       user.save.should be_true
-    end
-
-    it "Can't be created without a city" do 
-      # vendor.city = nil
-      # vendor.save.should be_false
     end
   end
 
