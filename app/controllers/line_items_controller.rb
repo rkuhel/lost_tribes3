@@ -26,25 +26,20 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    # @line_item = LineItem.new(line_item_params)
-    @cart = current_cart
-
-
-    # event = Event.find(params[:event_id])
-    # @line_item = @cart.line_items.build 
-    # @line_item.event = event
-
-    beer = Beer.find(params[:beer_id])
-    @line_item = @cart.line_items.build(beer: beer)
-    # @line_item.beer = beer
-
+    # beer = Beer.find(params[:beer_id])
+    @line_item = @cart.line_items.build
+    @line_item.beer_id = params[:beer_id]
+    
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @line_item }
+        format.html { redirect_to @line_item.cart,
+          notice: 'Line item was successfully created.' }
+        format.json { render action: 'show',
+          status: :created, location: @line_item }
       else
         format.html { render action: 'new' }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.json { render json: @line_item.errors,
+          status: :unprocessable_entity }
       end
     end
   end
@@ -80,7 +75,8 @@ class LineItemsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def line_item_params
-      params.require(:line_item).permit(:beer_id, :cart_id)
-    end
+    # def line_item_params
+    #   params.require(:line_item).permit(:beer_id, :cart_id)
+    # end
+  #...
 end
