@@ -1,5 +1,4 @@
 Beer.delete_all
-User.delete_all
 
 #..... 
 
@@ -19,10 +18,3 @@ Beer.create(
 	description: %{Lost Tribes’ Light is cold brewed and cold aged to perfection in a unique brewing process.},
 	image_url: 'http://brewtribe.herokuapp.com/beerPintlightcut.png',
 	price: 13.99)
-
-User.create(
-	name: ,
-	email: ,
-	password: , 
-	
-	)
