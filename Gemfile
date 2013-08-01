@@ -65,3 +65,15 @@ group :development do
   #causes problem in conjunction with rspec test
   gem 'better_errors'
 end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  # gem 'capybara'
+  # gem 'launchy'
+  gem 'database_cleaner'
+  gem 'guard-rspec'
+  gem 'faker'
+end
