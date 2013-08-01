@@ -6,13 +6,13 @@ describe User do
     it {should validate_presence_of(:zip_code)}
   end
 
- #  context "Vendors" do 
- #    it "requires vendors to have street address" do
- #      vendor = create(:vendor)
- #      expect(vendor).to be_valid
- #      vendor.street_address = nil 
- #      expect(vendor).to be_invalid
- #    end
+  context "Vendors" do 
+    it "requires vendors to have street address" do
+      vendor = create(:vendor)
+      expect(vendor).to be_valid
+      vendor.street_address1 = nil 
+      expect(vendor).to be_invalid
+    end
  #    it "vendors should have city" do 
  #      vendor = create(:vendor)
  #      vendor.city = nil
