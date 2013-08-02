@@ -3,6 +3,8 @@ class Event < ActiveRecord::Base
   attr_accessible :city, :start_date, :start_time, :end_date, :end_time, :description, :state, :street, :street2, :title, :zip, :creator_id, :updated_at, :created_at, :price, :image_url
 
   has_many :line_items
+  has_and_belongs_to_many :users
+  belongs_to :creator, class_name: "User", inverse_of: :created_events
   before_destroy :ensure_not_referenced_by_any_line_item
 
 
