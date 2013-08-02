@@ -24,7 +24,7 @@ e2 = Event.create(
    city: 'Pompton Lakes', state: 'NJ', zip: '07442',
     description: %{Come to my house, drink beer, swim, then sleep. then bagels. delicious bagels. Speaking of bagels, anyone want to go to Zaro\'s?},
 	image_url: "http://cdn.c.photoshelter.com/img-get/I0000kSl6MbcQ3a8/s/750/750/Lao-River-Party-C.jpg",
-	price: '20.00'
+	price: '20.00')
 e3 = Event.create(
 	title: 'Beerfest',
 	 start_date: '2013-12-05',
