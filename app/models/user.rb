@@ -11,8 +11,9 @@ class User < ActiveRecord::Base
 
   
   validates_presence_of :name
+  
+  before_create :validate_vendor #if self.role == 'vendor
 
-  before_create :validate_vendor
 
   private
 

@@ -5,7 +5,6 @@
 
 <% @beers.each do |beer| %>
 	<div class="entry">
-		<%= image_tag(beer.image_url) %>
 		<h3><%= beer.title %></h3>
 		<%= image_tag(beer.image_url) %>
 		<p><%= sanitize(beer.description) %></p>
