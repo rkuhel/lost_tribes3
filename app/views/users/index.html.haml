@@ -1,0 +1,36 @@
+%table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Phone Number
+      %th Address
+      %th Address 2
+      %th City
+      %th State
+      %th Zip 
+      / %th Delete
+      / %th Edit
+  %tbody
+    - @users.each do |user|
+      %tr{:'data-user-id' => user.id}
+        %td
+          = user.name
+        %td
+          = user.email
+        %td
+          = user.phone
+        %td
+          = user.street_address1
+        %td
+          = user.street_address2
+        %td
+          = user.city
+        %td
+          = user.state
+        %td
+          = user.zip_code
+        / %td
+        /   = link_to 'Edit', '#'
+        / %td
+        /   = link_to "Delete", '#'
