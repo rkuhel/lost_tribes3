@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   
   validates_presence_of :name
 
+  has_and_belongs_to_many :events
   has_many :created_events, foreign_key: 'creator_id', class_name: "Event", inverse_of: :creator
   
   before_create :validate_vendor #if self.role == 'vendor
