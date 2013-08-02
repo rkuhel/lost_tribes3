@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   
   validates_presence_of :name
   
-<<<<<<< HEAD
   before_create :validate_vendor #if self.role == 'vendor
   ROLES = %w[admin vendor customer]
 
@@ -20,9 +19,6 @@ class User < ActiveRecord::Base
   #   self.roles_mask
 
   # end
-=======
-  before_create :validate_vendor
->>>>>>> 304fbd4cd401a1d86302a223520e391e807f4e66
 
   private 
 
