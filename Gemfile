@@ -11,6 +11,7 @@ gem 'haml'
 gem 'devise', '3.0.0'
 gem 'cancan'
 gem 'protected_attributes'
+gem 'stripe'
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
