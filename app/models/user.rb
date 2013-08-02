@@ -14,9 +14,18 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :events
   has_many :created_events, foreign_key: 'creator_id', class_name: "Event", inverse_of: :creator
+  has_many :carts, dependent: :destroy
   
   before_create :validate_vendor #if self.role == 'vendor
+  after_create :make_cart
 
+  def make_cart
+    self.carts << Cart.new(current: true)
+  end
+
+  def current_cart
+    self.carts.find_by_current(true)  
+  end
 
   private
 
@@ -26,4 +35,5 @@ class User < ActiveRecord::Base
     end
     true
   end
+
 end

@@ -20,7 +20,8 @@
   <li><a href="/beers">beer page</a></li> / 
 	<li><a href="/events">events page</a></li> / 
   <% if current_user %>
-    <li><%= link_to "My Page", user_path(current_user) %></li> / 
+    <li><%= link_to "My Page", user_path(current_user) %></li>
+    <li>Cart #<%= current_cart.id %></li>
   <% end %>
 </ul>
 <ul>
