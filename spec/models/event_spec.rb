@@ -15,4 +15,8 @@ describe Event do
   describe 'associations' do
     it { should have_many(:line_items) }
   end
+
+  describe 'self.to_csv' do
+    xit "generates csv of event attribute"
+  end
 end
