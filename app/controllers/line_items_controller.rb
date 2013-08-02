@@ -21,6 +21,8 @@ class LineItemsController < ApplicationController
   def create
     @line_item = @cart.line_items.build
     @line_item.beer_id = params[:beer_id]
+    @line_item.event_id = params[:event_id]
+
     
     respond_to do |format|
       if @line_item.save
