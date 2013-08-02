@@ -5,7 +5,7 @@ development:
   database: lost_tribes_3_development
   pool: 5
   password:
-  username: chriseichler
+  username: michaelreinhart
   host: localhost
 
 test:
@@ -14,7 +14,7 @@ test:
   database: lost_tribes_3_test
   pool: 5
   password:
-  username: chriseichler
+  username: michaelreinhart
   host: localhost
 
 
@@ -23,7 +23,7 @@ production:
   encoding: unicode
   database: lost_tribes_3_production
   pool: 5
-  username: chirseichler
+  username: michaelreinhart
   password:
   host: localhost
 
