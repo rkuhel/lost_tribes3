@@ -7,29 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_name %>">
-	   <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+	<p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
+  <ul class="hmenu">
+    <li><a href="/">home page (store)</a></li> / 
+    <%= render 'devise/menu/registration_items' %> / 
+    <%= render 'devise/menu/login_items' %> / 
+    <li><a href="/beers">beer page</a></li> / 
+  	<li><a href="/events">events page</a></li> / 
+    <% if current_user %>
+      <li><%= link_to "My Page", user_path(current_user) %></li>
+      <li>Cart #<%= current_cart.id %></li>
+    <% end %>
+  </ul>
 
-
-<!-- # layouts/application.html.erb -->
-<ul class="hmenu">
-  <li><a href="/">home page (store)</a></li> / 
-  <%= render 'devise/menu/registration_items' %> / 
-  <%= render 'devise/menu/login_items' %> / 
-  <li><a href="/beers">beer page</a></li> / 
-	<li><a href="/events">events page</a></li> / 
-  <% if current_user %>
-    <li><%= link_to "My Page", user_path(current_user) %></li>
-    <li>Cart #<%= current_cart.id %></li>
-  <% end %>
-</ul>
-<ul>
-
-
-
-
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

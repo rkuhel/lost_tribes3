@@ -35,5 +35,4 @@ class User < ActiveRecord::Base
     end
     true
   end
-
 end

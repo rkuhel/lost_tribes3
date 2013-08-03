@@ -9,7 +9,27 @@ describe User do
     it {should validate_presence_of(:name)}
   end
 
-  describe 'vendor role' do
+  context 'all users' do
+    it 'has a cart once created'
+    it 'can have many carts'
+    it 'has only one current cart'
+  end
+
+  context 'customer role' do
+    it 'has the role of customer'
+    it 'does not require street address'
+    it 'does not require a city'
+    it 'does not require a state'
+    it 'does not require a phone number'
+    it 'does not require a zip code'
+    it 'cannot create an event'
+    it 'cannot edit an event'
+    it 'cannot delete an event'
+
+  end
+
+  context 'vendor role' do
+    it 'has the role of vendor'
     it "Can't be created without required parameters" do
       user.role = 'vendor'
       user.save.should be_false
@@ -24,40 +44,31 @@ describe User do
       user.zip_code = '22222'
       user.save.should be_true
     end
+
+    it 'can create an event'
+    it 'can edit an event it created'
+    it 'cannot edit an event it did not create'
+    it 'can delete an event it created'
+    it 'cannot delete an event it did not create'
   end
 
-  describe 'admin role' do
-    it 'can be properly created' do
+  context 'admin role' do
+    it 'has the role of admin' do
       user.role = 'admin'
       user.role.should eq 'admin'
     end
+
+    it 'can create an event'
+    it 'can edit any event'
+    it 'can delete any event'
+    it 'can create a user'
+    it 'can edit any user'
+    it 'can delete any user'
+  end
+
+  describe 'associations' do
+    it { should have_and_belong_to_many(:events) }
+    it 'has many carts'
   end
 end
-#  context "Users" do
-#    it "users do not require street address" do
-#      subject.street_address = nil
-#      expect(subject).to be_valid
-#    end
-#    it "users do not require city" do
-#      subject.city = nil
-#      expect(subject).to be_valid
-#    end
-#    it "users do not require a state" do
-#      subject.state = nil
-#      expect(subject).to be_valid
-#    end
-#    it "users do not require phone number" do
-#      subject.phone_number = nil
-#      expect(subject).to be_valid
-#    end
-#    it "users should require a zip" do
-#      subject.zip = nil
-#      expect(subject).to be_invalid
-#    end
-#  end
 
-
-#    describe 'associations' do
-#      it { should have_and_belong_to_many(:events) }
-#    end
-#  end
