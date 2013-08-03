@@ -12,7 +12,7 @@ gem 'devise', '3.0.0'
 gem 'cancan'
 gem 'protected_attributes'
 gem 'stripe'
-
+gem 'unicorn'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -30,8 +30,6 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

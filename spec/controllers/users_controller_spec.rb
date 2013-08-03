@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EventsController do
+describe UsersController do
 
   describe 'GET #index' do
     it 'assigns all users to an instance variable'
