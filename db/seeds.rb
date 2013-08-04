@@ -1,6 +1,7 @@
 Beer.delete_all
 Event.delete_all
 User.delete_all
+Cart.delete_all
 
 
 e1 = Event.create(

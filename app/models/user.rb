@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = %w[admin vendor customer]
+  ROLES = %w[admin vendor customer guest]
 
   attr_accessible :role, :name, :email, :zip_code, :phone, :street_address1, :street_address2, :city, :state, :admin, :password
 

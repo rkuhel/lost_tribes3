@@ -15,10 +15,12 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    authorize! :create, Event
   end
 
   # GET /events/1/edit
   def edit
+    authorize! :edit, Event
   end
 
   # POST /events
@@ -54,6 +56,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    authorize! :destroy, Event
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url } #change this?

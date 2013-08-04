@@ -3,18 +3,18 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-    # Overwriting the sign_out redirect path method
+  # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
     root_path
   end
 
-  # private 
-  # 	def current_cart
-  # 		Cart.find(session[:cart_id])
-  # 	rescue Activerecord::RecordNotFound
-  # 		cart = Cart.create
-  # 		session[:cart_id] = cart.id
-  # 		cart
-  # 	end
+  # before_filter :update_sanitized_params, if: :devise_controller?
+
+  # def update_sanitized_params
+  #   devise_parameter_sanitizer.for(:update) {|u| u.permit(:name, 
+  #     :email, :phone, :street_address1, :street_address2, 
+  #     :city, :state, :zip_code, :password, :password_confirmation, 
+  #     :current_password) }
+  # end
   	
 end

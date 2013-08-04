@@ -1,1 +1,33 @@
-users edit
+%h2 Edit Your Info:
+(Note: You m
+%br
+%br
+%br
+= form_for @user do |f|
+  = f.label :name
+  = f.text_field :name
+  / = f.label :vendor
+  / = f.text_field :vendor
+  / = f.label :admin
+  / = f.text_field :admin
+  = f.label :email
+  = f.email_field :email 
+  = f.label :password
+  = f.password_field :password
+  = f.label :phone
+  = f.text_field :phone
+  = f.label :street_address1
+  = f.text_field :street_address1
+  = f.label :street_address2 
+  = f.text_field :street_address2
+  = f.label :city
+  = f.text_field :city
+  = f.label :state
+  = f.text_field :state
+  = f.label :zip_code
+  = f.text_field :zip_code
+  - if current_user.admin?
+    = f.label :role
+    = f.text_field :role
+  %br
+  = f.submit "Update"
