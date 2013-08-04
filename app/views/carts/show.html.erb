@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <% @cart.line_items.each do |li| %>
-  <%= li.beer_id %>
+  <% li.beer_id %>
+  <% beer = Beer.find li.beer_id %>
+  <%= beer.title %>
   <br>
   <br>
 <% end %>
