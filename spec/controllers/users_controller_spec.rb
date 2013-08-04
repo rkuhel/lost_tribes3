@@ -22,21 +22,37 @@ describe 'GET #index' do
       assigns(:user).should be_an_instance_of(User)
       assigns(:user).should be_new_record
     end
-    it 'render the :new view' do
+    it 'renders the :new view' do
       get :new
       response.should render_template :new
     end
   end
 
-  describe 'POST #create' do
+    describe 'Post #create' do
     context 'with valid attributes' do
-      it 'creates a new user'
-      it 'redirects to what page?'
-    end
 
-    context 'with invalid attributes' do
-      it 'does not create a new artist'
-      it 're-renders the :new view'
+      it 'creates a new user' do
+        expect {
+          post :create, user: attributes_for(:user)
+        }.to change{User.count}.by(1)
+      end
+
+      it 'redirects to users show page' do
+        post :create, user: attributes_for(:user)
+        response.should redirect_to store_index_path
+      end
+
+      context 'with invalid attributes' do
+        it 'does not create a new artist' do
+          expect{
+            post :create, user: attributes_for(:invalid_user)
+          }.to change{User.count}.by(0)
+        end
+        it 're-renders the :new view' do
+          post :create, user: attributes_for(:invalid_user)
+          response.should render_template :new
+        end
+      end
     end
   end
 

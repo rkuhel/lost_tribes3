@@ -8,7 +8,14 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
+  def create 
+    @user = User.new(params[:user])
+    if @user.save
+        # UserMailer.signup_confirmation(@user).deliver
+        redirect_to store_index_path, notice: "Signed up successfully."
+    else
+      render :new
+    end
   end
 
   def show
