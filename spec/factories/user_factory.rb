@@ -20,7 +20,6 @@ FactoryGirl.define do
     phone "215 666 7777"
     password "wordpass"
     password_confirmation "wordpass"
-
   end
 
   factory :admin, class: User do

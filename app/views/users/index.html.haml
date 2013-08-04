@@ -9,8 +9,8 @@
       %th City
       %th State
       %th Zip 
-      / %th Delete
-      / %th Edit
+      %th Edit
+      %th Delete
   %tbody
     - @users.each do |user|
       %tr{:'data-user-id' => user.id}
@@ -30,7 +30,7 @@
           = user.state
         %td
           = user.zip_code
-        / %td
-        /   = link_to 'Edit', '#'
-        / %td
-        /   = link_to "Delete", '#'
+        %td
+          = link_to 'Edit', edit_user_registration_path(user)
+        %td
+          = link_to("Delete", user_path(user), method: :delete)
