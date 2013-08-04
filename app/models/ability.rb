@@ -2,14 +2,35 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    @user ||= User.new # guest user (not logged in)
-    @user.roles.each { |role| send(role) }
+    # @user ||= User.new # guest user (not logged in)
+    # @user.role.each { |role| send(role) }
 
-    if @user.roles.size == 0
-      can :read, :all
+    @user = user
+
+    alias_action :create, :read, :update, :destroy, :to => :crud
+
+    # if @user.role == nil
+      # can :read, :all
+    # end
+
+    if @user.role == 'admin'
+      can :manage, :all
+      # can :create, Event
+    end
+
+
+
+    if @user.role == 'vendor'
+      can :crud, User, :user_id => @user.id
+      can [:read, :create], Event
+      can :crud, Event, :creator_id => @user.id
+      # can :manage, Cart, in @user.carts?
+    end
+
+    if @user.role == 'customer'
+      can :crud, User, :active => true, :user_id => @user.id
+      can :read, Event
+      # can :manage, Cart, in @user.carts?
     end
   end
-
-  can :manage, :all if @user.role == "admin"
-
 end
