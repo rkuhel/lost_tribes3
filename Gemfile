@@ -11,7 +11,7 @@ gem 'haml'
 gem 'devise', '3.0.0'
 gem 'cancan'
 gem 'protected_attributes'
-gem 'stripe'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'unicorn'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
