@@ -8,11 +8,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create 
+  def create
     @user = User.new(params[:user])
     if @user.save
-        # UserMailer.signup_confirmation(@user).deliver
-        redirect_to store_index_path, notice: "Signed up successfully."
+      # UserMailer.signup_confirmation(@user).deliver
+      redirect_to store_index_path, notice: "Signed up successfully."
     else
       render :new
     end
@@ -26,15 +26,26 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # def destroy
-  # end
-
-
-private
-    # Use callbacks to share common setup or constraints between actions.
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:role, :name, :email, :zip_code, :phone, :street_address1, :street_address2, :city, :state, :admin, :password)
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params['user'])
+      redirect_to user_path(@user)
+    else
+      render :edit
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    render json: @user
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:role, :name, :email, :zip_code, :phone, :street_address1, :street_address2, :city, :state, :admin, :password)
+  end
 
 end
