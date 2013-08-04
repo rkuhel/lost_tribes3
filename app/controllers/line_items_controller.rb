@@ -21,7 +21,7 @@ class LineItemsController < ApplicationController
   end
 
   def create
-    @line_item = @cart.line_items.build
+    @line_item = current_user.current_cart.line_items.build
     @line_item.beer_id = params[:beer_id]
     @line_item.event_id = params[:event_id]
 
