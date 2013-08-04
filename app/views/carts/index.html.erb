@@ -13,8 +13,7 @@
     <% @carts.each do |cart| %>
       <tr>
         <td><%= cart.line_items.count %></td>
-        <td><%= cart.line_items.title %></td>
-        <td><%= image_tag(cart.line_items.image_url) %></td>
+        
         <td><%= link_to 'Show', cart %></td>
         <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
         <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,4 +24,3 @@
 
 <br>
 
-<%= link_to 'New Cart', new_cart_path %>

@@ -18,7 +18,9 @@ describe EventsController do
 
   describe 'POST #create' do
     subject(:event) {create(:event1)}
-    context ' when save succeeds' do
+    # let(:event) { mock_model(Event).as_null_object }
+    # before { Event.stub(:new).and_return(event) }
+    context 'when save succeeds' do
       # event1 = Event.new
       it 'saves the event' do
         event.should_receive(:save)
