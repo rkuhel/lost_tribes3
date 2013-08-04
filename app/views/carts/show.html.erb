@@ -3,7 +3,14 @@
 <% @cart.line_items.each do |li| %>
   <% li.beer_id %>
   <% beer = Beer.find li.beer_id %>
-  <%= beer.title %>
+  <h2><%= beer.title %></h2>
+  <!-- <img src="<%= (beer.image_url) %>"/> -->
+  <!-- <p><%= beer.description %></p> -->
+  <h4><%= number_to_currency(beer.price) %></h4>
+  <!-- Need some sort of extra logic which only lists beers with unique ids. if the id is not unique, the number of a specific beer should increase -->
+
+
+
   <br>
   <br>
 <% end %>
