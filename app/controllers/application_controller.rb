@@ -8,13 +8,17 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-  # before_filter :update_sanitized_params, if: :devise_controller?
+  before_filter :update_sanitized_params, if: :devise_controller?
 
-  # def update_sanitized_params
-  #   devise_parameter_sanitizer.for(:update) {|u| u.permit(:name, 
-  #     :email, :phone, :street_address1, :street_address2, 
-  #     :city, :state, :zip_code, :password, :password_confirmation, 
-  #     :current_password) }
-  # end
-  	
+  def update_sanitized_params
+    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name, 
+      :email, :phone, :street_address1, :street_address2, 
+      :city, :state, :zip_code, :password, :password_confirmation, 
+      :current_password) }
+    # devise_parameter_sanitizer.for(:users) {|u| u.permit(:name, 
+    #   :email, :phone, :street_address1, :street_address2, 
+    #   :city, :state, :zip_code, :password, :password_confirmation, 
+    #   :current_password) }
+  end
+
 end
