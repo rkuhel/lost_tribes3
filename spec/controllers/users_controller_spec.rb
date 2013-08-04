@@ -2,14 +2,30 @@ require 'spec_helper'
 
 describe UsersController do
 
-  describe 'GET #index' do
-    it 'assigns all users to an instance variable'
-    it 'renders the :index view'
-  end
+describe 'GET #index' do
+      it 'assigns all users to an instance variable' do
+        user = create(:user)
+        user2 = create(:vendor)
+        get :index
+        assigns(:users).should eq [user, user2]
+      end
+    end
 
-  describe 'GET #new' do
-    it 'assigns a new user to an instance variable'
-    it 'renders the :new view'
+    it 'renders the :index view' do
+      get :index
+      response.should render_template :index
+    end
+
+  describe 'Get #new' do
+    it 'assigns a new user to an instance variable' do
+      get :new
+      assigns(:user).should be_an_instance_of(User)
+      assigns(:user).should be_new_record
+    end
+    it 'render the :new view' do
+      get :new
+      response.should render_template :new
+    end
   end
 
   describe 'POST #create' do

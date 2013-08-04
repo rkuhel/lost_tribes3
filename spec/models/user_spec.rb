@@ -86,9 +86,9 @@ describe User do
     it 'has many carts'
   end
 
-  describe 'abilities' do
-    ability = Ability.new(user)
-    ability.should be_able_to(:manage, Event.new)
+  # describe 'abilities' do
+  #   ability = Ability.new(user)
+  #   ability.should be_able_to(:manage, Event.new)
 
 
     # subject {ability}
@@ -100,7 +100,7 @@ describe User do
 
     #   it{ should be_able_to(:manage, Event.new) }
     # end
-  end
+  # end
 end
 
 

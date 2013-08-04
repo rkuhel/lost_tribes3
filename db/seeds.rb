@@ -52,13 +52,13 @@ e4 = Event.create(
 # u2 = User.create(name: "Jim", email: "mreinhart88@gmail.com", zip: 44122, password: 'password', phone_number: '777-777-7777', street_address: '123 Main St', city: 'New York', state: 'NY', street_address_2: 'Apt A')
 u3 = User.create(
 	role: "customer", name: "customer",
-	email: "vendor@email.com", zip_code: "44122",
+	email: "customer@email.com", zip_code: "44122",
 	password: 'password', phone: '777-777-7777',
 	street_address1: '123 Main St', city: 'New York', state: 'NY',
 	street_address2: 'Apt A', admin: false)
 u4 = User.create(
 	role: "vendor", name: "vendor",
-  email: "customer@email.com", zip_code: "44122",
+  email: "vendor@email.com", zip_code: "44122",
   password: 'password', phone: '777-777-7777',
   street_address1: '123 Main St', city: 'New York', state: 'NY',
   street_address2: 'Apt A')

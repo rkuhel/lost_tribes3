@@ -86,8 +86,14 @@ describe EventsController do
           put :update, id: event, event: attributes_for(:invalid_event)
           assigns(:event).should eq event
         end
-      it 'does not change the attributes of the event?'
-      it 'redirects back to the :edit page?'
+        it 'assigns the given event to an instance variable do' do
+          put :update, id: event, event: attributes_for(:invalid_event)
+          assigns(:event).should eq event
+          end
+        it 'redirects back to the update page' do
+         put :update, id: event, event: attributes_for(:updated_event)
+        response.should redirect_to event_path
+      end
     end
   end
 
