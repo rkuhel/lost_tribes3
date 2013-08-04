@@ -86,6 +86,11 @@ b3 = Beer.create(
 	image_url: 'http://brewtribe.herokuapp.com/beerPintlightcut.png',
 	price: 13.99)
 
+u4.created_events << e1 << e3
+u5.created_events << e2 << e4
 
-
+e1.users << u3 << u4 << u5
+e2.users << u3 << u4 << u5
+e3.users << u3 << u4 << u5
+e4.users << u3 << u4 << u5
 
