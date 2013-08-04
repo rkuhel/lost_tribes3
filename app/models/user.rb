@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   end
 
   def current_cart
-    self.carts.find_by_current(true)  
+    self.carts.find_by_current(true)
   end
 
   private
