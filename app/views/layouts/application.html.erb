@@ -26,6 +26,9 @@
           <li> / <%= link_to "Users", users_path %></li>
           <li> / <%= link_to "Carts", carts_path %></li>
         <% end %>
+        <% if current_user %>
+          <li> / Signed in as <%="#{current_user.name.upcase}"%></li>
+        <% end %>
       </ul>
 
       <%= yield %>
