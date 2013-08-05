@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    # @events = Event.all
   end
 
   # GET /events/1
@@ -15,17 +16,12 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    authorize! :create, Event
   end
 
   # GET /events/1/edit
   def edit
-    # user = current_user
-    authorize! :edit, Event, :creator_id => current_user.id
-    # authorize! :edit, Event, :creator => current_user
-    p "================================================================================================================="
-    p current_user.id
-    p @event.creator_id
+    # authorized! if can? :update, @event
+    # p @event
   end
 
   # POST /events

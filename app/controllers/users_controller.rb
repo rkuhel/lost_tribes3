@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
 
   def index
     @users = User.all
-    authorize! :manage, User
   end
 
   def new
@@ -20,18 +20,19 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    authorize! :read, User, :user_id => @user.id
+    # @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
-    authorize! :edit, User, :user_id => @user.id
+    # @user = User.find(params[:id])
+
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(params['user'])
+    # @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      sign_in(@user, :bypass => true)
+      flash[:notice] = "Account Updated!"
       redirect_to root_path
     else
       render :edit
@@ -42,6 +43,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     render json: @user
+  end
+
+  def remove_event
+    event = Event.find(params[:id])
+    current_user.events.delete(event)
   end
 
   private

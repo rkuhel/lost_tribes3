@@ -1,7 +1,7 @@
 %h2
   Hi, #{@user.name.capitalize}! 
   %h4
-    =link_to 'Edit', edit_user_registration_path(@user)
+    =link_to 'Edit', edit_user_path(@user)
     Your Info
 
 %br
@@ -29,21 +29,8 @@
     %br
     %br
 
-%h1 
-  Events You're Attending
-- @user.events.each do |event|
-  %h3
-    = event.title
-  = event.description
-  %br
-  = "#{event.street} #{event.street2}, #{event.city}, #{event.state} #{event.zip}"
-  %br
-  = "Begins at #{event.start_time.to_s.humanize} on #{event.start_date}"
-  %br
-  = "Ends on #{event.end_date.to_s.humanize} at #{event.end_time}"
-  %br
-  %br
-  %br
+#attending-events
+  = render partial: "users/partials/attending" 
 
 %br
 %br
