@@ -26,6 +26,9 @@ class Ability
       can :update, User do |person|
         person && person.id == user.id
       end
+      can :read, User do |person|
+        person && person.id == user.id
+      end
     else
       can :read, [Beer, Event]
     end
