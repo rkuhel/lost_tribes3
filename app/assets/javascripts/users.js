@@ -27,7 +27,7 @@ function goto_edit_user_page(e){
 //     }
 //   })
 
-}
+// }
 
 
 $(function(){

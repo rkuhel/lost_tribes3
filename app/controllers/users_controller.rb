@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    authorize! :read, User, :user_id => @user.id
+    # authorize! :read, User, :user_id => @user.id
   end
 
   def edit
@@ -44,12 +44,13 @@ class UsersController < ApplicationController
     render json: @user
   end
 
-  def remove_event(event)
-    user = User.find(params[:id])
-    user.events.pop(event)
+  def remove_event
+    event = Event.find(params[:id])
+    current_user.events.delete(event)
     puts "+++++++++++++++++++++++++++++ WORK PLEASE +++++++++++++++++++++++++"
     # @current_user.events.pop(event)
-    redirect_to user_path(@current_user)
+    # redirect_to user_path(@current_user)
+    
   end
 
   private
