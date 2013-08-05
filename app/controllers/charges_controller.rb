@@ -4,7 +4,9 @@ class ChargesController < ApplicationController
 
   def create
     # Amount in cents
-    @amount = 500
+    @decimal_amount = current_user.current_cart.total_up_cart
+    @amount = (@decimal_amount * 100).to_i
+    # @current_user.current_cart.line_items.beer.price
 
     customer = Stripe::Customer.create(
       :email => 'example@stripe.com',
