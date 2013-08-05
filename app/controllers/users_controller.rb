@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
 
   def index
-    @users = User.all
-    authorize! :manage, User
   end
 
   def new
@@ -25,8 +24,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
-    authorize! :edit, User, :user_id => @user.id
+    # if params[:id] == current_user.id
+      @user = User.find(params[:id])
+      # authorize! :edit, User, :user_id => current_user.id
+    # else
+      # render text: "Sorry, You are not authorized to view this page."
+    # end
   end
 
   def update
@@ -47,10 +50,6 @@ class UsersController < ApplicationController
   def remove_event
     event = Event.find(params[:id])
     current_user.events.delete(event)
-    puts "+++++++++++++++++++++++++++++ WORK PLEASE +++++++++++++++++++++++++"
-    # @current_user.events.pop(event)
-    # redirect_to user_path(@current_user)
-    
   end
 
   private

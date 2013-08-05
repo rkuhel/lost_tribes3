@@ -1,23 +1,23 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
   end
 
   # GET /carts/1
   # GET /carts/1.json
   def show
-    user = current_user
-    @cart = Cart.find(params[:id])
+    # user = current_user
+    # @cart = Cart.find(params[:id])
     # @beer = Beer.find(params[:id])
   end
 
   # GET /carts/new
   def new
-    @cart = Cart.new
+    # @cart = Cart.new
   end
 
   # GET /carts/1/edit
