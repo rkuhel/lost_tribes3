@@ -67,6 +67,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def register
+    event = Event.find(params[:id])
+    current_user.register(event) unless event.in?(current_user.events)
+    redirect_to user_path(current_user)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
