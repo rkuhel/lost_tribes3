@@ -22,8 +22,14 @@ class LineItemsController < ApplicationController
 
   def create
     @line_item = current_user.current_cart.line_items.build
+    #making use of add product method
+    @cart = Cart.find(@line_item.cart_id)
     @line_item.beer_id = params[:beer_id]
     @line_item.event_id = params[:event_id]
+    # @beer = Beer.find(params[:beer_id])
+
+    @line_item = @cart.add_beer(@line_item.beer_id)
+
 
     
     respond_to do |format|

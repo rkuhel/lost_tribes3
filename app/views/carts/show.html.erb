@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
-
-<% @current_user.current_cart.line_items.each do |li| %>
-  <% li.beer_id %>
-  <% beer = Beer.find li.beer_id %>
-  <h2><%= beer.title %></h2>
+<table>
+  <tbody> 
+    <% @current_user.current_cart.line_items.each do |li| %>
+      <% li.beer_id %>
+      <% beer = Beer.find li.beer_id %>
+      <tr>
+        <td> <%= beer.title %> </td>
   <!-- <img src="<%= (beer.image_url) %>"/> -->
   <!-- <p><%= beer.description %></p> -->
-  <h4><%= number_to_currency(beer.price) %></h4>
+        <td> <%= number_to_currency(beer.price) %> </td>
+        <td> &nbsp; &times; <%= li.quantity  %> quantity  </td>
+      </tr>
+   <% end %>
+</tbody>
+</table>
+
+<br />
+<br />
+
   <!-- Need some sort of extra logic which only lists beers with unique ids. if the id is not unique, the number of a specific beer should increase -->
 
-
-
-  <br>
-  <br>
-<% end %>
 
 <%= form_tag charges_path do %>
   <article>
@@ -23,11 +29,15 @@
     </label>
   </article>
 
+<br />
+<br />
+
   <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
           data-amount="<%= current_user.current_cart.total_up_cart*100 %>"></script>
 <% end %>
+
 
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>

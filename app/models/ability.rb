@@ -4,12 +4,6 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user
 
-<<<<<<< HEAD
-    alias_action :create, :read, :update, :destroy, :to => :crud
-
-    if @user.roles.size == 0
-      can :read, :all
-=======
     if user.role == 'admin'
       can :manage, :all
     elsif user.role == 'vendor'
@@ -40,13 +34,6 @@ class Ability
       end
     else
       can :read, [Beer, Event]
->>>>>>> b474887f3706ddbae25b1b636ccf3304a75bf711
-    end
-    if @user.roles == "vendor"
-      can :read, :all
-      can :create, Event 
-      can :update, Event, :active => true, :creator_id => user.id
-      can :destroy, Event, :active => true, :creator_id => user.id
     end
   end
 end
