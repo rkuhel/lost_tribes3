@@ -35,4 +35,8 @@ class User < ActiveRecord::Base
     end
     true
   end
+
+  # def leave_event(event)
+  #   @current_user.events.pop(event)
+  # end
 end

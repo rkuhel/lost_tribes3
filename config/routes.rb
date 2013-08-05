@@ -15,5 +15,6 @@ LostTribes3::Application.routes.draw do
   resources :beers
   root to: 'store#index'#, as: 'store'
 
+  post 'remove_event/:id' => 'users#remove_event'
 
 end

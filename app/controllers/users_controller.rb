@@ -44,6 +44,14 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  def remove_event(event)
+    user = User.find(params[:id])
+    user.events.pop(event)
+    puts "+++++++++++++++++++++++++++++ WORK PLEASE +++++++++++++++++++++++++"
+    # @current_user.events.pop(event)
+    redirect_to user_path(@current_user)
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   # Never trust parameters from the scary internet, only allow the white list through.
