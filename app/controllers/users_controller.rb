@@ -19,22 +19,19 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    # authorize! :read, User, :user_id => @user.id
+    # @user = User.find(params[:id])
   end
 
   def edit
-    # if params[:id] == current_user.id
-      @user = User.find(params[:id])
-      # authorize! :edit, User, :user_id => current_user.id
-    # else
-      # render text: "Sorry, You are not authorized to view this page."
-    # end
+    # @user = User.find(params[:id])
+
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(params['user'])
+    # @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      sign_in(@user, :bypass => true)
+      flash[:notice] = "Account Updated!"
       redirect_to root_path
     else
       render :edit

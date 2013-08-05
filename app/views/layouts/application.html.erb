@@ -13,10 +13,11 @@
       <p class="alert"><%= alert %></p>
 
       <ul class="hmenu">
-        <li><a href="/">home page (store)</a></li> / 
-        <li><%= link_to "Edit My Profile", edit_user_path(current_user) %></li> / 
-        <%= render 'devise/menu/registration_items' %> / 
         <%= render 'devise/menu/login_items' %> / 
+        <li><a href="/">home page (store)</a></li> / 
+        <% if current_user %>
+          <li><%= link_to "Edit My Profile", edit_user_path(current_user) %></li> / 
+        <% end %>
         <li><a href="/beers">beer page</a></li> / 
       	<li><a href="/events">events page</a></li> / 
         <% if current_user %>
