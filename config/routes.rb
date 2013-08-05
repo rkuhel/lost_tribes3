@@ -7,7 +7,11 @@ LostTribes3::Application.routes.draw do
 
   resources :carts
 
-  resources :events
+  resources :events do
+    member do
+      post :register
+    end
+  end
 
   resources :charges
 
