@@ -1,11 +1,13 @@
 %h1
   Events You're Attending
+  %br
+  %br 
 - if current_user.events.length == 0
   You haven't registered to attend any of our vendors events. Check them out 
   = link_to "Here!", events_path
 - else
   - current_user.events.each do |event|
-    %h3
+    %h2
       = event.title
     = event.description
     %br
@@ -15,7 +17,6 @@
     %br
     = "Ends on #{event.end_date.to_s.humanize} at #{event.end_time}"
     %br
-    = link_to "JS Cancel Attendance", "#", class: "cancel-attendance", :'data-event-id' => event.id
+    = link_to "Cancel Attendance", remove_event_path(event.id), confirm: "Are you sure you don't want to attend?", method: :patch, remote: true
     %br
-    = link_to "Ruby Cancel Attendance", remove_event_path(event.id), confirm: 'Are you sure you don\'t want to attend?', method: :patch, remote: true
     %br
