@@ -11,7 +11,8 @@ gem 'haml'
 gem 'devise', '3.0.0'
 gem 'cancan'
 gem 'protected_attributes'
-
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'unicorn'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -30,8 +31,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'unicorn'
-
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
@@ -43,7 +42,7 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'annotate'
   gem 'meta_request'
-   gem 'rb-fsevent'
+  gem 'rb-fsevent'
   gem 'quiet_assets'
   gem 'binding_of_caller'
   gem 'meta_request'

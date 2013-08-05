@@ -4,8 +4,8 @@ development:
   encoding: unicode
   database: lost_tribes_3_development
   pool: 5
-  username: ryankuhel
   password:
+  username: chriseichler
   host: localhost
 
 test:
@@ -13,8 +13,8 @@ test:
   encoding: unicode
   database: lost_tribes_3_test
   pool: 5
-  username: ryankuhel
   password:
+  username: chriseichler
   host: localhost
 
 
@@ -23,11 +23,6 @@ production:
   encoding: unicode
   database: lost_tribes_3_production
   pool: 5
-  username: ryankuhel
+  username: chriseichler
   password:
   host: localhost
-
-
-
-
-

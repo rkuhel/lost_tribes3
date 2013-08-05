@@ -1,8 +1,8 @@
 class Beer < ActiveRecord::Base
 	attr_accessible :title, :description, :image_url, :price
 
-	has_many :line_items, dependent: :destroy 
-	before_destroy :ensure_not_referenced_by_line_item 
+	has_many :line_items
+	before_destroy :ensure_not_referenced_by_line_item
 
 	private 
 		def ensure_not_referenced_by_any_line_item
@@ -13,6 +13,5 @@ class Beer < ActiveRecord::Base
 				return false
 			end
 		end
-		
 end
 

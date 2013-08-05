@@ -15,10 +15,12 @@ class BeersController < ApplicationController
   # GET /beers/new
   def new
     @beer = Beer.new
+    authorize! :create, Beer
   end
 
   # GET /beers/1/edit
   def edit
+    authorize! :edit, Beer
   end
 
   # POST /beers
@@ -54,6 +56,7 @@ class BeersController < ApplicationController
   # DELETE /beers/1
   # DELETE /beers/1.json
   def destroy
+    authorize! :destroy, Beer
     @beer.destroy
     respond_to do |format|
       format.html { redirect_to beers_url }

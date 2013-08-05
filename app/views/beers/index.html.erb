@@ -1,5 +1,13 @@
 <h1>Listing beers</h1>
 
+<% if can? :manage, Beer %>
+  <%= link_to 'New Beer', new_beer_path %>
+<% end %>
+
+<br>
+<br>
+<br>
+
 <table>
   <thead>
     <tr>
@@ -21,13 +29,13 @@
         <td class="beer_tag"><%= image_tag(beer.image_url) %></td>
         <td><%= beer.price %></td>
         <td><%= link_to 'Show', beer %></td>
+        <% if can? :manage, Beer %>
         <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
         <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Beer', new_beer_path %>

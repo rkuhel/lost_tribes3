@@ -7,25 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_name %>">
-	   <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+	<section class='container'>
+    <div class='sixteen columns'>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
+      <ul class="hmenu">
+        <% if !current_user %>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li> / 
+        <% end %>
+        <%= render 'devise/menu/login_items' %> / 
+        <li><a href="/">home page (store)</a></li> / 
+        <% if current_user %>
+          <li><%= link_to "Edit My Profile", edit_user_path(current_user) %></li> / 
+        <% end %>
+        <li><a href="/beers">beer page</a></li> / 
+      	<li><a href="/events">events page</a></li> / 
+        <% if current_user %>
+          <li><%= link_to "My Page", user_path(current_user) %></li> /  
+          <li><a href="/carts/<%=current_cart.id%>">My Cart</a></li>
+        <% end %>
+        <% if current_user && current_user.admin? %>
+          <li> / <%= link_to "Users", users_path %></li>
+          <li> / <%= link_to "Carts", carts_path %></li>
+        <% end %>
+        <% if current_user %>
+          <li> / Signed in as <%="#{current_user.name.upcase}"%></li>
+        <% end %>
+      </ul>
 
-
-<!-- # layouts/application.html.erb -->
-<ul class="hmenu">
-  <li><a href="/">home page</a></li> / 
-  <%= render 'devise/menu/registration_items' %> / 
-  <%= render 'devise/menu/login_items' %> / 
-  	<li><a href="/beers">beer page</a></li> / 
-	<li><a href="/events">events page</a></li> / 
-</ul>
-<ul>
-
-
-
-
-<%= yield %>
-
+      <%= yield %>
+    </div>
+  </section>
 </body>
 </html>

@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    # @events = Event.all
   end
 
   # GET /events/1
@@ -19,6 +20,8 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    # authorized! if can? :update, @event
+    # p @event
   end
 
   # POST /events
@@ -54,9 +57,12 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    authorize! :destroy, Event
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url }
+      format.html { redirect_to events_url } #change this?
+      #if we make this all AJAX-y, we could change this.
+      #ideally you stay on whatever page you were on.
       format.json { head :no_content }
     end
   end
@@ -70,5 +76,6 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:title, :description, :image_url, :street, :street2, :city, :state, :zip, :start_date, :start_time, :end_date, :end_time, :creator_id, :price)
+      # puts params
     end
 end
