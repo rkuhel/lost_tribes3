@@ -56,6 +56,7 @@ class UsersController < ApplicationController
   end
 
   def remove_event
+    # user = User.find(params[:id])
     event = Event.find(params[:id])
     current_user.events.delete(event)
   end
