@@ -10,7 +10,7 @@ class Ability
     alias_action :create, :read, :update, :destroy, :to => :crud
 
     # if @user.role == nil
-      # can :read, :all
+    # can :read, :all
     # end
 
     if @user.role == 'admin'
@@ -21,7 +21,7 @@ class Ability
     if @user.role == 'vendor'
       can :crud, User, :user_id => @user.id
       can [:read, :create], Event
-      can :crud, Event, @event.creator_id => @user.id
+      can :crud, Event, @user.events.include?(@event)
       # can :manage, Cart, in @user.carts?
     end
 
