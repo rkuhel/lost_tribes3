@@ -10,8 +10,9 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    user = current_user
     @cart = Cart.find(params[:id])
-    @beer = Beer.find(params[:id])
+    # @beer = Beer.find(params[:id])
   end
 
   # GET /carts/new

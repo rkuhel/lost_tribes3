@@ -21,7 +21,7 @@ class Ability
     if @user.role == 'vendor'
       can :crud, User, :user_id => @user.id
       can [:read, :create], Event
-      can :crud, Event, :creator_id => @user.id
+      can :crud, Event, @event.creator_id => @user.id
       # can :manage, Cart, in @user.carts?
     end
 

@@ -20,7 +20,12 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    authorize! :edit, Event
+    # user = current_user
+    authorize! :edit, Event, :creator_id => current_user.id
+    # authorize! :edit, Event, :creator => current_user
+    p "================================================================================================================="
+    p current_user.id
+    p @event.creator_id
   end
 
   # POST /events

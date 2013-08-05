@@ -21,10 +21,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    authorize! :read, User, :user_id => @user.id
   end
 
   def edit
     @user = User.find(params[:id])
+    authorize! :edit, User, :user_id => @user.id
   end
 
   def update

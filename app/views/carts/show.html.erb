@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<% @cart.line_items.each do |li| %>
+<% @current_user.current_cart.line_items.each do |li| %>
   <% li.beer_id %>
   <% beer = Beer.find li.beer_id %>
   <h2><%= beer.title %></h2>
@@ -18,7 +18,17 @@
 <%= form_tag charges_path do %>
   <article>
     <label class="amount">
-      <span>Amount: $5.00</span>
+      <span>Amount:
+        <% total = 0 %>
+        <% cart_total = [] %>
+        <% @current_user.current_cart.line_items.each do |li| %>
+          <% li.beer_id %>
+          <% beer = Beer.find li.beer_id %>
+          <% cart_total << beer.price %>
+          <% total = cart_total.reduce(:+) %>
+        <% end %>
+        <%= number_to_currency(total) %>
+      </span>
     </label>
   </article>
 
