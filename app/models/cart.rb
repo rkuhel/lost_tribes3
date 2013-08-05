@@ -7,14 +7,14 @@ class Cart < ActiveRecord::Base
 def total_up_cart
   total = 0
   cart_total = []
-  current_user.current_cart.line_items.each do |li|
+  self.line_items.each do |li|
     li.beer_id
     beer = Beer.find li.beer_id
     cart_total << beer.price
     total = cart_total.reduce(:+)
-    p Beer.title
+    p beer.title
   end
-    number_to_currency(total)
+    total
 end
 
 
