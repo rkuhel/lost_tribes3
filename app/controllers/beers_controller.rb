@@ -57,10 +57,16 @@ class BeersController < ApplicationController
   # DELETE /beers/1.json
   def destroy
     authorize! :destroy, Beer
-    @beer.destroy
-    respond_to do |format|
-      format.html { redirect_to beers_url }
-      format.json { head :no_content }
+    if @beer.destroy
+      respond_to do |format|
+        format.html { redirect_to beers_url, notice: "Beer successfully deleted." }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to beers_url, alert: "Beer could not be deleted. Check for line item dependencies." }
+        format.json { head :no_content }
+      end
     end
   end
 
