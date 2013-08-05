@@ -12,13 +12,13 @@ class Ability
       can :update, Event do |event|
         event && event.creator == user
       end
-      can :read, Cart do |cart|
+      can :show, Cart do |cart|
         cart && cart.user_id == user.id
       end
       can :update, User do |person|
         person && person.id == user.id
       end
-      can :read, User do |person|
+      can :show, User do |person|
         person && person.id == user.id
       end
     elsif user.role == 'customer'
@@ -26,8 +26,11 @@ class Ability
       can :update, User do |person|
         person && person.id == user.id
       end
-      can :read, User do |person|
+      can :show, User do |person|
         person && person.id == user.id
+      end
+      can :show, Cart do |cart|
+        cart && cart.user_id == user.id
       end
     else
       can :read, [Beer, Event]
