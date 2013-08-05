@@ -62,15 +62,13 @@
 
   <% if current_user.role == 'vendor' %>
     <div class="field hidden">
-    <!-- this needs to be changed to a drop down menu of user names if the admin is signed in. if the vendor is signed in, its automatically them. we need to find out how to set that. -->
-    
       <%= f.label :creator_id %><br>
       <%= f.number_field :creator_id, value: current_user.id %>
   <% end %>
 
   <% if current_user.role == 'admin' %>
     <%= f.label :creator_id %><br>
-    <%= f.number_field :creator_id, value: current_user.id %>
+    <%= f.select :creator_id, User.where("role != 'customer'").map { |user| [user.name, user.id] }, selected: current_user.id %>
   <% end %>
 
   </div>
