@@ -50,12 +50,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def remove_event
-    # user = User.find(params[:id])
-    event = Event.find(params[:id])
-    current_user.events.delete(event)
-  end
-
   private
   # Use callbacks to share common setup or constraints between actions.
   # Never trust parameters from the scary internet, only allow the white list through.
