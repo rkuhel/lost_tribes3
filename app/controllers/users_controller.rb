@@ -58,5 +58,4 @@ class UsersController < ApplicationController
       :street_address1, :street_address2, :city, :state, :admin, :password, 
       :password_confirmation)
   end
-
 end

@@ -17,6 +17,7 @@ test:
   password:
   host: localhost
 
+
 production:
   adapter: postgresql
   encoding: unicode
