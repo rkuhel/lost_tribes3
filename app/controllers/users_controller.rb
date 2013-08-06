@@ -50,7 +50,6 @@ class UsersController < ApplicationController
     else
       redirect_to root_path
     end
-
     
     # end
   end
