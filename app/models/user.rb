@@ -10,18 +10,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   validates_presence_of :name
+  validates_presence_of :phone, if: Proc.new {|user| user.role == 'vendor'}
+  validates_presence_of :street_address1, if: Proc.new{|user| user.role == 'vendor'}
+  validates_presence_of :city, if: Proc.new {|user| user.role == 'vendor'}
+  validates_presence_of :state, if: Proc.new {|user| user.role == 'vendor'}
+  validates_presence_of :zip_code, if: Proc.new {|user| user.role == 'vendor'}
 
   has_and_belongs_to_many :events
   has_many :created_events, foreign_key: 'creator_id', class_name: "Event", inverse_of: :creator
   has_many :carts, dependent: :destroy
   
-  validates_presence_of :street_address1 if Proc.new {|user| user.role == 'vendor'}
-  validates_presence_of :city if Proc.new {|user| user.role == 'vendor'}
-  validates_presence_of :state if Proc.new {|user| user.role == 'vendor'}
-  validates_presence_of :phone if Proc.new {|user| user.role == 'vendor'}
-  validates_presence_of :zip_code if Proc.new {|user| user.role == 'vendor'}
-  # before_create :validate_vendor
-
   after_create :make_cart
 
   def make_cart
@@ -31,26 +29,4 @@ class User < ActiveRecord::Base
   def current_cart
     self.carts.find_by_current(true)
   end
-
-  private
-
-  # def validate_vendor
-  #   if self.role == 'vendor'
-  #     if street_address1.blank?
-  #       self.errors.add(:address, 'cannot be blank for a vendor')
-  #     end
-  #     if city.blank?
-  #       self.errors.add(:city, 'cannot be blank for a vendor')
-  #     end
-  #     if state.blank?
-  #       self.errors.add(:state, 'cannot be blank for a vendor')
-  #     end
-  #     if phone.blank?
-  #       self.errors.add(:phone, 'cannot be blank for a vendor')
-  #     end
-  #     if zip_code.blank?
-  #       self.errors.add(:zip_code, 'cannot be blank for a vendor')
-  #     end
-  #   end
-  # end
 end
