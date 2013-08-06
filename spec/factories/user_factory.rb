@@ -7,13 +7,21 @@ FactoryGirl.define do
     password_confirmation "password"
   end
  
+  factory :customer, class: User do
+    id 1
+    name Faker::Name.name
+    email Faker::Internet.email
+    role 'customer'
+    password "password"
+    password_confirmation "password"
+  end
 
   factory :vendor, class: User do
     # id 2
     name Faker::Name.name
     email Faker::Internet.email
     role "vendor" 
-    zip_code 44122
+    zip_code '44122'
     street_address1 "2333 norwood rd"
     city "beachwood"
     state 'Ohio'
@@ -26,7 +34,7 @@ FactoryGirl.define do
     # id 3
     name Faker::Name.name
     email Faker::Internet.email
-    zip_code 44122
+    zip_code '44122'
     password "password"
     password_confirmation "password"
     role "admin"
