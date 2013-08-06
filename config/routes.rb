@@ -10,6 +10,7 @@ LostTribes3::Application.routes.draw do
   resources :events do
     member do
       post :register
+      patch :remove_event, as: 'remove'
     end
   end
 
@@ -17,8 +18,8 @@ LostTribes3::Application.routes.draw do
 
   get "store/index"
   resources :beers
-  root to: 'store#index'#, as: 'store'
+  root to: 'store#index' #, as: 'store'
 
-  patch 'remove_event/:id' => 'users#remove_event', as: 'remove_event'
+  # patch 'remove_event/:id' => 'users#remove_event', as: 'remove_event'
 
 end

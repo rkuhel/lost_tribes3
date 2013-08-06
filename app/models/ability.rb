@@ -44,9 +44,6 @@ class Ability
       can :destroy, User do |person|
         person && person.id == user.id
       end
-      can :manage, User do |person|
-        person && person.id == user.id
-      end
     else
       can :read, [Beer, Event]
     end

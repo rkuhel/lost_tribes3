@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-
+  skip_authorize_resource only: [:remove_event, :register]
+  
   # GET /events
   # GET /events.json
   def index
@@ -71,6 +72,11 @@ class EventsController < ApplicationController
     event = Event.find(params[:id])
     current_user.events.push(event) unless event.in?(current_user.events)
     redirect_to user_path(current_user), notice: "You've successfully registered for #{event.title}"
+  end
+
+  def remove_event
+    event = Event.find(params[:id])
+    current_user.events.delete(event)
   end
 
   private
