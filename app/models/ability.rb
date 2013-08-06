@@ -27,6 +27,9 @@ class Ability
       can :destroy, Event do |event|
         event && event.creator == user
       end
+      can :update, Event do |event|
+        event && event.users.include?(user)
+      end
     elsif user.role == 'customer'
       can :read, [Beer, Event]
       can :update, User do |person|

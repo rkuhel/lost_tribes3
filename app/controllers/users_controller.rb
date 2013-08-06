@@ -42,16 +42,12 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    # redirect_to root_path 
-
     # render json: @user
     if current_user.admin?
       redirect_to users_path
     else
       redirect_to root_path
     end
-    
-    # end
   end
 
   def remove_event
@@ -68,5 +64,4 @@ class UsersController < ApplicationController
       :street_address1, :street_address2, :city, :state, :admin, :password, 
       :password_confirmation)
   end
-
 end

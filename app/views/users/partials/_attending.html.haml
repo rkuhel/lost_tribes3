@@ -17,6 +17,6 @@
     %br
     = "Ends on #{event.end_date.to_s.humanize} at #{event.end_time}"
     %br
-    = link_to "Cancel Attendance", remove_event_path(event.id), confirm: "Are you sure you don't want to attend?", method: :patch, remote: true
+    = link_to("Cancel Attendance", remove_event_path(event.id), confirm: "Are you sure you don't want to attend?", method: :patch, remote: true)
     %br
     %br
