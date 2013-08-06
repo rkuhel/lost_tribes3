@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   ROLES = %w[admin vendor customer guest]
 
-  attr_accessible :role, :name, :email, :zip_code, :phone, :street_address1, :street_address2, :city, :state, :admin, :password
+  attr_accessible :role, :name, :email, :zip_code, :phone, :street_address1, :street_address2, :city, :state, :admin, :password, :password_confirmation
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -15,7 +15,13 @@ class User < ActiveRecord::Base
   has_many :created_events, foreign_key: 'creator_id', class_name: "Event", inverse_of: :creator
   has_many :carts, dependent: :destroy
   
-  before_create :validate_vendor #if self.role == 'vendor
+  validates_presence_of :street_address1 if Proc.new {|user| user.role == 'vendor'}
+  validates_presence_of :city if Proc.new {|user| user.role == 'vendor'}
+  validates_presence_of :state if Proc.new {|user| user.role == 'vendor'}
+  validates_presence_of :phone if Proc.new {|user| user.role == 'vendor'}
+  validates_presence_of :zip_code if Proc.new {|user| user.role == 'vendor'}
+  # before_create :validate_vendor
+
   after_create :make_cart
 
   def make_cart
@@ -28,10 +34,23 @@ class User < ActiveRecord::Base
 
   private
 
-  def validate_vendor
-    if self.role == 'vendor'
-      return ( !street_address1.blank? && !city.blank? && !state.blank? && !phone.blank? && !zip_code.blank? )
-    end
-    true
-  end
+  # def validate_vendor
+  #   if self.role == 'vendor'
+  #     if street_address1.blank?
+  #       self.errors.add(:address, 'cannot be blank for a vendor')
+  #     end
+  #     if city.blank?
+  #       self.errors.add(:city, 'cannot be blank for a vendor')
+  #     end
+  #     if state.blank?
+  #       self.errors.add(:state, 'cannot be blank for a vendor')
+  #     end
+  #     if phone.blank?
+  #       self.errors.add(:phone, 'cannot be blank for a vendor')
+  #     end
+  #     if zip_code.blank?
+  #       self.errors.add(:zip_code, 'cannot be blank for a vendor')
+  #     end
+  #   end
+  # end
 end

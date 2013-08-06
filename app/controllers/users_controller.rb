@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       # UserMailer.signup_confirmation(@user).deliver
       redirect_to store_index_path, notice: "Signed up successfully."
     else
-      render :new
+      render "devise/registrations#create"
     end
   end
 
