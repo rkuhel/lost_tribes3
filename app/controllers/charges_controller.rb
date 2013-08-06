@@ -1,16 +1,32 @@
 class ChargesController < ApplicationController
-  def new
-  end
+  # should be unnecessary
+  # def new
+  # end
 
   def create
+    # current_user.current_cart.current = false 
+    # current_user.save!
+
+    old_cart_id = current_user.current_cart.id
+    old_cart = current_user.carts.find(old_cart_id)
+    old_cart.current = false
+    old_cart.save! 
+
+
+    #email is .delivered to user and admin
+    OrderNotifier.order_confirmation(current_user).deliver 
+
+    #
+    current_user.carts.push(Cart.new)
+
     # Amount in cents
-    @decimal_amount = current_user.current_cart.total_up_cart
+    @decimal_amount = old_cart.total_up_cart
     @amount = (@decimal_amount * 100).to_i
     # @current_user.current_cart.line_items.beer.price
 
     customer = Stripe::Customer.create(
       :email => 'example@stripe.com',
-      :card  => params[:stripeToken]
+      :card  => params[:stripeToken] #got this from the charges controller
     )
 
     charge = Stripe::Charge.create(
@@ -19,6 +35,8 @@ class ChargesController < ApplicationController
       :description => 'Lost Tribes customer',
       :currency    => 'usd'
     )
+
+    redirect_to beers_path
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

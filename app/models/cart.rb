@@ -3,6 +3,8 @@ class Cart < ActiveRecord::Base
 	# before_destroy :ensure_not_referenced_by_any_line_item 
   belongs_to :user
 
+  attr_accessible :current 
+
 
 def total_up_cart
   total = 0
@@ -10,7 +12,7 @@ def total_up_cart
   self.line_items.each do |li|
     li.beer_id
     beer = Beer.find li.beer_id
-    cart_total << beer.price
+    cart_total << (beer.price * li.quantity)
     total = cart_total.reduce(:+)
     p beer.title
   end
