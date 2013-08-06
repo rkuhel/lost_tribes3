@@ -8,6 +8,12 @@
 %br
 - if can? :create, Event
   %h1 Events You're Hosting
+  - if @user.created_events.length == 0
+    You don't have any upcoming events scheduled. Set up one
+    = link_to "here!", new_event_path
+    %br
+    %br
+    %br
 
   %br 
 

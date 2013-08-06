@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  skip_authorize_resource only: :remove_event
+  skip_authorize_resource only: [:remove_event, :register]
   
   # GET /events
   # GET /events.json
@@ -58,7 +58,6 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    authorize! :destroy, Event
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url } #change this?
@@ -77,7 +76,6 @@ class EventsController < ApplicationController
   def remove_event
     event = Event.find(params[:id])
     current_user.events.delete(event)
-    # redirect_to user_path(current_user), notice: "Sorry you can't attend #{event.title}! Your cancelled your attendance successfully"
   end
 
   private
