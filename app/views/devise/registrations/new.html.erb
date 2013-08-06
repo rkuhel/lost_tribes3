@@ -33,7 +33,13 @@
   <div><%= f.label :zip_code %><br />
   <%= f.text_field :zip_code %></div>
 
-  
+  <div>
+    <p>Are you a Lost Tribes vendor? Would you like to be one?</p>
+    <p>Join our network and Sign Up as a vendor to have special vendor privledges!<p>
+  </div>
+
+  <%= f.label :role %><br>
+  <%= f.select(:role, options_for_select([['customer', 'customer'],['vendor','vendor']])) %>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>

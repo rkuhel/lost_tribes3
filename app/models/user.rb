@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
   
   validates_presence_of :name
 
@@ -35,8 +34,4 @@ class User < ActiveRecord::Base
     end
     true
   end
-
-  # def leave_event(event)
-  #   @current_user.events.pop(event)
-  # end
 end

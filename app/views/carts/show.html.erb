@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 <table>
   <tbody> 
+    <% if current_user.current_cart.line_items.length == 0 %>
+      <h3>Your cart is empty.</h3>
+      <h5>Want to add to it? Check you the <%= link_to "store.", root_path %></h5>
+    <% end %>
+
     <% @current_user.current_cart.line_items.each do |li| %>
       <% li.beer_id %>
       <% beer = Beer.find li.beer_id %>
