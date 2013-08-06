@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 <table>
   <tbody> 
+    <% if current_user.current_cart.line_items.length == 0 %>
+      <h3>Your cart is empty.</h3>
+      <h5>Want to add to it? Check out the <%= link_to "store.", root_path %> It's kind of illegal, which makes it more fun.</h5>
+    <% end %>
+
     <% @current_user.current_cart.line_items.each do |li| %>
       <% li.beer_id %>
       <% beer = Beer.find li.beer_id %>
@@ -17,8 +22,6 @@
 
 <br />
 <br />
-
-  <!-- Need some sort of extra logic which only lists beers with unique ids. if the id is not unique, the number of a specific beer should increase -->
 
 
 <%= form_tag charges_path do %>

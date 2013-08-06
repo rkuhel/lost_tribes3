@@ -33,7 +33,21 @@
   <div><%= f.label :zip_code %><br />
   <%= f.text_field :zip_code %></div>
 
+  <div>
+    <p>Are you a Lost Tribes vendor? Would you like to be one?</p>
+    <p>Join our network and sign up as a vendor to have special vendor privledges!<p>
+  </div>
+
+  <%= f.select(:role, options_for_select([['No Thanks', 'customer'],["Yes, I'd like to be a vendor",'vendor']])) %>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
