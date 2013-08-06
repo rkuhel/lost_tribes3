@@ -77,4 +77,7 @@ LostTribes3::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  STRIPE_SECRET="sk_live_0xkHncjUCRDGXk2e4MKaL0pP"
+  STRIPE_PUBLISHABLE="pk_live_4lhjfUM7np9YEOHllxt9bchf"
 end

@@ -30,4 +30,7 @@ LostTribes3::Application.configure do
 
   #devise configuration 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  STRIPE_SECRET="sk_test_QLyvyHBldwxk0CLFW2jamsDZ"
+  STRIPE_PUBLISHABLE="pk_test_3QswJxqo2sQFYD1OXrsJxO0N"
 end
