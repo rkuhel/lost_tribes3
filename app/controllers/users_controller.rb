@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
-  skip_authorize_resource only: [:remove_event, :shipping, :billing]
-
-  before_filter :valid_shipping, only: [:billing]
 
   def index
     @users = User.all
@@ -28,7 +25,6 @@ class UsersController < ApplicationController
 
   def edit
     # @user = User.find(params[:id])
-
   end
 
   def update
@@ -53,24 +49,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def shipping
-    @user = current_user
-    # if @user.update!
-    #   render shipping_users_path(params[:user])
-    # end
-  end 
-
-  def billing
-    @user = current_user
-  end
-
-  def ticket
-    # ticket_users
-    @carts = Cart.all
-    @orders = @carts.where(current: false)
-  end
-
-
   private
   # Use callbacks to share common setup or constraints between actions.
   # Never trust parameters from the scary internet, only allow the white list through.
@@ -79,10 +57,4 @@ class UsersController < ApplicationController
       :street_address1, :street_address2, :city, :state, :admin, :password, 
       :password_confirmation)
   end
-  def valid_shipping
-    unless ( current_user.has_valid_shipping )
-      flash[:notice] = "Please fill out all fields to complete order"
-      redirect_to shipping_users_path 
-    end 
-  end 
 end

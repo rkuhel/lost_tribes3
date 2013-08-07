@@ -1,7 +1,9 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
-  # load_and_authorize_resource
-  # skip_authorize_resource only: [:remove_event, :register]
+  load_and_authorize_resource
+  skip_authorize_resource only: [:shipping, :billing]
+
+  before_filter :valid_shipping, only: [:billing]
 
   # GET /carts
   # GET /carts.json
@@ -65,16 +67,51 @@ class CartsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def shipping
+    @user = current_user
+    # if @user.update!
+    #   render shipping_carts_path(params[:user])
+    # end
+  end
+
+  def billing
+    @user = current_user
+  end
+
+  def ticket
+    # ticket_carts
+    @carts = Cart.all
+    @orders = Cart.all.where(current: false)
+  end
+
+  def mark_shipped
+    @orders = Cart.all
+    @order = @orders.find(params[:id] )
+    puts "this is the order " + @order.to_s
+    puts "was the order shipped? " + @order.shipped.to_s
+    @order.shipped = true
+    puts "order was shipped? " + @order.shipped.to_s
+    @order.save!
+    render :json => @order.to_json
+  end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cart
-      @cart = Cart.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cart
+    @cart = Cart.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def cart_params
-      params[:cart]
-      # params.require[:cart].permit(:current, :user_id)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def cart_params
+    params[:cart]
+    # params.require[:cart].permit(:current, :user_id)
+  end
+
+  def valid_shipping
+    unless ( current_user.has_valid_shipping )
+      flash[:notice] = "Please fill out all fields to complete order"
+      redirect_to shipping_carts_path
     end
+  end
 end

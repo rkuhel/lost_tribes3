@@ -4,7 +4,6 @@ class Cart < ActiveRecord::Base
   belongs_to :user
   attr_accessible :current, :shipped
 
-
   def total_up_cart
     total = 0
     cart_total = []

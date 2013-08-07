@@ -1,26 +1,41 @@
 <ul class="hmenu">
-  <% if !current_user %>
-    <li><%= link_to "Sign Up", new_user_registration_path %></li> / 
+  <% if user_signed_in? %>
+    <li> 
+      Signed in as <%="#{current_user.name.upcase}"%>
+    </li> 
+
+    <li>
+      <%= link_to "My Page", user_path(current_user) %>
+    </li> 
+
+      <% if current_user.admin? %>
+        <li> <%= link_to "Users", users_path %></li>
+        <li> <%= link_to "Carts", carts_path %></li>
+        <li><%= link_to "Tickets", ticket_carts_path %></li>
+      <% end %>
+
+    <li>
+      <a href="/carts/<%=current_cart.id%>">My Cart</a>
+    </li>
+
+    <li>
+      <%= link_to "Edit My Profile", edit_user_path(current_user) %>
+    </li> 
+  <% else %> 
+    <li>
+      <%= link_to "Sign Up", new_user_registration_path %>
+    </li>
   <% end %>
-  <%= render 'devise/menu/login_items' %> / 
-  <li><a href="/store/index">store</a></li> / 
-  <% if current_user %>
-    <li><%= link_to "Edit My Profile", edit_user_path(current_user) %></li> / 
-  <% end %>
-  <li><a href="/beers">beer page</a></li> / 
-  <li><a href="/events">events page</a></li> / 
-  <% if current_user %>
-    <li><%= link_to "My Page", user_path(current_user) %></li> /
-    <li><a href="/carts/<%=current_cart.id%>">My Cart</a></li>
-  <% end %>
-  <% if current_user && current_user.admin? %>
-    <li> / <%= link_to "Users", users_path %></li>
-    <li> / <%= link_to "Carts", carts_path %></li>
-  <% end %>
-  <% if current_user %>
-    <li> / Signed in as <%="#{current_user.name.upcase}"%></li>
-  <% end %>
-  <% if current_user && current_user.admin? %>
-    <li><%= link_to "Tickets", ticket_user_path(current_user.id) %></li>
-  <% end %>
+      <%= render 'devise/menu/login_items' %> 
+
+
+  <li>
+    <a href="/">home page (store)</a>
+  </li>  
+  <li>
+    <a href="/beers">beer page</a>
+  </li> 
+  <li>
+    <a href="/events">events page</a>
+  </li> 
 </ul>

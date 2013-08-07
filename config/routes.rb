@@ -5,7 +5,8 @@ LostTribes3::Application.routes.draw do
   root to: 'home#index'
 
   devise_for :users
-  
+
+  resources :users
   resources :carts
   resources :charges
   resources :beers
@@ -17,13 +18,16 @@ LostTribes3::Application.routes.draw do
     end
   end
 
-  resources :users do
-    collection do
-      get :shipping
-      get :billing
+  resources :carts do
+    scope :orders do
+      collection do 
+        get :ticket
+        get :shipping
+        get :billing
+      end
     end
     member do 
-      get :ticket
+      post :mark_shipped
     end
   end
 
@@ -33,8 +37,4 @@ LostTribes3::Application.routes.draw do
       patch :subtract
     end
   end
-
-
-
-
 end
