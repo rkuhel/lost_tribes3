@@ -6,15 +6,16 @@
       <h5>Want to add to it? Check out the <%= link_to "store.", root_path %> It's kind of illegal, which makes it more fun.</h5>
     <% end %>
 
-    <% @current_user.current_cart.line_items.each do |li| %>
-      <% li.beer_id %>
+    <% @current_user.current_cart.line_items.order(:created_at).each do |li| %>
       <% beer = Beer.find li.beer_id %>
       <tr>
         <td> <%= beer.title %> </td>
         <!-- <img src="<%= (beer.image_url) %>"/> -->
         <td> <%= number_to_currency(beer.price) %> </td>
         <td> &nbsp; &times; <%= li.quantity  %> quantity  </td>
-        <td><%= link_to 'delete a beer', subtract_line_items %></td>
+        <td><%= button_to '+', add_line_item_path(li), :method=>:patch %></td>
+        <td><%= button_to '-', subtract_line_item_path(li), :method=>:patch %></td>
+        <td><%= button_to 'Remove All', line_item_path(li), :method=>:delete %></td>
       </tr>
    <% end %>
   </tbody>

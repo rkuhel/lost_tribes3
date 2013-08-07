@@ -22,9 +22,10 @@ LostTribes3::Application.routes.draw do
     end
   end
 
-  resources :line_items do
-    collection do
-      get :subtract
+  resources :line_items, except: [:update] do
+    member do
+      patch :add
+      patch :subtract
     end
   end
 
