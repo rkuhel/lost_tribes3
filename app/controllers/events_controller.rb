@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    # @events = Event.all
+    @events = Event.all
   end
 
   # GET /events/1
@@ -71,10 +71,6 @@ class EventsController < ApplicationController
     if event.price == 0 || event.price = nil
       redirect_to user_path(current_user), notice: "You've successfully registered for #{event.title}"
     else
-      # @line_item = current_user.current_cart.line_items.build
-      # @cart = Cart.find(@line_item.cart_id)
-      # @line_item.event_id = params[:event_id]
-      # @line_item = @cart.add_event(@line_item.event_id)
       this_event = current_user.current_cart.line_items.find_by_event_id(event.id)
       if this_event
         this_event.quantity += 1
