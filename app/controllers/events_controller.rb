@@ -70,7 +70,11 @@ class EventsController < ApplicationController
   def register
     event = Event.find(params[:id])
     current_user.events.push(event) unless event.in?(current_user.events)
-    redirect_to user_path(current_user), notice: "You've successfully registered for #{event.title}"
+    if event.price == 0 || event.price = nil
+      redirect_to user_path(current_user), notice: "You've successfully registered for #{event.title}"
+    else
+      redirect_to cart_path(current_user)
+    end
   end
 
   def remove_event
