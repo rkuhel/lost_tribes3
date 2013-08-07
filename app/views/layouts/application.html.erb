@@ -24,7 +24,7 @@
         <li><a href="/beers">beer page</a></li> / 
       	<li><a href="/events">events page</a></li> / 
         <% if current_user %>
-          <li><%= link_to "My Page", user_path(current_user) %></li> /  
+          <li><%= link_to "My Page", user_path(current_user) %></li> /
           <li><a href="/carts/<%=current_cart.id%>">My Cart</a></li>
         <% end %>
         <% if current_user && current_user.admin? %>
