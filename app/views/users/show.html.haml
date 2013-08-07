@@ -6,34 +6,11 @@
 
 %br
 %br
-- if can? :create, Event
-  %h1 Events You're Hosting
-  - if @user.created_events.length == 0
-    You don't have any upcoming events scheduled. Set up one
-    = link_to "here!", new_event_path
-    %br
-    %br
-    %br
+#created-events
+  = render partial: "users/partials/created"
 
-  %br 
-
-  - @user.created_events.each do |event|
-    %h3
-      = event.title
-    = event.description
-    %br
-    = "#{event.street} #{event.street2}, #{event.city}, #{event.state} #{event.zip}"
-    %br
-    = "Begins at #{event.start_time.to_s.humanize} on #{event.start_date}"
-    %br
-    = "Ends on #{event.end_date.to_s.humanize} at #{event.end_time}"
-    %br
-    = link_to "Event Page", event_path(event)
-    = link_to "Edit", edit_event_path(event)
-    = link_to("Delete", event_path(event), data: { confirm: "Are you sure you want to delete #{event.title}?" }, method: :delete, remote: true)
-    %br
-    %br
-    %br
+%br
+%br
 
 #attending-events
   = render partial: "users/partials/attending" 
@@ -42,8 +19,3 @@
 %br
 %br
 %br
-%br
-%br
-%br
-%br
-

@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    # @events = Event.all
+    @events = Event.all
   end
 
   # GET /events/1
@@ -60,9 +60,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url } #change this?
-      #if we make this all AJAX-y, we could change this.
-      #ideally you stay on whatever page you were on.
+      format.html { redirect_to user_path(current_user) }
       format.json { head :no_content }
     end
   end
@@ -70,7 +68,18 @@ class EventsController < ApplicationController
   def register
     event = Event.find(params[:id])
     current_user.events.push(event) unless event.in?(current_user.events)
-    redirect_to user_path(current_user), notice: "You've successfully registered for #{event.title}"
+    if event.price == 0 || event.price = nil
+      redirect_to user_path(current_user), notice: "You've successfully registered for #{event.title}"
+    else
+      this_event = current_user.current_cart.line_items.find_by_event_id(event.id)
+      if this_event
+        this_event.quantity += 1
+        this_event.save!
+      else
+        LineItem.create(event_id: event.id, cart_id: current_user.current_cart.id, quantity: 1, event_id: event.id)
+      end
+      redirect_to cart_path(current_user.current_cart)
+    end
   end
 
   def remove_event

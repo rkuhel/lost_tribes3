@@ -13,7 +13,7 @@ test:
   encoding: unicode
   database: lost_tribes_3_test
   pool: 5
-  name: ryankuhel
+  username: ryankuhel
   password:
   host: localhost
 

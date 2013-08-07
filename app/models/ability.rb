@@ -10,11 +10,20 @@ class Ability
       can :read, [Beer, Event]
       can :create, Event
       can :update, Event do |event|
-        event && event.creator == user
+        event && event.creator_id == user.id
       end
+      # can :edit, Event do |event|
+      #   event && event.creator_id == user.id
+      # end
       can :show, Cart do |cart|
         cart && cart.user_id == user.id
       end
+      # can :create, LineItem do |li|
+      #   li && li.cart_id == user.current_cart.id
+      # end
+      # can :update, LineItem do |li|
+      #   li && li.cart_id == user.current_cart.id
+      # end
       can :update, User do |person|
         person && person.id == user.id
       end
@@ -27,9 +36,9 @@ class Ability
       can :destroy, Event do |event|
         event && event.creator == user
       end
-      can :update, Event do |event|
-        event && event.users.include?(user)
-      end
+      # can :update, Event do |event|
+      #   event && event.users.include?(user)
+      # end
     elsif user.role == 'customer'
       can :read, [Beer, Event]
       can :update, User do |person|

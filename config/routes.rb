@@ -3,20 +3,9 @@ LostTribes3::Application.routes.draw do
   root to: 'store#index'
 
   devise_for :users
-  resources :line_items
+
   resources :users
-
-  resources :carts do 
-    collection do 
-      get :ticket
-      get :shipping
-      get :billing
-    end
-    member do 
-      post :mark_shipped
-    end
-  end
-
+  resources :carts
   resources :charges
   resources :beers
 
@@ -24,6 +13,26 @@ LostTribes3::Application.routes.draw do
     member do
       post :register
       patch :remove_event, as: 'remove'
+    end
+  end
+
+  resources :carts do
+    scope :orders do
+      collection do 
+        get :ticket
+        get :shipping
+        get :billing
+      end
+    end
+    member do 
+      post :mark_shipped
+    end
+  end
+
+  resources :line_items, except: [:update] do
+    member do
+      patch :add
+      patch :subtract
     end
   end
 end

@@ -5,7 +5,6 @@ class CartsController < ApplicationController
 
   before_filter :valid_shipping, only: [:billing]
 
-
   # GET /carts
   # GET /carts.json
   def index
@@ -68,7 +67,7 @@ class CartsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   def shipping
     @user = current_user
     # if @user.update!
@@ -79,7 +78,6 @@ class CartsController < ApplicationController
   def billing
     @user = current_user
   end
-
 
   def ticket
     # ticket_carts

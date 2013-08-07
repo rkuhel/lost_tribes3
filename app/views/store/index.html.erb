@@ -8,6 +8,8 @@
 		<div class="price_line">
 			<span class="price"><%= number_to_currency(beer.price) %></span>
 			<%= button_to 'Add to Cart', line_items_path(beer_id: beer) %>
+
+			
 		</div>
 	</div>
 	<%end%>

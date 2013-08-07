@@ -61,14 +61,18 @@
 </p>
 
 <p>
-  <strong>Creator:</strong>
-  <%= @event.creator_id %>
+  <strong>Host:</strong>
+  <%= @event.creator.name.capitalize %>
 </p>
 
 <p>
   <strong>Price:</strong>
   <%= @event.price %>
 </p>
+
+<% if user_signed_in? %>
+  <%= button_to("Register", register_event_path(@event.id), method: :post, data: current_user) %>
+<% end %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

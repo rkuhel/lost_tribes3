@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def update
     # @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      sign_in(@user, :bypass => true)
+      sign_in(current_user, :bypass => true)
       flash[:notice] = "Account Updated!"
       redirect_to root_path
     else
