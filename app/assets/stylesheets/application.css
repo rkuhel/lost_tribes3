@@ -11,7 +11,5 @@
  *= require_self
  *= require_tree .
  */
-@import 'beers';
-@import 'nav';
-@import 'store';
+
 

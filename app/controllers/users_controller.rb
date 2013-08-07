@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       # UserMailer.signup_confirmation(@user).deliver
       redirect_to store_index_path, notice: "Signed up successfully."
     else
-      render :new
+      render "devise/registrations#create"
     end
   end
 
@@ -45,22 +45,12 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    # redirect_to root_path 
-
     # render json: @user
     if current_user.admin?
       redirect_to users_path
     else
       redirect_to root_path
     end
-
-    
-    # end
-  end
-
-  def remove_event
-    event = Event.find(params[:id])
-    current_user.events.delete(event)
   end
 
   def shipping
@@ -83,12 +73,10 @@ class UsersController < ApplicationController
       :street_address1, :street_address2, :city, :state, :admin, :password, 
       :password_confirmation)
   end
-
   def valid_shipping
     unless ( current_user.has_valid_shipping )
       flash[:notice] = "Please fill out all fields to complete order"
       redirect_to shipping_users_path 
     end 
   end 
-
 end

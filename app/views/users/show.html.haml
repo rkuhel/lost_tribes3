@@ -7,7 +7,13 @@
 %br
 %br
 - if can? :create, Event
-  %h1 Event's You're Hosting
+  %h1 Events You're Hosting
+  - if @user.created_events.length == 0
+    You don't have any upcoming events scheduled. Set up one
+    = link_to "here!", new_event_path
+    %br
+    %br
+    %br
 
   %br 
 
@@ -24,7 +30,7 @@
     %br
     = link_to "Event Page", event_path(event)
     = link_to "Edit", edit_event_path(event)
-    = link_to("Delete", event_path(event), :data => { :confirm => "Are you sure you want to delete #{event.title}?" }, method: :delete)
+    = link_to("Delete", event_path(event), data: { confirm: "Are you sure you want to delete #{event.title}?" }, method: :delete, remote: true)
     %br
     %br
     %br

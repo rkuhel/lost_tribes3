@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -12,7 +12,7 @@ gem 'devise', '3.0.0'
 gem 'cancan'
 gem 'protected_attributes'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-gem 'unicorn'
+gem 'thin'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -77,3 +77,6 @@ group :test do
   gem 'faker'
 end
 
+group :production do
+  gem 'rails_12factor'
+end

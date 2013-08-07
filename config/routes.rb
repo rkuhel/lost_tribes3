@@ -1,9 +1,8 @@
 LostTribes3::Application.routes.draw do
-
+  get "store/index"
   root to: 'store#index'
 
   devise_for :users
-
   resources :line_items
   resources :carts
   resources :charges
@@ -12,6 +11,7 @@ LostTribes3::Application.routes.draw do
   resources :events do
     member do
       post :register
+      patch :remove_event, as: 'remove'
     end
   end
 
@@ -22,7 +22,5 @@ LostTribes3::Application.routes.draw do
     end
   end
 
-  get "store/index"
-  patch 'remove_event/:id' => 'users#remove_event', as: 'remove_event'
 
 end
