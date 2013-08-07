@@ -38,7 +38,7 @@ class LineItemsController < ApplicationController
         @cart.line_items << LineItem.new(event_id: params[:event_id])
       end
     end
-    redirect_to :back
+    redirect_to cart_path(current_user.current_cart)
   end
 
   def add
@@ -53,10 +53,7 @@ class LineItemsController < ApplicationController
 
   def destroy
     @line_item.destroy
-    respond_to do |format|
-      format.html { redirect_to line_items_url }
-      format.json { head :no_content }
-    end
+    redirect_to cart_path(current_user.current_cart)
   end
 
   private

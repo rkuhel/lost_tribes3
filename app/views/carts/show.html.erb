@@ -6,7 +6,7 @@
       <h5>Want to add to it? Check out the <%= link_to "store.", root_path %> It's kind of illegal, which makes it more fun.</h5>
     <% end %>
 
-    <% current_user.current_cart.line_items.each do |li| %>
+    <% current_user.current_cart.line_items.order(:created_at).each do |li| %>
       <% if li.beer_id == nil %>
         <% li.event_id %>
         <% event = Event.find li.event_id %>
