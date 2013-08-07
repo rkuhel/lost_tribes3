@@ -14,7 +14,7 @@ class ChargesController < ApplicationController
 
 
     #email is .delivered to user and admin
-    # OrderNotifier.order_confirmation(current_user).deliver 
+    OrderNotifier.order_confirmation(current_user).deliver 
 
     #
     current_user.carts.push(Cart.new)
