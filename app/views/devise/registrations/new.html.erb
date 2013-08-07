@@ -1,39 +1,41 @@
-<h1>Sign up</h1>
-
 <div class="sixteen columns">
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-    <div><%= devise_error_messages! %></div>
-      <div class="three columns">
-        <div><%= f.text_field :name, :autofocus => true, placeholder: "Name" %></div>
-        <div><%= f.email_field :email, placeholder: "Email Address" %></div>
-        <div><%= f.password_field :password, placeholder: "Password" %></div>
-        <div><%= f.password_field :password_confirmation, placeholder: "Confirm Password" %></div>
-        <div><%= f.text_field :phone, placeholder: "Phone Number" %></div>
+  <h1>Sign up</h1>
+
+  <div class="sixteen columns">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <div><%= devise_error_messages! %></div>
+        <div class="three columns">
+          <div><%= f.text_field :name, :autofocus => true, placeholder: "Name" %></div>
+          <div><%= f.email_field :email, placeholder: "Email Address" %></div>
+          <div><%= f.password_field :password, placeholder: "Password" %></div>
+          <div><%= f.password_field :password_confirmation, placeholder: "Confirm Password" %></div>
+          <div><%= f.text_field :phone, placeholder: "Phone Number" %></div>
+        </div>
+        <div class="five columns">
+          <div><%= f.text_field :street_address1, placeholder: "Address" %></div>
+          <div><%= f.text_field :street_address2, placeholder: "Address 2" %></div>
+          <div><%= f.text_field :city, placeholder: "City" %></div>
+          <div><%= f.text_field :state, placeholder: "State" %></div>
+          <div><%= f.text_field :zip_code, placeholder: "Zip Code" %></div>
+        </div>
+
+      <div class="six columns">
+        <h4>Are you a Lost Tribes vendor?</h4>
+        <p>Would you like to be one? Join our network and sign up as a vendor to have special vendor privledges!<p>
       </div>
-      <div class="five columns">
-        <div><%= f.text_field :street_address1, placeholder: "Address" %></div>
-        <div><%= f.text_field :street_address2, placeholder: "Address 2" %></div>
-        <div><%= f.text_field :city, placeholder: "City" %></div>
-        <div><%= f.text_field :state, placeholder: "State" %></div>
-        <div><%= f.text_field :zip_code, placeholder: "Zip Code" %></div>
-      </div>
 
-    <div class="six columns">
-      <h4>Are you a Lost Tribes vendor?</h4>
-      <p>Would you like to be one? Join our network and sign up as a vendor to have special vendor privledges!<p>
-    </div>
+      <%= f.select(:role, options_for_select([['No Thanks', 'customer'],["Yes, I'd like to be a vendor",'vendor']])) %>
 
-    <%= f.select(:role, options_for_select([['No Thanks', 'customer'],["Yes, I'd like to be a vendor",'vendor']])) %>
+      <div id="usersubmit"><%= f.submit "Sign up" %></div>
+    <% end %>
+  </div>
 
-    <div id="usersubmit"><%= f.submit "Sign up" %></div>
-  <% end %>
+  <%= render "devise/shared/links" %>
+
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
 </div>
-
-<%= render "devise/shared/links" %>
-
-
-<br />
-<br />
-<br />
-<br />
-<br />

@@ -1,33 +1,30 @@
-%h2 Edit Your Info:
-(Note: You need to enter your password to submit the form)
-%br
-%br
-%br
-= form_for @user do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.label :email
-  = f.email_field :email 
-  = f.label :password
-  = f.password_field :password
-  = f.label :phone
-  = f.text_field :phone
-  = f.label :street_address1
-  = f.text_field :street_address1
-  = f.label :street_address2 
-  = f.text_field :street_address2
-  = f.label :city
-  = f.text_field :city
-  = f.label :state
-  = f.text_field :state
-  = f.label :zip_code
-  = f.text_field :zip_code
-  - if current_user.admin?
-    = f.label :role
-    = f.text_field :role
+.sixteen.columns
+  %h2 Update Your Info:
   %br
-  = f.submit "Update"
+  = form_for @user do |f|
+    .three.columns
+      = f.text_field :name, placeholder: "Name"
+      = f.email_field :email, placeholder: "Email Address"
+      = f.text_field :phone, placeholder: "Phone"
+      = f.password_field :password, placeholder: "New Password"
+      = f.password_field :password_confirmation, placeholder: "Confirm New Password"
+    .four.columns
+      = f.text_field :street_address1, placeholder: "Address"
+      = f.text_field :street_address2, placeholder: "Address 2"
+      = f.text_field :city, placeholder: "City"
+      = f.text_field :state, placeholder: "State"
+      = f.text_field :zip_code, placeholder: "Zip Code"
+    .four.columns
+      = f.password_field :current_password, placeholder: "Current Password"
+      You must enter your password to update.
+      %br
 
-%h3
-  Unhappy? 
-= link_to "Delete Account", user_path(@user), method: :delete, confirm: "Are you sure you want to delete your account? All of your past purchases will also be deleted."
+      - if current_user.admin?
+        = f.label :role
+        = f.text_field :role
+      %br
+      = f.submit "Update"
+
+      %h5
+        Or, if you really want to:
+      = link_to "Delete Your Account", user_path(@user), method: :delete, confirm: "Are you sure you want to delete your account? All of your past purchases will also be deleted."
