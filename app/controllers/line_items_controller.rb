@@ -25,10 +25,10 @@ class LineItemsController < ApplicationController
     #making use of add product method
     @cart = Cart.find(@line_item.cart_id)
     @line_item.beer_id = params[:beer_id]
-    @line_item.event_id = params[:event_id]
-    # @beer = Beer.find(params[:beer_id])
-
     @line_item = @cart.add_beer(@line_item.beer_id)
+
+    # @line_item.event_id = params[:event_id]
+    # @line_item = @cart.add_event(@line_item.event_id)
 
 
     

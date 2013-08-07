@@ -7,15 +7,25 @@
     <% end %>
 
     <% @current_user.current_cart.line_items.each do |li| %>
-      <% li.beer_id %>
-      <% beer = Beer.find li.beer_id %>
-      <tr>
-        <td> <%= beer.title %> </td>
-        <!-- <img src="<%= (beer.image_url) %>"/> -->
-        <td> <%= number_to_currency(beer.price) %> </td>
-        <td> &nbsp; &times; <%= li.quantity  %> quantity  </td>
-      </tr>
-   <% end %>
+      <% if li.beer_id == nil %>
+        <% li.event_id %>
+        <% event = Event.find li.event_id %>
+        <tr>
+          <td> <%= event.title %> </td>
+          <!-- <img src="<%= (event.image_url) %>"/> -->
+          <td> <%= number_to_currency(event.price) %> </td>
+          <td> &nbsp; &times; <%= li.quantity  %> quantity  </td>
+      <% else %>
+        <% li.beer_id %>
+        <% beer = Beer.find li.beer_id %>
+        <tr>
+          <td> <%= beer.title %> </td>
+          <!-- <img src="<%= (beer.image_url) %>"/> -->
+          <td> <%= number_to_currency(beer.price) %> </td>
+          <td> &nbsp; &times; <%= li.quantity  %> quantity  </td>
+        </tr>
+      <% end %>
+    <% end %>
   </tbody>
 </table>
 
