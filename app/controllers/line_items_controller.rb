@@ -2,7 +2,6 @@ class LineItemsController < ApplicationController
   include CurrentCart
   # before_action :set_cart, only: [:create]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
-
   before_filter :authenticate_user!, [:create, :update, :edit, :destroy]
 
 
@@ -25,12 +24,7 @@ class LineItemsController < ApplicationController
     #making use of add product method
     @cart = Cart.find(@line_item.cart_id)
     @line_item.beer_id = params[:beer_id]
-    @line_item.event_id = params[:event_id]
-    # @beer = Beer.find(params[:beer_id])
-
     @line_item = @cart.add_beer(@line_item.beer_id)
-
-
     
     respond_to do |format|
       if @line_item.save

@@ -64,6 +64,12 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def ticket
+    # ticket_users
+    @carts = Cart.all
+    @orders = @carts.where(current: false)
+  end
+
 
   private
   # Use callbacks to share common setup or constraints between actions.

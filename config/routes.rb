@@ -20,6 +20,9 @@ LostTribes3::Application.routes.draw do
       get :shipping
       get :billing
     end
+    member do 
+      get :ticket
+    end
   end
 
 

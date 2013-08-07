@@ -15,6 +15,12 @@ class Ability
       can :show, Cart do |cart|
         cart && cart.user_id == user.id
       end
+      # can :create, LineItem do |li|
+      #   li && li.cart_id == user.current_cart.id
+      # end
+      # can :update, LineItem do |li|
+      #   li && li.cart_id == user.current_cart.id
+      # end
       can :update, User do |person|
         person && person.id == user.id
       end

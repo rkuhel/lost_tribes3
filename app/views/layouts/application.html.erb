@@ -34,6 +34,9 @@
         <% if current_user %>
           <li> / Signed in as <%="#{current_user.name.upcase}"%></li>
         <% end %>
+        <% if current_user && current_user.admin? %>
+          <li><%= link_to "Tickets", ticket_user_path(current_user.id) %></li>
+        <% end %>
       </ul>
 
       <%= yield %>
