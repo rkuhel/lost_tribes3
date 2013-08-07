@@ -4,7 +4,19 @@ LostTribes3::Application.routes.draw do
 
   devise_for :users
   resources :line_items
-  resources :carts
+  resources :users
+
+  resources :carts do 
+    collection do 
+      get :ticket
+      get :shipping
+      get :billing
+    end
+    member do 
+      post :mark_shipped
+    end
+  end
+
   resources :charges
   resources :beers
 
@@ -14,16 +26,4 @@ LostTribes3::Application.routes.draw do
       patch :remove_event, as: 'remove'
     end
   end
-
-  resources :users do
-    collection do
-      get :shipping
-      get :billing
-    end
-    member do 
-      get :ticket
-    end
-  end
-
-
 end
