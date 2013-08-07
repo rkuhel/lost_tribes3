@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   ROLES = %w[admin vendor customer guest]
 
-  attr_accessible :role, :name, :email, :zip_code, :phone, :street_address1, :street_address2, :city, :state, :admin, :password, :password_confirmation
+  attr_accessible :role, :name, :email, :zip_code, :phone, :street_address1, :street_address2, :city, :state, :admin, :password, :password_confirmation, :carts, :carts_attributes
+  
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -19,6 +20,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :events
   has_many :created_events, foreign_key: 'creator_id', class_name: "Event", inverse_of: :creator
   has_many :carts, dependent: :destroy
+  accepts_nested_attributes_for :carts
   
   after_create :make_cart
 
