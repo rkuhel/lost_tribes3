@@ -78,7 +78,7 @@ class EventsController < ApplicationController
       else
         LineItem.create(event_id: event.id, cart_id: current_user.current_cart.id, quantity: 1, event_id: event.id)
       end
-      redirect_to cart_path(current_user)
+      redirect_to cart_path(current_user.current_cart)
     end
   end
 
