@@ -27,4 +27,13 @@ class Cart < ActiveRecord::Base
     end
     current_item
   end
+
+  def remove_beer(beer_id)
+    current_item = line_items.find_by_beer_id(beer_id)
+    if current_item && current_item.quantity >= 1 
+      current_item.quantity -= 1
+    else 
+      flash[:alert] = "No more beers to delete"
+    end
+  end
 end

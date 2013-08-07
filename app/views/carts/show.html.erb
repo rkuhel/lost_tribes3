@@ -14,6 +14,7 @@
         <!-- <img src="<%= (beer.image_url) %>"/> -->
         <td> <%= number_to_currency(beer.price) %> </td>
         <td> &nbsp; &times; <%= li.quantity  %> quantity  </td>
+        <td><%= link_to 'delete a beer', subtract_line_items %></td>
       </tr>
    <% end %>
   </tbody>

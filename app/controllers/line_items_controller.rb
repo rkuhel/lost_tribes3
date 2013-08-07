@@ -46,7 +46,12 @@ class LineItemsController < ApplicationController
     end
   end
 
+  
   def update
+
+    @line_item = @cart.remove_beer(@line_item.beer_id)
+    redirect_to carts_path
+
     respond_to do |format|
       if @line_item.update(line_item_params)
         format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
