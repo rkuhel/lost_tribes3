@@ -24,14 +24,26 @@ class Cart < ActiveRecord::Base
     total
   end
 
-  def add_beer(beer_id)
-    current_item = line_items.find_by_beer_id(beer_id)
-    if current_item
-      current_item.quantity += 1
+  def increment_item(line_item)
+    if (self.line_items.include? line_item)
+      line_item.quantity += 1
+      line_item.save
     else
-      current_item = line_items.build(beer_id: beer_id)
+      p "Not in this cart"
     end
-    current_item
+  end
+
+  def decrement_item(line_item)
+    if (self.line_items.include? line_item)
+      line_item.quantity -= 1
+      if line_item.quantity < 1
+        line_item.delete
+      else
+        line_item.save
+      end
+    else
+      p "Not in this cart"
+    end
   end
 
   # def add_event(event_id)

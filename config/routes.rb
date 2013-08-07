@@ -3,7 +3,7 @@ LostTribes3::Application.routes.draw do
   root to: 'store#index'
 
   devise_for :users
-  resources :line_items
+  
   resources :carts
   resources :charges
   resources :beers
@@ -24,6 +24,15 @@ LostTribes3::Application.routes.draw do
       get :ticket
     end
   end
+
+  resources :line_items, except: [:update] do
+    member do
+      patch :add
+      patch :subtract
+    end
+  end
+
+
 
 
 end
