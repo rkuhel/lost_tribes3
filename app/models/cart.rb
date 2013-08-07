@@ -9,11 +9,17 @@ class Cart < ActiveRecord::Base
     total = 0
     cart_total = []
     self.line_items.each do |li|
-      li.beer_id
-      beer = Beer.find li.beer_id
-      cart_total << (beer.price * li.quantity)
+      if li.beer_id
+        li.beer_id
+        beer = Beer.find li.beer_id
+        cart_total << (beer.price * li.quantity)
+      else
+        li.event_id
+        event = Event.find li.event_id
+        cart_total << (event.price * li.quantity)
+      end
       total = cart_total.reduce(:+)
-      p beer.title
+      # p beer.title
     end
     total
   end

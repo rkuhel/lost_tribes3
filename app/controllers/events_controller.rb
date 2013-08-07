@@ -73,6 +73,7 @@ class EventsController < ApplicationController
     if event.price == 0 || event.price = nil
       redirect_to user_path(current_user), notice: "You've successfully registered for #{event.title}"
     else
+      LineItem.create(event_id: event.id, cart_id: current_user.current_cart.id, quantity: 1, event_id: event.id)
       redirect_to cart_path(current_user)
     end
   end
