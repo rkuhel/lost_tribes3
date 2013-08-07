@@ -1,5 +1,7 @@
 LostTribes3::Application.routes.draw do
+  get "home/index"
   get "store/index"
+
   root to: 'home#index'
 
   devise_for :users
