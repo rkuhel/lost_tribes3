@@ -2,7 +2,7 @@ class Cart < ActiveRecord::Base
   has_many :line_items, dependent: :destroy
   # before_destroy :ensure_not_referenced_by_any_line_item
   belongs_to :user
-  attr_accessible :current
+  attr_accessible :current, :shipped
 
 
   def total_up_cart
