@@ -21,9 +21,10 @@
       %th End time
       %th Creator
       %th Price
-      %th
-      %th
-      %th
+      %th More info
+      %th edit 
+      %th destroy 
+      %th register 
   %tbody
     - @events.each do |event|
       %tr
@@ -45,7 +46,7 @@
         %td= link_to 'Show', event
         - if can? :update, @event
           %td= link_to 'Edit', edit_event_path(event)
-        - if can? :destroy, @event
+        - if can? :destroy, @esvent
           %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
         - if user_signed_in?
           %td
