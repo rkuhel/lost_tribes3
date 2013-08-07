@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% if can? :create, Beer %>
+  <%= link_to new_beer_path %>
+<% end %>
+
 <p>
   <strong>Title:</strong>
   <%= @beer.title %>
