@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
 
   attr_accessible :role, :name, :email, :zip_code, :phone, :street_address1, :street_address2, :city, :state, :admin, :password, :password_confirmation, :carts, :carts_attributes
 
-
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
