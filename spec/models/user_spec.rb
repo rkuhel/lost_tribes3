@@ -19,7 +19,7 @@ describe User do
       user.carts.push(Cart.new)
       user.carts.length.should eq 2
     end
-    it 'has only one current cart'
+    # it 'has only one current cart'
   end
 
   context 'customer role' do
