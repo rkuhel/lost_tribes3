@@ -20,7 +20,6 @@
         </ul>
       </li>
       <li><%= link_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
-      <li><a href="/users/sign_out">SIGN OUT</a></li>
     <% else %> 
       <li><a href="/users/sign_up">SIGN UP</a></li>
       <li><%= link_to "SIGN IN", new_user_session_path %></li>
