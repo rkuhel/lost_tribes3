@@ -1,10 +1,10 @@
 <nav class="nav-out">
   <ul class="nav-list">
 
-    <li><a href="/">HOME</a></li>  
-    <li><a href="/store/index">SHOP</a></li>
-    <li><a href="/beers">BEER</a></li> 
-    <li><a href="/events">EVENTS</a></li> 
+    <li id="nav-left"><a href="/">HOME</a></li>  
+    <li id="nav-left"><a href="/store/index">SHOP</a></li>
+    <li id="nav-left"><a href="/beers">BEER</a></li> 
+    <li id="nav-left"><a href="/events">EVENTS</a></li> 
 
     <% if user_signed_in? %>
       <% if current_user.admin? %>
