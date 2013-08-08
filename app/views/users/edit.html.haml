@@ -16,7 +16,8 @@
         = f.text_field :state, placeholder: "State"
         = f.text_field :zip_code, placeholder: "Zip Code"
       .four.columns
-        You must enter your password to update your profile:
+        %h4
+          Password Required:
         = f.password_field :current_password, placeholder: "Current Password"
         %br
 
@@ -24,8 +25,10 @@
           = f.label :role
           = f.text_field :role
         %br
+
         = f.submit "Update"
 
         %h5
           Or, if you really want to:
         = link_to "Delete Your Account", user_path(@user), method: :delete, confirm: "Are you sure you want to delete your account? All of your past purchases will also be deleted."
+

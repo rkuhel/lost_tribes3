@@ -2,7 +2,7 @@
 	.sixteen.columns
 		%h1 Order
 		= paginate @orders 
-		%table
+		%table.ticket
 			%thead
 				%th id
 				%th order processed
@@ -43,4 +43,10 @@
 							%td= order.user.zip_code
 							%td= order.user.phone	
 							%td.mark_shipped= order.shipped	    
+
+
+
+
+
+
 

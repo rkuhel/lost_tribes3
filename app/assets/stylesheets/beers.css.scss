@@ -2,6 +2,7 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .beers {
 	table {
 		border-collapse: collapse; 
@@ -39,13 +40,19 @@
 		padding-left: 1em;
 	}
 
-	.list_line_even {
+	tr:nth-child(even){
 		background: #e0f8f8;
 	}
 	.list_line_odd: {
 		background: #f8b0f8;
 	}
+	img {
+		width: 100px;
+		height: 100px;
+	}
 
 }
+
+
 
 

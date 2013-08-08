@@ -1,11 +1,11 @@
 <section class='container'>
   <div class='sixteen columns'>
     <p id="notice"><%= notice %></p>
-    <table>
+    <table class="cart">
       <tbody>
         <% if current_user.current_cart.line_items.length == 0 %>
         <h3>Your cart is empty.</h3>
-        <h5>Want to add to it? Check out the <%= link_to "store.", root_path %> It's kind of illegal, which makes it more fun.</h5>
+        <h5>Want to add to it? Check out the <%= link_to "store.", store_index_path %> It's kind of illegal, which makes it more fun.</h5>
         <% end %>
         <% current_user.current_cart.line_items.order(:created_at).each do |li| %>
         <% if li.beer_id == nil %>
@@ -22,37 +22,34 @@
           <% else %>
           <% li.beer_id %>
           <% beer = Beer.find li.beer_id %>
-          <tr>
-            <td> <%= beer.title %> </td>
-            <!-- <img src="<%= (beer.image_url) %>"/> -->
-            <td> <%= number_to_currency(beer.price) %> </td>
-            <td> &nbsp; &times; <%= li.quantity  %> quantity  </td>
-            <td><%= button_to '+', add_line_item_path(li), :method=>:patch %></td>
-            <td><%= button_to '-', subtract_line_item_path(li), :method=>:patch %></td>
-            <td><%= button_to 'Remove All', line_item_path(li), :method=>:delete %></td>
-          </tr>
-          <% end %>
-          <% end %>
-        </tbody>
-      </table>
-      <br />
-      <%= link_to 'Checkout', shipping_carts_path %>
-      <br />
-      <%= form_tag charges_path do %>
-      <article>
-      <label class="amount">
-        <span id="cart_total">Cart Total: $<%= current_user.current_cart.total_up_cart %>
-        </span>
-      </label>
-      </article>
-      <br />
-      <br />
-      <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-      data-description="A month's subscription"
-      data-amount="<%= current_user.current_cart.total_up_cart*100 %>"></script>
-      <% end %>
-      <%= link_to 'Edit', edit_cart_path(@cart) %> |
-      <%= link_to 'Back', carts_path %>
-    </div>
-  </section>
+        </tr>
+        <tr>
+          <td> <%= beer.title %> </td>
+          <!-- <img src="<%= (beer.image_url) %>"/> -->
+          <td> <%= number_to_currency(beer.price) %> </td>
+          <td> &nbsp; &times; <%= li.quantity  %> quantity  </td>
+          <td><%= button_to '+', add_line_item_path(li), :method=>:patch %></td>
+          <td><%= button_to '-', subtract_line_item_path(li), :method=>:patch %></td>
+          <td><%= button_to 'Remove All', line_item_path(li), :method=>:delete %></td>
+        </tr>
+        <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    <br />
+    <span class="amount"></span>
+    <br />
+    <%= form_tag charges_path do %>
+    <article>
+    <label class="amount">
+      <span id="cart_total">Cart Total: $<%= current_user.current_cart.total_up_cart %> | <%= link_to 'Checkout', shipping_carts_path %>
+      </span>
+    </label>
+    </article>
+    <br />
+    <br />
+    <% end %>
+    <%= link_to 'Edit', edit_cart_path(@cart) %> |
+    <%= link_to 'Back', carts_path %>
+  </div>
+</section>

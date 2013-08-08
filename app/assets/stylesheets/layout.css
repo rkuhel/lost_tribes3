@@ -32,7 +32,7 @@
 	/* All Mobile Sizes (devices and browser) */
 	@media only screen and (max-width: 767px) {
 
-		div.nav-out select {
+		nav.nav-out select {
 			display: block;
 		}
 
