@@ -15,8 +15,8 @@
       = f.text_field :state, placeholder: "State"
       = f.text_field :zip_code, placeholder: "Zip Code"
     .four.columns
+      You must enter your password to update your profile:
       = f.password_field :current_password, placeholder: "Current Password"
-      You must enter your password to update.
       %br
 
       - if current_user.admin?

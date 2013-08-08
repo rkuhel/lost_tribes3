@@ -1,45 +1,35 @@
 <ul class="hmenu">
   
   <li><a href="/">HOME</a></li>  
-
-  <li>
-    <a href="/beers">BEER</a>
-  </li> 
-  <li>
-    <a href="/events">EVENTS</a>
-  </li> 
-
+  <li><a href="/store/index">SHOP</a></li>
+  <li><a href="/beers">BEER</a></li> 
+  <li><a href="/events">EVENTS</a></li> 
 
   <% if user_signed_in? %>
-    <li> 
-      Signed in as <%="#{current_user.name.upcase}"%>
+    <% if current_user.admin? %>
+        <li> <%= link_to "USERS", users_path %></li>
+        <li> <%= link_to "CARTS", carts_path %></li>
+        <li><%= link_to "TICKETS", ticket_carts_path %></li>
+    <% end %>  
+    <li>
+      <%= link_to "#{current_user.name.upcase}", user_path(current_user) %>
+        <ul>
+          <li><%= link_to "#{current_user.name.upcase}", user_path(current_user) %></li>
+          <li><%= link_to "EDIT", edit_user_path(current_user) %></li>
+          <li><a href="/carts/<%=current_cart.id%>">CART</a></li>
+        </ul>
     </li> 
 
-    <li>
-      <%= link_to "My Page", user_path(current_user) %>
-    </li> 
-
-      <% if current_user.admin? %>
-        <li> <%= link_to "Users", users_path %></li>
-        <li> <%= link_to "Carts", carts_path %></li>
-        <li><%= link_to "Tickets", ticket_carts_path %></li>
-      <% end %>
-
-    <li>
-      <a href="/carts/<%=current_cart.id%>">My Cart</a>
-    </li>
-
-    <li>
-      <%= link_to "Edit My Profile", edit_user_path(current_user) %>
-    </li> 
   <% else %> 
-    <li>
-      <%= link_to "Sign Up", new_user_registration_path %>
-    </li>
+    <li><%= link_to "SIGN UP", new_user_registration_path %></li>
   <% end %>
-      <%= render 'devise/menu/login_items' %> 
 
-
-  
-  
+  <%= render 'devise/menu/login_items' %>
 </ul>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+      $("<select />").appendTo(".hmenu")
+  })
+</script>
