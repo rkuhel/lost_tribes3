@@ -12,18 +12,21 @@
         <li><a href="/carts">CARTS</a></li>
         <li><a href="/orders/carts/ticket">TICKETS</a></li>
       <% end %>  
-      <li>
-        <%= link_to "MY INFO", user_path(current_user) %>
-          <ul>
-            <li><%= link_to "VIEW", user_path(current_user) %></li>
-            <li><%= link_to "EDIT", edit_user_path(current_user) %></li>
-            <li><a href="/carts/<%=current_cart.id%>">MY CART</a></li>
-          </ul>
+      <li><%= link_to "MY INFO", user_path(current_user) %>
+        <ul>
+          <li><%= link_to "VIEW", user_path(current_user) %></li>
+          <li><%= link_to "EDIT", edit_user_path(current_user) %></li>
+          <li><a href="/carts/<%=current_cart.id%>">MY CART</a></li>
+        </ul>
+      </li>
+      <li><%= link_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
+      <li><a href="/users/sign_out">SIGN OUT</a></li>
     <% else %> 
       <li><a href="/users/sign_up">SIGN UP</a></li>
+      <li><%= link_to "SIGN IN", new_user_session_path %></li>
     <% end %>
 
-    <%= render 'devise/menu/login_items' %>
+   
   </ul>
 </nav>
 
