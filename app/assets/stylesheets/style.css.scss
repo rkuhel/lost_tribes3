@@ -114,30 +114,120 @@ display: inline;
 
   }
 
+
+#navtit {
+  font-family: Tahoma, Verdana, sans-serif;
+ font-weight: lighter;
+ text-decoration: underline;
+}
+
 #behindmap{
-  background-color: #ECEDE7;
+  background-color: #ECCEAC;
 }
 
 #fronttitle {
-  font-size: 32px;
+  font-size: 38px;
   text-align: center;
   font-weight: bold;
   font-family: Georgia serif;
 }
 
+#topimage {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  z-index: 9;
+  // top: 50px;
+}
+
 #maparea {
-  background:url('./../memap.jpg') no-repeat center center;
+  background:url('./../old_map.jpg') no-repeat center center;
 }
 
 #smallerlt {
+  color: #111;
+  text-shadow: 2px 2px #222;
   font-size: 28px;
-  width: 60%;
+  width: 61%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  // padding: 10px;
+  padding: 25px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  line-height: 1.3em;
+  // background: url(./../tiny.png);
+  border: 0px solid #FAD637;
   // position: absolute;
+  background: url(./../tiny5.png);
+}
+
+#foam2 {
+  position: relative;
+  top: -20px;
+}
+
+#topgraph {
+  color: #4A4747;
+  z-index: 53;
+  line-height: 1.2em;
+}
+
+.darker{
+  float: left;
+}
+
+.lighter {
+  float: right;
+}
+
+.tejpic {
+  float: left;
+}
+
+h1 {
+  font-size: 54px;
+  font-family: Tahoma, Verdana, sans-serif; 
+  letter-spacing: .5px;
+  margin-top: 25px;
+}
+
+.beertitle {
+  font-family: Garamond, serif;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.specialbeers {
+  font-family: georgia; 
+  font-size: 22px;
+}
+
+.bfeatures {
+  border: 1px solid black;
+    clear: both;
+    background: url(./../tiny5.png);
+    padding: 18px;
+    font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+    line-height: 1.55em;
+    box-shadow: 6px 6px 3px #C96401;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p.bfeatures {
+  line-height: 1.3em;
+}
+
+#tejdiv {
+    box-shadow: 6px 6px 3px #C75200;
+}
+
+.black {
+  color: black;
+  background-color: black;
+  z-index: 30;
 }
 
 // #mainsail {
