@@ -10,14 +10,14 @@
       <% if current_user.admin? %>
         <li><a href="/users">USERS</a></li>
         <li><a href="/carts">CARTS</a></li>
-        <li><a href="/tickets">TICKETS</a></li>
+        <li><a href="/orders/carts/ticket">TICKETS</a></li>
       <% end %>  
       <li>
         <a href="/users/#{current_user.id}">MY INFO</a>
           <ul>
-            <li><%= link_to "#{current_user.name.upcase}", user_path(current_user) %></li>
-            <li><a href="/users/#{current_user.id}/edit">EDIT</a></li>
-            <li><a href="/carts/<%=current_cart.id%>">CART</a></li>
+            <li><%= link_to "- VIEW", user_path(current_user) %></li>
+            <li><%= link_to "- EDIT", edit_user_path(current_user) %></li>
+            <li><a href="/carts/<%=current_cart.id%>"><span>- </span>MY CART</a></li>
           </ul>
       </li> 
 
@@ -46,6 +46,10 @@
           "value" : el.attr("href"),
           "text"  : el.text()
         }).appendTo(".nav-out select");
+      })
+
+      $('.nav-out select').change(function() {
+        window.location = $(this).find("option:selected").val();
       })
 
   })
