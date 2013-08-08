@@ -1,12 +1,62 @@
-// Place all the styles related to the Events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// // Place all the styles related to the Events controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// // event details ############################################
 .event_img {
-  width: 400px;
-  height: auto;
+  width: 100%;
+  height: 100%;
+}
+.info p, button {
+	display: inline-block;
+}
+// .events_details {
+	
+
+// }
+// .events_details p {
+// 	font-style: italic;
+// }
+// // event teasers ############################################
+// .event_list {
+// 	overflow-y: scroll;
+// 	height: 500px;
+// 	float: left;
+// }
+// .event_teaser{
+// 	display: inline-block;
+// 	float: left;
+// 	width: 300px;
+// 	height: 75px;
+// }
+.event_item:hover {
+	-webkit-transform: scale(1.01);
+	-moz-transform: scale(1.01);
+	-o-transform: scale(1.01);
+	transform: scale(1.01);
+}
+.event_item:nth-child(odd) {
+	background-color: #C0C0C0;
 }
 
-.hidden {
-  display: none;
+
+.event_item:nth-child(even):hover {
+	
+
 }
+.event_item:nth-child(even) {
+	background-color:#E8E8E8; 
+	
+}
+// .title {
+// 	font-size: 24px;  
+// 	margin: 0;
+// 	padding: 0;
+// }
+// #event_info p {
+// 	margin: 0;
+// 	padding: 0;
+// }
+
+

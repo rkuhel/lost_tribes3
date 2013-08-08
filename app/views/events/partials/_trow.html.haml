@@ -1,0 +1,35 @@
+- @events.each do |event|
+  %div.events_details.row{data: event.id}
+    %div.six.columns.alpha
+      %h1= event.title
+      %h5= event.description
+      %h3= event.price
+      %p
+        = event.street
+        ,
+        = event.street2
+      %p
+        = event.city 
+        = event.state 
+        ,
+        = event.zip
+      %p
+        = event.start_date
+        | 
+        = event.start_time
+      %div 
+        %div.one.columns.alpha
+          = link_to 'Show', event
+        %div.one.column
+        - if can? :update, @event
+          = link_to 'Edit', edit_event_path(event)
+        %div.one.column.omega
+        - if can? :destroy, @event
+          %div= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+        - if user_signed_in?
+          %div
+            %button#add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)
+
+      
+      %div.eight.columns.omega{id: 'event_info'}
+        %img.event_img{:src => event.image_url}
