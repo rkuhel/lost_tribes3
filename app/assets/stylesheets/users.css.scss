@@ -1,0 +1,38 @@
+.attending {
+	margin-top: 10px;
+	border: solid 1px;
+}
+.created {
+	margin-top: 10px;
+	border: solid 1px;
+
+}
+
+.attending:nth-child(even) {
+	background-color: #FF9933;
+}
+.created:nth-child(even) {
+	background-color: #FF9933;
+}
+.attending:nth-child(odd) {
+	background-color:#E8E8E8; 
+}
+.created:nth-child(odd) {
+	background-color:#E8E8E8; 
+}
+.title {
+	line-height: 18px;
+	padding-bottom: 10px;
+}
+.location {
+	text-transform: uppercase;
+	padding: 0;
+	margin: 0;
+}
+.date {
+
+}
+.time {
+
+}
+

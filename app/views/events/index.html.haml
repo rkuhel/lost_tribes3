@@ -1,6 +1,6 @@
-= link_to 'New Event', new_event_path
 = paginate @events 
 %body
+  .new_event= link_to 'New Event', new_event_path
   - @events.each do |event|
     %div.event_item.container
       .six.columns.alpha
@@ -11,7 +11,6 @@
           %div
             - if user_signed_in?
               %button#add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)  
-
       %div.four.columns.omega
         %img.event_img{:src => event.image_url}      
         %div.nav
