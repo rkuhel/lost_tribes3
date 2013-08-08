@@ -5,55 +5,77 @@
 
 // // event details ############################################
 .event_img {
-  width: 100%;
-  height: 100%;
-}
-.info p, button {
-	display: inline-block;
-}
-// .events_details {
-	
+	width: 100%;
+	height: 100%;
+	border: 5px solid #fafaf6;
+	-webkit-box-shadow: 0px 1px 1px #ccc;
+	-moz-box-shadow: 0px 1px 1px #ccc;
+	box-shadow: 0px 1px 1px #ccc;
 
-// }
-// .events_details p {
-// 	font-style: italic;
-// }
-// // event teasers ############################################
-// .event_list {
-// 	overflow-y: scroll;
-// 	height: 500px;
-// 	float: left;
-// }
-// .event_teaser{
-// 	display: inline-block;
-// 	float: left;
-// 	width: 300px;
-// 	height: 75px;
-// }
+}
+
+.info p, #add-to-user {
+	display: inline-block;
+	float: left; 
+
+}
+#add-to-user a {
+	display: inline-block;
+	float: left; 
+
+
+}
+.event_item {
+	opacity: .85;
+}
+
+
 .event_item:hover {
+	opacity: 1;
 	-webkit-transform: scale(1.01);
 	-moz-transform: scale(1.01);
 	-o-transform: scale(1.01);
 	transform: scale(1.01);
+
 }
 .event_item:nth-child(odd) {
-	background-color: #C0C0C0;
-}
-
-
-.event_item:nth-child(even):hover {
-	
-
+	background-color: #FF9933;
 }
 .event_item:nth-child(even) {
 	background-color:#E8E8E8; 
 	
 }
-// .title {
-// 	font-size: 24px;  
-// 	margin: 0;
-// 	padding: 0;
-// }
+.title {
+	font-size: 24px;
+   	line-height: 1.5em;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 2px #fff;
+	padding-bottom: 0px;
+}
+.start, .street, .city, #add-to-user {
+     clear: both;
+
+
+}
+.street {
+	padding: 0 10px 0 0; 
+	margin: 0;
+
+
+}
+.location {
+	padding-left: 20px;
+}
+.nav {
+	float: left;
+	display: inline-block;
+}
+.nav a {
+	padding: 5px 5px 0 0;
+	text-decoration: none;
+}
+
 // #event_info p {
 // 	margin: 0;
 // 	padding: 0;
