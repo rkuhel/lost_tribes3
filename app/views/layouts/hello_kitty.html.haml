@@ -5,10 +5,11 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-  %body
+  %body{style: "margin-top: -20px"}
     = render partial: "layouts/partials/nav"
     %p.notice= notice
     %p.alert= alert
-    = yield
+    .section
+      = yield
 
-    HELLLLOOOOO HELOOOO
+    / HELLLLOOOOO HELOOOO
