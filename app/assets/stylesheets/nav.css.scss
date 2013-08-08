@@ -1,9 +1,10 @@
 .nav-out {
   // list-style: none;	
   margin: 0px;
-  padding: 1px;
-  background: gold;
+  padding: 0;
+  background: black;
   height: 50px;
+  width: 100%;
   // position: absolute;
 
   select {
@@ -20,13 +21,16 @@
   li {
     display: inline;
     border: 1px solid black;
-    background: orange;
+    // background: orange;
     margin: 0px;
     height: 100%;
     float: left;
     position: relative;
 
     &:hover {
+
+
+
       ul {
         height: auto;
         overflow: auto;
@@ -39,18 +43,22 @@
       display: inline-block;
       text-decoration: none;
       padding: 15px 12px;
+      // border-radius: 7px;
+      color: white;
 
-      &:hover {
-        background: blue;
-      }
+      // &:hover {
+      //   background: blue;
+      // }
     }
   }
 
   ul {
+    margin: 0px;
     position: absolute;
     z-index: 999;
-    background: green;
+    background: black;
     min-width: 100%;
+    border-radius: 4px;
 
     -webkit-box-shadow: 5px 5px 7px rgba(0,0,0,0.3);
     -moz-box-shadow: 5px 5px 7px rgba(0,0,0,0.3);
@@ -62,10 +70,10 @@
     opacity: 0;
     filter: alpha(opacity=0);
 
-    -webkit-transition: opacity 0.3s ease-out;
-    -moz-transition: opacity 0.3s ease-out;
-    -o-transition: opacity 0.3s ease-out;
-    transition: opacity 0.3s ease-out;
+    -webkit-transition: opacity 0.4s ease-out;
+    -moz-transition: opacity 0.4s ease-out;
+    -o-transition: opacity 0.4s ease-out;
+    transition: opacity 0.4s ease-out;
 
     li {
       float: none;
@@ -86,7 +94,7 @@
 }
 
 .nav-list li:hover > a{
-  background: green;
+  background: gray;
   color: white;
 }
 
@@ -94,5 +102,6 @@ input {
   margin: 0 0 5px 0;
 }
 
-
-
+#nav-right {
+  float: right;
+}
