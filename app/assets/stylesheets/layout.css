@@ -32,11 +32,11 @@
 	/* All Mobile Sizes (devices and browser) */
 	@media only screen and (max-width: 767px) {
 
-		ul select {
+		div.nav-out select {
 			display: block;
 		}
 
-		.nav-list ul {
+		.nav-list {
 			display: none;
 		}
 	}
