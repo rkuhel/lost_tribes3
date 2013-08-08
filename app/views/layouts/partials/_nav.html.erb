@@ -1,4 +1,4 @@
-<div class="nav-out">
+<nav class="nav-out">
   <ul class="nav-list">
 
     <li><a href="/">HOME</a></li>  
@@ -8,38 +8,39 @@
 
     <% if user_signed_in? %>
       <% if current_user.admin? %>
-        <li><a href="/users">USERS</a></li>
-        <li><a href="/carts">CARTS</a></li>
-        <li><a href="/orders/carts/ticket">TICKETS</a></li>
+        <li id="nav-right"><a href="/users">USERS</a></li>
+        <li id="nav-right"><a href="/carts">CARTS</a></li>
+        <li id="nav-right"><a href="/orders/carts/ticket">TICKETS</a></li>
       <% end %>  
       <li>
         <%= link_to "MY INFO", user_path(current_user) %>
           <ul>
-            <li><%= link_to "- VIEW", user_path(current_user) %></li>
-            <li><%= link_to "- EDIT", edit_user_path(current_user) %></li>
+            <li><%= link_to "VIEW", user_path(current_user) %></li>
+            <li><%= link_to "EDIT", edit_user_path(current_user) %></li>
             <li><a href="/carts/<%=current_cart.id%>"><span>- </span>MY CART</a></li>
-          </ul>
-      </li> 
-
+          </ul
     <% else %> 
-      <li><a href="users/sign_up">SIGN UP</a></li>
+      <li id="nav-right"><a href="/users/sign_up">SIGN UP</a></li>
     <% end %>
 
-    <%= render 'devise/menu/login_items' %>
+    <li id="nav-right"><%= render 'devise/menu/login_items' %></li>
   </ul>
-</div>
+</nav>
 
 <script type="text/javascript">
   $(document).ready(function(){
 
+      // when the doc is done loading, add a select bar to the nav bar
       $("<select />").prependTo(".nav-out")
 
+      // Sets the default on the select bar
       $("<option />", {
         "selected": "selected",
         "value"   : "",
         "text"    : "Go to..."
       }).appendTo(".nav-out select");
 
+      // for each link on the original nav bar, add that identical link to the select bar
       $(".nav-list li a").each(function() {
         var el = $(this);
         $("<option />", {
@@ -48,9 +49,9 @@
         }).appendTo(".nav-out select");
       })
 
+      // when a link is clicked in the select bar, go to that page
       $('.nav-out select').change(function() {
         window.location = $(this).find("option:selected").val();
       })
-
   })
 </script>
