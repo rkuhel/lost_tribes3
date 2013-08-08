@@ -8,21 +8,21 @@
 
     <% if user_signed_in? %>
       <% if current_user.admin? %>
-          <li> <%= link_to "USERS", users_path %></li>
-          <li> <%= link_to "CARTS", carts_path %></li>
-          <li><%= link_to "TICKETS", ticket_carts_path %></li>
+        <li><a href="/users">USERS</a></li>
+        <li><a href="/carts">CARTS</a></li>
+        <li><a href="/tickets">TICKETS</a></li>
       <% end %>  
       <li>
-        <%= link_to "#{current_user.name.upcase}", user_path(current_user) %>
+        <a href="/users/#{current_user.id}">MY INFO</a>
           <ul>
             <li><%= link_to "#{current_user.name.upcase}", user_path(current_user) %></li>
-            <li><%= link_to "EDIT", edit_user_path(current_user) %></li>
+            <li><a href="/users/#{current_user.id}/edit">EDIT</a></li>
             <li><a href="/carts/<%=current_cart.id%>">CART</a></li>
           </ul>
       </li> 
 
     <% else %> 
-      <li><%= link_to "SIGN UP", new_user_registration_path %></li>
+      <li><a href="users/sign_up">SIGN UP</a></li>
     <% end %>
 
     <%= render 'devise/menu/login_items' %>
@@ -33,5 +33,20 @@
   $(document).ready(function(){
 
       $("<select />").prependTo(".nav-out")
+
+      $("<option />", {
+        "selected": "selected",
+        "value"   : "",
+        "text"    : "Go to..."
+      }).appendTo(".nav-out select");
+
+      $(".nav-list li a").each(function() {
+        var el = $(this);
+        $("<option />", {
+          "value" : el.attr("href"),
+          "text"  : el.text()
+        }).appendTo(".nav-out select");
+      })
+
   })
 </script>
