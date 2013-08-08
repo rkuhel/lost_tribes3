@@ -1,30 +1,31 @@
-= link_to 'New Event', new_event_path
-= paginate @events 
-%body
-  - @events.each do |event|
-    %div.event_item.container
-      .six.columns.alpha
-        .info
-          %p.title= event.title
-          %p.start= event.start_date
-          %p.city= event.description
-          %div
-            - if user_signed_in?
-              %button#add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)  
+.container
+  .sixteen.columns
+    = link_to 'New Event', new_event_path
+    = paginate @events 
+    - @events.each do |event|
+      %div.event_item.container
+        .six.columns.alpha
+          .info
+            %p.title= event.title
+            %p.start= event.start_date
+            %p.city= event.description
+            %div
+              - if user_signed_in?
+                %button#add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)  
 
-      %div.four.columns.omega
-        %img.event_img{:src => event.image_url}      
-        %div.nav
-          - if can? :update, @event
-            = link_to 'Edit', edit_event_path(event)
-          - if can? :destroy, @event
-            = link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
-            = link_to 'Show', event 
-      %div.location.four.columns.omega
-        .city= event.city
-        .street= event.street
-        .street2= event.street2
-        .state= event.state
-        .zip= event.zip
+        %div.four.columns.omega
+          %img.event_img{:src => event.image_url}      
+          %div.nav
+            - if can? :update, @event
+              = link_to 'Edit', edit_event_path(event)
+            - if can? :destroy, @event
+              = link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+              = link_to 'Show', event 
+        %div.location.four.columns.omega
+          .city= event.city
+          .street= event.street
+          .street2= event.street2
+          .state= event.state
+          .zip= event.zip
 
 
