@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LostTribes3</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render partial: "layouts/partials/nav" %>
+	<section class='container-us' style="padding-top: 1px">
+    <div style="margin-top: 60px" class='sixteen columns'>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
+  </section>
+</body>
+</html>
+
+
+<!-- class="<%= controller.controller_name %>" -->
