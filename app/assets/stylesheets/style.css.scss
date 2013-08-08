@@ -121,10 +121,6 @@ display: inline;
  text-decoration: underline;
 }
 
-#behindmap{
-  background-color: #ECCEAC;
-}
-
 #fronttitle {
   font-size: 38px;
   text-align: center;
@@ -136,6 +132,7 @@ display: inline;
   display: block;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 220px;
   position: relative;
   z-index: 9;
   // top: 50px;
@@ -143,6 +140,10 @@ display: inline;
 
 #maparea {
   background:url('./../old_map.jpg') no-repeat center center;
+}
+
+#behindmap{
+  background-color: #ECCEAC;
 }
 
 #smallerlt {
@@ -156,6 +157,8 @@ display: inline;
   font-family: Georgia, serif;
   font-weight: bold;
   line-height: 1.3em;
+  // margin-top: 55px;
+  // margin-bottom: 55px;
   // background: url(./../tiny.png);
   border: 0px solid #FAD637;
   // position: absolute;
@@ -165,8 +168,12 @@ display: inline;
 #foam2 {
   position: relative;
   top: -20px;
+  overflow: hidden;
 }
 
+#foam {
+  overflow: hidden;
+}
 #topgraph {
   color: #4A4747;
   z-index: 53;
@@ -211,7 +218,7 @@ h1 {
     font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
     line-height: 1.55em;
     box-shadow: 6px 6px 3px #C96401;
-    width: 70%;
+    width: 65%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -229,6 +236,28 @@ p.bfeatures {
   background-color: black;
   z-index: 30;
 }
+/* Landscape phone to portrait tablet */
+@media (min-width: 481px) and (max-width: 767px)  {
+#topimage {
+
+  margin-top: 100px;
+ }
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+#topimage {
+  margin-top: 50px;
+ }
+ .darker.lighter.tejpic{
+  size: 60%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+   max-width: 80%;
+}
+
+}
+
 
 // #mainsail {
 //   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgb(243, 141, 0)', endColorstr='rgb(200, 99, 0)'); /* for IE */
