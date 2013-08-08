@@ -1,5 +1,5 @@
 #user_role {
-  // margin: 0 auto;
+  margin: 0 auto;
 }
 
 #user-submit {
@@ -8,7 +8,7 @@
 }
 
 #rememberable {
-  // float: left;
+  float: left;
   display: inline-block;
   margin-bottom: 20px;
 }
@@ -21,3 +21,19 @@
   margin-left: 80px;
 }
 
+.select-date select {
+  float: left;
+  margin: -10px 10px 10px 0;
+  width: 100px;
+}
+
+#event_start_time_4i,#event_end_time_4i {
+  float: left;
+  margin: 0 7px 10px 0;
+  width: 100px;
+}
+
+#event_start_time_5i,#event_end_time_5i {
+  margin: -18px 10px 10px 121px;
+  width: 100px;
+}
