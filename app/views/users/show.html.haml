@@ -4,18 +4,10 @@
     =link_to 'Edit', edit_user_path(@user)
     Your Info
 
-%br
-%br
-#created-events
-  = render partial: "users/partials/created"
 
-%br
-%br
+.ten.columns.alpha#created-events
+  = render partial: "users/partials/attending"
 
-#attending-events
-  = render partial: "users/partials/attending" 
+.four.columns.omegaattending-events
+  = render partial: "users/partials/created" 
 
-%br
-%br
-%br
-%br
