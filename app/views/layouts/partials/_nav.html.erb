@@ -20,11 +20,11 @@
           <% if current_user.admin? %>
             <li id="nav-right"><a href="/users">USERS</a></li>
             <li id="nav-right"><a href="/carts">CARTS</a></li>
-            <li id="nav-right"><a href="/orders/carts/ticket">TICKETS</a></li>
+            <li id="nav-right" style="border-left: 1px solid gray"><a href="/orders/carts/ticket">TICKETS</a></li>
           <% end %>  
         <% else %> 
           <li id="nav-right"><%= link_to "SIGN IN", new_user_session_path %></li>
-          <li id="nav-right"><a href="/users/sign_up">SIGN UP</a></li>
+          <li id="nav-right" style="border-left: 1px solid gray"><a href="/users/sign_up">SIGN UP</a></li>
         <% end %>
 
        
