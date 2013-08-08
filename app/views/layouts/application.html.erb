@@ -7,9 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_name %>">
+  <%= render partial: "layouts/partials/nav" %>
 	<section class='container'>
     <div class='sixteen columns'>
-      <%= render partial: "layouts/partials/nav" %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
