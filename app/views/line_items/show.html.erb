@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Beer:</strong>
-  <%= @line_item.beer_id %>
-</p>
-
-<p>
-  <strong>Cart:</strong>
-  <%= @line_item.cart_id %>
-</p>
-
-<%= link_to 'Edit', edit_line_item_path(@line_item) %> |
-<%= link_to 'Back', line_items_path %>
+<section class='container'>
+  <div class='sixteen columns'>
+    <p id="notice"><%= notice %></p>
+    <p>
+    <strong>Beer:</strong>
+    <%= @line_item.beer_id %>
+    </p>
+    <p>
+    <strong>Cart:</strong>
+    <%= @line_item.cart_id %>
+    </p>
+    <%= link_to 'Edit', edit_line_item_path(@line_item) %> |
+    <%= link_to 'Back', line_items_path %>
+  </div>
+</section>

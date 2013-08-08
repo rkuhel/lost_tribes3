@@ -2,7 +2,7 @@ LostTribes3::Application.routes.draw do
   get "home/index"
   get "store/index"
 
-  root to: 'home#index'
+  match '/' => 'home#index', :via => :get
 
   devise_for :users
 

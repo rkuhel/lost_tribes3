@@ -1,7 +1,11 @@
-<table>
-	<tbody>
-		<% @orders.each do |order| %>
-			<td><%= order.title %></td>
-		<%end%>
-	</tbody>
-<table>
+<section class='container'>
+  <div class='sixteen columns'>
+    <table>
+      <tbody>
+        <% @orders.each do |order| %>
+        <td><%= order.title %></td>
+        <%end%>
+      </tbody>
+    <table>
+  </div>
+</section>

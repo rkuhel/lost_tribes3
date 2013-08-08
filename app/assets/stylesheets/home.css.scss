@@ -1,3 +1,41 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#mainsail {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgb(253, 174, 48)', endColorstr='rgb(200, 99, 0)'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(253, 174, 48)), to(rgb(200, 99, 0))); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  rgb(253, 174, 48),  rgb(200, 99, 0)); /* for firefox 3.6+ */
+  z-index: 40;
+  height: auto !important; 
+ height:100%;
+}
+
+#mainscroll {
+    -skrollr-animation-name:animation1;
+}
+
+@-skrollr-keyframes animation1 {
+    0 {
+        left:100%;
+    }
+
+    2000 {
+        left:0%;
+    }
+
+    top {
+        color:rgb(0,0,0);
+    }
+
+    bottom {
+        color:rgb(255,0,0);
+    }
+}
+
+#beers_show {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}

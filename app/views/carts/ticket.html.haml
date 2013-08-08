@@ -1,44 +1,46 @@
-%h1 Order
-= paginate @orders 
-%table
-	%thead
-		%th id
-		%th order processed
-		%th name
-		%th email
-		%th Street
-		%th APT
-		%th city
-		%th state
-		%th zip
-		%th phone
-		%th confirm shipment
-	%tbody
-		- @orders.each do |order|
-			- if order.shipped == false
-				%tr.order{:'data-order-id' => order.id, style: "background-color: grey"}
-					%td= order.id
-					%td= order.created_at
-					%td= order.user.name
-					%td= order.user.email
-					%td= order.user.street_address1
-					%td= order.user.street_address2
-					%td= order.user.city
-					%td= order.user.state
-					%td= order.user.zip_code
-					%td= order.user.phone
-					%td.mark_shipped= link_to 'confirm order was shipped', '#'
-			- else 
-				%tr.order{:'data-order-id' => order.id, style: "background-color: orange"}
-					%td= order.id
-					%td= order.created_at
-					%td= order.user.name
-					%td= order.user.email
-					%td= order.user.street_address1
-					%td= order.user.street_address2
-					%td= order.user.city
-					%td= order.user.state
-					%td= order.user.zip_code
-					%td= order.user.phone	
-					%td.mark_shipped= order.shipped	    
+.container
+	.sixteen.columns
+		%h1 Order
+		= paginate @orders 
+		%table
+			%thead
+				%th id
+				%th order processed
+				%th name
+				%th email
+				%th Street
+				%th APT
+				%th city
+				%th state
+				%th zip
+				%th phone
+				%th confirm shipment
+			%tbody
+				- @orders.each do |order|
+					- if order.shipped == false
+						%tr.order{:'data-order-id' => order.id, style: "background-color: grey"}
+							%td= order.id
+							%td= order.created_at
+							%td= order.user.name
+							%td= order.user.email
+							%td= order.user.street_address1
+							%td= order.user.street_address2
+							%td= order.user.city
+							%td= order.user.state
+							%td= order.user.zip_code
+							%td= order.user.phone
+							%td.mark_shipped= link_to 'confirm order was shipped', '#'
+					- else 
+						%tr.order{:'data-order-id' => order.id, style: "background-color: orange"}
+							%td= order.id
+							%td= order.created_at
+							%td= order.user.name
+							%td= order.user.email
+							%td= order.user.street_address1
+							%td= order.user.street_address2
+							%td= order.user.city
+							%td= order.user.state
+							%td= order.user.zip_code
+							%td= order.user.phone	
+							%td.mark_shipped= order.shipped	    
 

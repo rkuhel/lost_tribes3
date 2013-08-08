@@ -1,21 +1,23 @@
-%h2
-  Hi, #{@user.name.capitalize}! 
-  %h4
-    =link_to 'Edit', edit_user_path(@user)
-    Your Info
+.container
+  .sixteen.columns
+    %h2
+      Hi, #{@user.name.capitalize}! 
+      %h4
+        =link_to 'Edit', edit_user_path(@user)
+        Your Info
 
-%br
-%br
-#created-events
-  = render partial: "users/partials/created"
+    %br
+    %br
+    #created-events
+      = render partial: "users/partials/created"
 
-%br
-%br
+    %br
+    %br
 
-#attending-events
-  = render partial: "users/partials/attending" 
+    #attending-events
+      = render partial: "users/partials/attending" 
 
-%br
-%br
-%br
-%br
+    %br
+    %br
+    %br
+    %br

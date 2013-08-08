@@ -1,23 +1,27 @@
-<h1>Tickets</h1>
-<table>
-	<thead>
-		<th>order id</th>
-		<th>customer</th>
-		<th>date ordered</th>
-	</thead>
-	<tbody>
-		<% @orders.each do |order| %>
-		<tr>
-			<td><%= order.id %></td>
-			<td><%= order.user.name %></td>
-			<td><%= order.user.email %></td>
-			<td><%= order.user.street_address1 %></td>
-			<td><%= order.user.street_address2 %></td>
-			<td><%= order.user.city %></td>
-			<td><%= order.user.state %></td>
-			<td><%= order.user.zip_code %></td>
-			<td><%= order.user.phone %></td>
-		</tr>
-		<%end%>
-	</tbody>
-<table>
+<section class='container'>
+	<div class='sixteen columns'>
+		<h1>Tickets</h1>
+		<table>
+			<thead>
+				<th>order id</th>
+				<th>customer</th>
+				<th>date ordered</th>
+			</thead>
+			<tbody>
+				<% @orders.each do |order| %>
+				<tr>
+					<td><%= order.id %></td>
+					<td><%= order.user.name %></td>
+					<td><%= order.user.email %></td>
+					<td><%= order.user.street_address1 %></td>
+					<td><%= order.user.street_address2 %></td>
+					<td><%= order.user.city %></td>
+					<td><%= order.user.state %></td>
+					<td><%= order.user.zip_code %></td>
+					<td><%= order.user.phone %></td>
+				</tr>
+				<%end%>
+			</tbody>
+		<table>
+	</div>
+</section>

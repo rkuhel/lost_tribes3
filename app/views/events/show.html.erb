@@ -1,78 +1,66 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @event.image_url %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @event.street %>
-</p>
-
-<p>
-  <strong>Street2:</strong>
-  <%= @event.street2 %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @event.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @event.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @event.zip %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @event.end_date %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
-
-<p>
-  <strong>Host:</strong>
-  <%= @event.creator.name.capitalize %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @event.price %>
-</p>
-
-<% if user_signed_in? %>
-  <%= button_to("Register", register_event_path(@event.id), method: :post, data: current_user) %>
-<% end %>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<section class='container'>
+  <div class='sixteen columns'>
+    <p id="notice"><%= notice %></p>
+    <p>
+    <strong>Title:</strong>
+    <%= @event.title %>
+    </p>
+    <p>
+    <strong>Description:</strong>
+    <%= @event.description %>
+    </p>
+    <p>
+    <strong>Image url:</strong>
+    <%= @event.image_url %>
+    </p>
+    <p>
+    <strong>Street:</strong>
+    <%= @event.street %>
+    </p>
+    <p>
+    <strong>Street2:</strong>
+    <%= @event.street2 %>
+    </p>
+    <p>
+    <strong>City:</strong>
+    <%= @event.city %>
+    </p>
+    <p>
+    <strong>State:</strong>
+    <%= @event.state %>
+    </p>
+    <p>
+    <strong>Zip:</strong>
+    <%= @event.zip %>
+    </p>
+    <p>
+    <strong>Start date:</strong>
+    <%= @event.start_date %>
+    </p>
+    <p>
+    <strong>Start time:</strong>
+    <%= @event.start_time %>
+    </p>
+    <p>
+    <strong>End date:</strong>
+    <%= @event.end_date %>
+    </p>
+    <p>
+    <strong>End time:</strong>
+    <%= @event.end_time %>
+    </p>
+    <p>
+    <strong>Host:</strong>
+    <%= @event.creator.name.capitalize %>
+    </p>
+    <p>
+    <strong>Price:</strong>
+    <%= @event.price %>
+    </p>
+    <% if user_signed_in? %>
+    <%= button_to("Register", register_event_path(@event.id), method: :post, data: current_user) %>
+    <% end %>
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+    <%= link_to 'Back', events_path %>
+  </div>
+</section>

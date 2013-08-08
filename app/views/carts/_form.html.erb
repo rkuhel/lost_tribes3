@@ -13,28 +13,3 @@
 <% end %>
 
 <%= button_to 'Add Beer', line_items_path(beer_id: beer) %>
-
-<div class="cart_title">Your Lost Tribes Cart</div>
-<table>
-  <% for beer in @cart.line_items %>
-    <%= form_for beer do |f| %>
-      <tr>
-        <td>
-          <%= f.submit value: 'Update Qty' %>
-          <%= f.text_field @cart.line_item.quantity %>&times;
-        </td>
-        <td class="item_price"><%= number_to_currency(beer.price) %></td>
-      </tr>
-    <% end %>
-  <% end %>
-  <tr class="total_line">
-    <td colspan="2">Total</td>
-    <td class="total_cell"><%= number_to_currency(@cart.total_up_cart) %></td>
-  </tr>
-</table>
-
-<%= button_to 'Empty cart', @cart, method: :delete,
-    confirm: 'Are you sure?' %>
-
-
-<!-- current_user.current_cart.total_up_cart -->

@@ -14,6 +14,7 @@ gem 'protected_attributes'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'thin'
 gem 'kaminari'
+# gem "activeadmin", git: "https://github.com/gregbell/active_admin"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
