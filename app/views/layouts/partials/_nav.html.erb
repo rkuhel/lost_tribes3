@@ -13,7 +13,7 @@
         <li><a href="/orders/carts/ticket">TICKETS</a></li>
       <% end %>  
       <li>
-        <a href="/users/#{current_user.id}">MY INFO</a>
+        <%= link_to "MY INFO", user_path(current_user) %>
           <ul>
             <li><%= link_to "- VIEW", user_path(current_user) %></li>
             <li><%= link_to "- EDIT", edit_user_path(current_user) %></li>
