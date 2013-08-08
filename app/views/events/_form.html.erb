@@ -19,6 +19,16 @@
     <div class="field"><%= f.text_field :state, placeholder: "State" %></div>
     <div class="field"><%= f.text_field :zip, placeholder: "Zip Code" %></div>
     <div class="field"><%= f.text_field :price, placeholder: "Price" %></div>
+    <% if current_user.role == 'vendor' %>
+      <div class="field hidden">
+        <%= f.label :creator_id %><br>
+        <%= f.number_field :creator_id, value: current_user.id %>
+      </div>
+    <% end %>
+    <% if current_user.role == 'admin' %>
+      <%= f.label :creator_id %>
+      <%= f.select :creator_id, User.where("role != 'customer'").map { |user| [user.name, user.id] }, selected: current_user.id %>
+    <% end %>
   </div>
   <div class="four columns">
     <div class="field"><%= f.text_area :description, rows: 19, placeholder: "Description" %></div>
@@ -58,19 +68,7 @@
         </div>
       </div>
 
-      <div class="three columns">
-        <% if current_user.role == 'vendor' %>
-          <div class="field hidden">
-            <%= f.label :creator_id %><br>
-            <%= f.number_field :creator_id, value: current_user.id %>
-        <% end %>
-        <% if current_user.role == 'admin' %>
-          <%= f.label :creator_id %><br>
-          <%= f.select :creator_id, User.where("role != 'customer'").map { |user| [user.name, user.id] }, selected: current_user.id %>
-        <% end %>
-      </div>
-      
-      <div class="actions", style="margin-top: 20px">
+      <div class="actions", style="margin: 140px 0 0 10px">
         <%= f.submit %>
       </div>
     </div>
