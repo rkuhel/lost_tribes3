@@ -1,35 +1,37 @@
-<ul class="hmenu">
-  
-  <li><a href="/">HOME</a></li>  
-  <li><a href="/store/index">SHOP</a></li>
-  <li><a href="/beers">BEER</a></li> 
-  <li><a href="/events">EVENTS</a></li> 
+<div class="nav-out">
+  <ul class="nav-list">
 
-  <% if user_signed_in? %>
-    <% if current_user.admin? %>
-        <li> <%= link_to "USERS", users_path %></li>
-        <li> <%= link_to "CARTS", carts_path %></li>
-        <li><%= link_to "TICKETS", ticket_carts_path %></li>
-    <% end %>  
-    <li>
-      <%= link_to "#{current_user.name.upcase}", user_path(current_user) %>
-        <ul>
-          <li><%= link_to "#{current_user.name.upcase}", user_path(current_user) %></li>
-          <li><%= link_to "EDIT", edit_user_path(current_user) %></li>
-          <li><a href="/carts/<%=current_cart.id%>">CART</a></li>
-        </ul>
-    </li> 
+    <li><a href="/">HOME</a></li>  
+    <li><a href="/store/index">SHOP</a></li>
+    <li><a href="/beers">BEER</a></li> 
+    <li><a href="/events">EVENTS</a></li> 
 
-  <% else %> 
-    <li><%= link_to "SIGN UP", new_user_registration_path %></li>
-  <% end %>
+    <% if user_signed_in? %>
+      <% if current_user.admin? %>
+          <li> <%= link_to "USERS", users_path %></li>
+          <li> <%= link_to "CARTS", carts_path %></li>
+          <li><%= link_to "TICKETS", ticket_carts_path %></li>
+      <% end %>  
+      <li>
+        <%= link_to "#{current_user.name.upcase}", user_path(current_user) %>
+          <ul>
+            <li><%= link_to "#{current_user.name.upcase}", user_path(current_user) %></li>
+            <li><%= link_to "EDIT", edit_user_path(current_user) %></li>
+            <li><a href="/carts/<%=current_cart.id%>">CART</a></li>
+          </ul>
+      </li> 
 
-  <%= render 'devise/menu/login_items' %>
-</ul>
+    <% else %> 
+      <li><%= link_to "SIGN UP", new_user_registration_path %></li>
+    <% end %>
+
+    <%= render 'devise/menu/login_items' %>
+  </ul>
+</div>
 
 <script type="text/javascript">
   $(document).ready(function(){
 
-      $("<select />").appendTo(".hmenu")
+      $("<select />").appendTo(".nav-out")
   })
 </script>
