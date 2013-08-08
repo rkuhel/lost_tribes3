@@ -1,63 +1,31 @@
-%h1 Listing events
-= link_to 'New Event', new_event_path
-%br/
-%br/
-%br/
-%br/
-%table
-  %thead
-    %tr
-      %th Title
-      %th Description
-      %th Image url
-      %th Street
-      %th Street2
-      %th City
-      %th State
-      %th Zip
-      %th Start date
-      %th Start time
-      %th End date
-      %th End time
-      %th Creator
-      %th Price
-      %th More info
-      %th edit 
-      %th destroy 
-      %th register 
-  %tbody
-    - @events.each do |event|
-      %tr
-        %td= event.title
-        %td= event.description
-        %td
-          %img.event_img{:src => event.image_url}/
-        %td= event.street
-        %td= event.street2
-        %td= event.city
-        %td= event.state
-        %td= event.zip
-        %td= event.start_date
-        %td= event.start_time
-        %td= event.end_date
-        %td= event.end_time
-        %td= event.creator_id
-        %td= event.price
-        %td= link_to 'Show', event
-        - if can? :update, @event
-          %td= link_to 'Edit', edit_event_path(event)
-        - if can? :destroy, @esvent
-          %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
-        - if user_signed_in?
-          %td
-            / =link_to("Register", register_event_path(event.id), method: :post, data: current_user)
-            %button#add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
-%br/
+= paginate @events 
+%body
+  - @events.each do |event|
+    %div.event_item.container
+      .row
+        .six.columns.alpha
+          .info
+            %p.title= event.title
+            %p.start= event.start_date
+            %p.city= event.city
+            %p.street= event.street
+            %p.street2= event.street2
+            %p.state= event.state
+            %p.zip= event.zip
+            %div
+              - if user_signed_in?
+                %button#add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)  
+
+        %div.four.columns
+          %img.event_img{:src => event.image_url}
+        %div.three.columns.omega
+          %p= link_to 'Show', event          
+          %div
+            %p= link_to 'New Event', new_event_path
+            - if can? :update, @event
+              %p= link_to 'Edit', edit_event_path(event)
+          %div
+            - if can? :destroy, @event
+              %p= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+
 
