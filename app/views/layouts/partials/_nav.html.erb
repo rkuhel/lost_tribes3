@@ -10,11 +10,11 @@
 
         <% if user_signed_in? %>
           <li id="nav-right"><%= link_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
-          <li id="nav-right"><%= link_to "MY INFO", user_path(current_user) %>
+          <li id="nav-right"><%= link_to "#{current_user.name.upcase}", user_path(current_user) %>
             <ul id="nav-right">
               <li><%= link_to "VIEW", user_path(current_user) %></li>
               <li><%= link_to "EDIT", edit_user_path(current_user) %></li>
-              <li><a href="/carts/<%=current_cart.id%>">MY CART</a></li>
+              <li><a href="/carts/<%=current_cart.id%>">CART</a></li>
             </ul>
           </li>
           <% if current_user.admin? %>
