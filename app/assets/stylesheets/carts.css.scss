@@ -4,4 +4,16 @@
 #cart_total {
   font-size: 2em;
   font-weight: bold;
+  text-align: center;
+}
+
+.amount {text-align: right;}
+
+table.cart {
+
+th, td { 
+	padding: 10px 10px 10px 10px;
+
+}
+
 }

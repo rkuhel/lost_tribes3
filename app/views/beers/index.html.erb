@@ -8,7 +8,7 @@
 <br>
 <br>
 
-<table>
+<table class="beer_index">
   <thead>
     <tr>
       <th>Title</th>
@@ -26,7 +26,7 @@
       <tr>
         <td><%= beer.title %></td>
         <td><%= beer.description %></td>
-        <td class="beer_tag"><%= image_tag(beer.image_url) %></td>
+        <td class="beer_img"><%= image_tag(beer.image_url) %></td>
         <td><%= beer.price %></td>
         <td><%= link_to 'Show', beer %></td>
         <% if can? :manage, Beer %>
