@@ -5,7 +5,8 @@
   background: black;
   height: 50px;
   width: 100%;
-  // position: absolute;
+  position: fixed;
+  z-index: 999;
 
   select {
     display: none;
@@ -26,6 +27,7 @@
     height: 100%;
     float: left;
     position: relative;
+    // position: absolute;
     border-right: 1px solid gray;
 
     &:nth-child(1) {
