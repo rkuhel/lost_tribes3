@@ -1,21 +1,22 @@
-%h1 Tickets
+%h1 Order
+= paginate @orders 
 %table
 	%thead
-		%th order id
+		%th id
 		%th order processed
 		%th name
 		%th email
 		%th Street
-		%th Street 2
+		%th APT
 		%th city
 		%th state
 		%th zip
 		%th phone
-		%th confirm order was shipped
+		%th confirm shipment
 	%tbody
 		- @orders.each do |order|
 			- if order.shipped == false
-				%tr.order{:'data-order-id' => order.id, style: "background-color: red"}
+				%tr.order{:'data-order-id' => order.id, style: "background-color: grey"}
 					%td= order.id
 					%td= order.created_at
 					%td= order.user.name
@@ -28,7 +29,7 @@
 					%td= order.user.phone
 					%td.mark_shipped= link_to 'confirm order was shipped', '#'
 			- else 
-				%tr.order{:'data-order-id' => order.id, style: "background-color: blue"}
+				%tr.order{:'data-order-id' => order.id, style: "background-color: orange"}
 					%td= order.id
 					%td= order.created_at
 					%td= order.user.name
