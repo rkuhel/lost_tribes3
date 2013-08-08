@@ -1,0 +1,201 @@
+#titlebanner {
+  font-size: 69px;
+}
+
+h3.tribetitles{
+  margin-top: 400px;
+   height: 660px;
+   vertical-align: center;
+}
+
+#smallerlt {
+  font-size: 18px;
+}
+
+#darker{
+  float: left;
+}
+
+#lighter {
+  float: right;
+}
+
+h1 {
+  font-size: 54px;
+  font-family: Tahoma, Verdana, sans-serif; 
+  letter-spacing: .5px;
+  margin-top: 25px;
+}
+
+p {
+  font-family: georgia; 
+  font-size: 22px;
+}
+
+.button {
+  background-color: hsl(0, 69%, 22%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b42121", endColorstr="#5e1111");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#b42121), to(#5e1111));
+  background-image: -moz-linear-gradient(top, #b42121, #5e1111);
+  background-image: -ms-linear-gradient(top, #b42121, #5e1111);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b42121), color-stop(100%, #5e1111));
+  background-image: -webkit-linear-gradient(top, #b42121, #5e1111);
+  background-image: -o-linear-gradient(top, #b42121, #5e1111);
+  background-image: linear-gradient(#b42121, #5e1111);
+  border-color: #5e1111 #5e1111 hsl(0, 69%, 17%);
+}
+
+#map label {
+ width: auto;
+display: inline;
+}
+
+#map img {
+ max-width: none;
+}
+
+#bg1, #bg2, #bg3 {
+  z-index:50;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: url('./../beerbubbles2.png') repeat 0 0;
+}
+
+ #bg2 {
+    z-index:46;
+  background:url('./../beerbubbles3.png') repeat 0 0;
+
+ }
+
+  #bg1 {
+      z-index:42;
+  background:url('./../beerbubbles7.png') repeat 0 0;
+
+  }
+
+
+#navtit {
+  font-family: Tahoma, Verdana, sans-serif;
+ font-weight: lighter;
+ text-decoration: underline;
+}
+
+#fronttitle {
+  font-size: 38px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Georgia serif;
+}
+
+#topimage {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 220px;
+  position: relative;
+  z-index: 9;
+  // top: 50px;
+  box-shadow: 4px 4px 3px #b86301;
+}
+
+#maparea {
+  background:url('./../old_map.jpg') no-repeat center center;
+}
+
+#behindmap{
+  background-color: #ECCEAC;
+}
+
+#smallerlt {
+  color: #111;
+  text-shadow: 2px 2px #222;
+  font-size: 28px;
+  width: 61%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  line-height: 1.3em;
+  // margin-top: 55px;
+  // margin-bottom: 55px;
+  // background: url(./../tiny.png);
+  border: 0px solid #FAD637;
+  // position: absolute;
+  background: url(./../tiny5.png);
+}
+
+#foam2 {
+  // position: relative;
+  // top: -20px;
+  overflow: hidden;
+}
+
+#foam {
+  overflow: hidden;
+}
+#topgraph {
+  color: #4A4747;
+  z-index: 53;
+  line-height: 1.2em;
+}
+
+.darker{
+  float: left;
+}
+
+.lighter {
+  float: right;
+}
+
+.tejpic {
+  float: left;
+}
+
+h1 {
+  font-size: 54px;
+  font-family: Tahoma, Verdana, sans-serif; 
+  letter-spacing: .5px;
+  margin-top: 25px;
+}
+
+.beertitle {
+  font-family: Garamond, serif;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.specialbeers {
+  font-family: georgia; 
+  font-size: 22px;
+}
+
+.bfeatures {
+  border: 1px solid black;
+    clear: both;
+    background: url(./../tiny5.png);
+    padding: 18px;
+    font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+    line-height: 1.55em;
+    box-shadow: 6px 6px 3px #C96401;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p.bfeatures {
+  line-height: 1.3em;
+}
+
+#tejdiv {
+    box-shadow: 6px 6px 3px #C75200;
+}
+
+.black {
+  color: black;
+  background-color: black;
+  z-index: 30;
+}
