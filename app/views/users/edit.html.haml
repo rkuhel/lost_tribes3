@@ -2,29 +2,31 @@
   %h2 Update Your Info:
   %br
   = form_for @user do |f|
-    .three.columns
-      = f.text_field :name, placeholder: "Name"
-      = f.email_field :email, placeholder: "Email Address"
-      = f.text_field :phone, placeholder: "Phone"
-      = f.password_field :password, placeholder: "New Password"
-      = f.password_field :password_confirmation, placeholder: "Confirm New Password"
-    .four.columns
-      = f.text_field :street_address1, placeholder: "Address"
-      = f.text_field :street_address2, placeholder: "Address 2"
-      = f.text_field :city, placeholder: "City"
-      = f.text_field :state, placeholder: "State"
-      = f.text_field :zip_code, placeholder: "Zip Code"
-    .four.columns
-      You must enter your password to update your profile:
-      = f.password_field :current_password, placeholder: "Current Password"
-      %br
+    .thirteen.columns
+      .eight.columns
+        .three.columns
+          = f.text_field :name, placeholder: "Name"
+          = f.email_field :email, placeholder: "Email Address"
+          = f.text_field :phone, placeholder: "Phone"
+          = f.password_field :password, placeholder: "New Password"
+          = f.password_field :password_confirmation, placeholder: "Confirm New Password"
+        .four.columns
+          = f.text_field :street_address1, placeholder: "Address"
+          = f.text_field :street_address2, placeholder: "Address 2"
+          = f.text_field :city, placeholder: "City"
+          = f.text_field :state, placeholder: "State"
+          = f.text_field :zip_code, placeholder: "Zip Code"
+      .four.columns
+        %h4
+          Password Required:
+        = f.password_field :current_password, placeholder: "Current Password"
+        %br
 
-      - if current_user.admin?
-        = f.label :role
-        = f.text_field :role
-      %br
-      = f.submit "Update"
+        - if current_user.admin?
+          = f.label :role
+          = f.text_field :role
+        = f.submit "Update"
 
-      %h5
-        Or, if you really want to:
-      = link_to "Delete Your Account", user_path(@user), method: :delete, confirm: "Are you sure you want to delete your account? All of your past purchases will also be deleted."
+        %h5
+          Or, if you really want to:
+        = link_to "Delete Your Account", user_path(@user), method: :delete, confirm: "Are you sure you want to delete your account? All of your past purchases will also be deleted."
