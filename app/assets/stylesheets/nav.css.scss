@@ -5,76 +5,84 @@
   background: gold;
   height: 50px;
   // position: absolute;
+
+  select {
+    display: none;
+    width: 100%;
+    // margin: 0 auto;
+    height: 30px;
+  }
 }
 
 .nav-list {
   height: 100%;
-}
 
-.nav-list li {
-  display: inline;
-  border: 1px solid black;
-  background: orange;
-  margin: 0px;
-  height: 100%;
-  float: left;
-  position: relative;
-}
+  li {
+    display: inline;
+    border: 1px solid black;
+    background: orange;
+    margin: 0px;
+    height: 100%;
+    float: left;
+    position: relative;
 
-.nav-list li a {
-  display: inline-block;
-  text-decoration: none;
-  padding: 15px 12px;
-}
+    &:hover {
+      ul {
+        height: auto;
+        overflow: auto;
+        opacity: 10;
+        filter: alpha(opacity=100);
+      }
+    }
 
-input {
-  margin: 0 0 5px 0;
-}
+    a {
+      display: inline-block;
+      text-decoration: none;
+      padding: 15px 12px;
 
-.nav-list li a:hover {
-  background: blue;
-}
+      &:hover {
+        background: blue;
+      }
+    }
+  }
 
-.nav-list ul {
-  position: absolute;
-  z-index: 999;
-  background: green;
-  min-width: 100%;
+  ul {
+    position: absolute;
+    z-index: 999;
+    background: green;
+    min-width: 100%;
 
-  -webkit-box-shadow: 5px 5px 7px rgba(0,0,0,0.3);
-  -moz-box-shadow: 5px 5px 7px rgba(0,0,0,0.3);
-  box-shadow: 5px 5px 7px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 5px 5px 7px rgba(0,0,0,0.3);
+    -moz-box-shadow: 5px 5px 7px rgba(0,0,0,0.3);
+    box-shadow: 5px 5px 7px rgba(0,0,0,0.3);
 
-  height: 0px;
-  overflow: hidden;
+    height: 0px;
+    overflow: hidden;
 
-  opacity: 0;
-  filter: alpha(opacity=0);
+    opacity: 0;
+    filter: alpha(opacity=0);
 
-  -webkit-transition: opacity 0.3s ease-out;
-  -moz-transition: opacity 0.3s ease-out;
-  -o-transition: opacity 0.3s ease-out;
-  transition: opacity 0.3s ease-out;
-}
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out;
 
-.nav-list li:hover ul {
-  height: auto;
-  overflow: auto;
+    li {
+      float: none;
+      display: list-item;
+      border-bottom: 2px solid black;
 
-  opacity: 10;
-  filter: alpha(opacity=100);
-}
+      a {
+        display: block;
+        line-height: 30px;
+        text-transform: none;
+      }
 
-.nav-list ul li {
-  float: none;
-  display: list-item;
-  border-bottom: 2px solid black;
-}
-
-.nav-list ul li a {
-  display: block;
-  line-height: 30px;
-  text-transform: none;
+      span {
+        display: none;
+      }
+    }
+  }
 }
 
 .nav-list li:hover > a{
@@ -82,15 +90,9 @@ input {
   color: white;
 }
 
-.nav-out select {
-  display: none;
-  width: 100%;
-  // margin: 0 auto;
-  height: 30px;
+input {
+  margin: 0 0 5px 0;
 }
 
-.nav-list ul li span {
-  display: none;
-}
 
 
