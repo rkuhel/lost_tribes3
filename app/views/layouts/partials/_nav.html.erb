@@ -1,4 +1,15 @@
 <ul class="hmenu">
+  
+  <li><a href="/">HOME</a></li>  
+
+  <li>
+    <a href="/beers">BEER</a>
+  </li> 
+  <li>
+    <a href="/events">EVENTS</a>
+  </li> 
+
+
   <% if user_signed_in? %>
     <li> 
       Signed in as <%="#{current_user.name.upcase}"%>
@@ -29,13 +40,6 @@
       <%= render 'devise/menu/login_items' %> 
 
 
-  <li>
-    <a href="/">home page (store)</a>
-  </li>  
-  <li>
-    <a href="/beers">beer page</a>
-  </li> 
-  <li>
-    <a href="/events">events page</a>
-  </li> 
+  
+  
 </ul>
