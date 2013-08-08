@@ -10,73 +10,68 @@
       </ul>
     </div>
   <% end %>
+  <div class="three columns">
+    <div class="field"><%= f.text_field :title, placeholder: "Title" %></div>
+    <div class="field"><%= f.text_field :image_url, placeholder: "Image URL" %></div>
+    <div class="field"><%= f.text_field :street, placeholder: "Address" %></div>
+    <div class="field"><%= f.text_field :street2, placeholder: "Address 2" %></div>
+    <div class="field"><%= f.text_field :city, placeholder: "City" %></div>
+    <div class="field"><%= f.text_field :state, placeholder: "State" %></div>
+    <div class="field"><%= f.text_field :zip, placeholder: "Zip Code" %></div>
+    <div class="field"><%= f.text_field :price, placeholder: "Price" %></div>
+    <% if current_user.role == 'vendor' %>
+      <div class="field hidden">
+        <%= f.label :creator_id %><br>
+        <%= f.number_field :creator_id, value: current_user.id %>
+      </div>
+    <% end %>
+    <% if current_user.role == 'admin' %>
+      <%= f.label :creator_id %>
+      <%= f.select :creator_id, User.where("role != 'customer'").map { |user| [user.name, user.id] }, selected: current_user.id %>
+    <% end %>
+  </div>
+  <div class="four columns">
+    <div class="field"><%= f.text_area :description, rows: 19, placeholder: "Description" %></div>
+  </div>
+  <div class="eight columns">
+    <div class="seven columns">
+      
+      <div class="six columns">
+        <div class="field select-date">
+          <%= f.label "Date:" %><br>
+          <%= f.date_select :start_date %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field"> 
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
-  </div>
-  <div class="field">
-    <%= f.label :street %><br>
-    <%= f.text_field :street %>
-  </div>
-  <div class="field">
-    <%= f.label :street2 %><br>
-    <%= f.text_field :street2 %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :start_time %><br>
-    <%= f.time_select :start_time %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.date_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_time %><br>
-    <%= f.time_select :end_time %>
-  </div>
+      <div class="six columns">
+        <div class="field">
+          <%= f.label "Time:" %><br>
+          <%= f.time_select :start_time %>
+        </div>
+      </div>
 
-  <% if current_user.role == 'vendor' %>
-    <div class="field hidden">
-      <%= f.label :creator_id %><br>
-      <%= f.number_field :creator_id, value: current_user.id %>
-  <% end %>
+    </div>
 
-  <% if current_user.role == 'admin' %>
-    <%= f.label :creator_id %><br>
-    <%= f.select :creator_id, User.where("role != 'customer'").map { |user| [user.name, user.id] }, selected: current_user.id %>
-  <% end %>
+    <div class="seven columns">
+      
+      <div class="six columns">
+        <div class="field select-date">
+          <%= f.label "End Date:" %><br>
+          <%= f.date_select :end_date %>
+        </div>
+      </div>
+      
+      <div class="six columns">
+        <div class="field">
+          <%= f.label "End Time:" %><br>
+          <%= f.time_select :end_time %>
+        </div>
+      </div>
 
+      <div class="actions", style="margin: 140px 0 0 10px">
+        <%= f.submit %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>  
 <% end %>

@@ -82,7 +82,7 @@ class CartsController < ApplicationController
   def ticket
     # ticket_carts
     @carts = Cart.all
-    @orders = Cart.all.where(current: false)
+    @orders = Cart.all.where(current: false).order("shipped ASC").page(params[:page]).per(5)
   end
 
   def mark_shipped

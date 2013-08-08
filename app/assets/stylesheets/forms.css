@@ -1,0 +1,39 @@
+#user_role {
+  margin: 0 auto;
+}
+
+#user-submit {
+  height: 40px;
+  width: 40px;
+}
+
+#rememberable {
+  float: left;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+#user-sign-up {
+  margin-left: 80px;
+}
+
+.beer-info {
+  margin-left: 80px;
+}
+
+.select-date select {
+  float: left;
+  margin: -10px 10px 10px 0;
+  width: 100px;
+}
+
+#event_start_time_4i,#event_end_time_4i {
+  float: left;
+  margin: 0 7px 10px 0;
+  width: 100px;
+}
+
+#event_start_time_5i,#event_end_time_5i {
+  margin: -18px 10px 10px 121px;
+  width: 100px;
+}

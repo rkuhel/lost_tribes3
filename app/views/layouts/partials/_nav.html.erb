@@ -1,41 +1,56 @@
-<ul class="hmenu">
-  <% if user_signed_in? %>
-    <li> 
-      Signed in as <%="#{current_user.name.upcase}"%>
-    </li> 
+<div class="nav-out">
+  <ul class="nav-list">
 
-    <li>
-      <%= link_to "My Page", user_path(current_user) %>
-    </li> 
+    <li><a href="/">HOME</a></li>  
+    <li><a href="/store/index">SHOP</a></li>
+    <li><a href="/beers">BEER</a></li> 
+    <li><a href="/events">EVENTS</a></li> 
 
+    <% if user_signed_in? %>
       <% if current_user.admin? %>
-        <li> <%= link_to "Users", users_path %></li>
-        <li> <%= link_to "Carts", carts_path %></li>
-        <li><%= link_to "Tickets", ticket_carts_path %></li>
-      <% end %>
+        <li><a href="/users">USERS</a></li>
+        <li><a href="/carts">CARTS</a></li>
+        <li><a href="/orders/carts/ticket">TICKETS</a></li>
+      <% end %>  
+      <li>
+        <%= link_to "MY INFO", user_path(current_user) %>
+          <ul>
+            <li><%= link_to "- VIEW", user_path(current_user) %></li>
+            <li><%= link_to "- EDIT", edit_user_path(current_user) %></li>
+            <li><a href="/carts/<%=current_cart.id%>"><span>- </span>MY CART</a></li>
+          </ul>
+      </li> 
 
-    <li>
-      <a href="/carts/<%=current_cart.id%>">My Cart</a>
-    </li>
+    <% else %> 
+      <li><a href="users/sign_up">SIGN UP</a></li>
+    <% end %>
 
-    <li>
-      <%= link_to "Edit My Profile", edit_user_path(current_user) %>
-    </li> 
-  <% else %> 
-    <li>
-      <%= link_to "Sign Up", new_user_registration_path %>
-    </li>
-  <% end %>
-      <%= render 'devise/menu/login_items' %> 
+    <%= render 'devise/menu/login_items' %>
+  </ul>
+</div>
 
+<script type="text/javascript">
+  $(document).ready(function(){
 
-  <li>
-    <a href="/">home page (store)</a>
-  </li>  
-  <li>
-    <a href="/beers">beer page</a>
-  </li> 
-  <li>
-    <a href="/events">events page</a>
-  </li> 
-</ul>
+      $("<select />").prependTo(".nav-out")
+
+      $("<option />", {
+        "selected": "selected",
+        "value"   : "",
+        "text"    : "Go to..."
+      }).appendTo(".nav-out select");
+
+      $(".nav-list li a").each(function() {
+        var el = $(this);
+        $("<option />", {
+          "value" : el.attr("href"),
+          "text"  : el.text()
+        }).appendTo(".nav-out select");
+      })
+
+      $('.nav-out select').change(function() {
+        window.location = $(this).find("option:selected").val();
+      })
+
+  })
+</script>

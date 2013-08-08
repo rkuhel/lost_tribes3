@@ -10,7 +10,9 @@ function mark_shipped(e){
   	url: '/carts/'+order_id+'/mark_shipped',
   	success: function(data){
   		console.log("order passed to user controller. it worked..")
-  		order_row.css('background-color', 'blue')
+  		order_row.css('background-color', 'orange')
+      order_row.children('.mark_shipped').text('shipped!')
+
   		console.log(data)
   	}
   })
