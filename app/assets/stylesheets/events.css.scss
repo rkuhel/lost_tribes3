@@ -1,3 +1,7 @@
+@import url(http://fonts.googleapis.com/css?family=Londrina+Shadow);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+
 .new {
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -15,6 +19,13 @@
 .event_item{
 	margin-top: 10px;
 	height: 300px;
+	opacity: .85;
+background-image: linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
+background-image: -o-linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
+background-image: -moz-linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
+background-image: -webkit-linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
+background-image: -ms-linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
+
 }
 .event_item:hover {
 	opacity: 1;
@@ -22,6 +33,7 @@
 	-moz-transform: scale(1.01);
 	-o-transform: scale(1.01);
 	transform: scale(1.01);
+	opacity: 1;
 }
 .event_item:nth-child(odd) {
 	background-color: #FF9933;
@@ -30,16 +42,27 @@
 	background-color:#E8E8E8; 	
 }
 .title {
-	font-size: 34px;
-	font-family: Georgia;
+	font-family: 'Londrina Shadow', cursive;
+	font-size: 40px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	padding:10px 0 10px 0; 
+	padding: 0 0 15px 0;
+	margin: 0;
 }
-.start, .street, .desc, #add-to-user,p #add-to-user{
+p.start {
+	margin-top: 5px;
+}
+.start, .street, .desc, #add-to-user{
+	font-family: 'Droid Sans', sans-serif;
      clear: both;
-     font-family: helvetica;
+  
      font-size: 14px;
+}
+#add-to-user{
+	text-decoration: none;
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 24px;
+	color: aqua;
 }
 .street {
 	padding: 0 10px 0 0; 

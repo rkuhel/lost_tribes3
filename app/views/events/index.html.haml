@@ -13,9 +13,8 @@
               %p.title= event.title
               %p.start= event.start_date
               %p.desc= event.description
-              %div
-                - if user_signed_in?
-                  %button#add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)  
+              - if user_signed_in?
+                #add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)  
             .six.columns
               %img.event_img{:src => event.image_url}      
               %div.nav
