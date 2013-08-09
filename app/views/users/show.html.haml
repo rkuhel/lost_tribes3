@@ -5,10 +5,8 @@
       %h4
         =link_to 'Edit', edit_user_path(@user)
         Your Info
+.twelve.columns#attended-events
+  = render partial: "users/partials/attending"
 
-
-    .ten.columns.alpha#created-events
-      = render partial: "users/partials/attending"
-
-    .four.columns.omegaattending-events
-      = render partial: "users/partials/created"
+.twelve.columns.omega#created-events
+  = render partial: "users/partials/created" 
