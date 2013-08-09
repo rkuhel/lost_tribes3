@@ -1,6 +1,10 @@
-.beer table {
-	td {
-		padding: 10px 10px 10px 10px;
+.beer_index {
+	table {
+	tr {border: solid 1px;}
+	tr:nth-child(odd) {background-color: orange;}
+	th,td{border: solid 1px; padding: 10px 10px 10px 10px;}
+	img{width: 100px; height: 100px;}
+	margin-bottom: 100px;
 	}
-	img_tag { width: 100px; height: 100px;}
+
 }
