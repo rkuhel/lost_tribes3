@@ -38,7 +38,13 @@
 
     &:hover {
 
-
+    &:active {
+      background: white;
+      border: 2px solid white;
+      -moz-box-shadow: inset 0 0 6px 3px #1657b5, 0 1px 0 0 #fff;
+      -webkit-box-shadow: inset 0 0 6px 3px #1657b5, 0 1px 0 0 #fff;
+      text-shadow: 0 -1px 1px #2361a4;
+    }
 
       ul {
         height: auto;
