@@ -1,4 +1,10 @@
-
+.notice {
+  background: green;
+  color: white;
+  font-weight: bold;
+  font-size: 1.8em;
+  text-align: center;
+}
 
 nav#top1.top-bar {  margin-bottom: 0px; }
 
@@ -60,14 +66,14 @@ h3.tribetitles{
 
 h1 {
   font-size: 54px;
-  font-family: Tahoma, Verdana, sans-serif; 
+  font-family: Georgia, Verdana, sans-serif; 
   letter-spacing: .5px;
   margin-top: 25px;
 }
 
 p {
-  font-family: georgia; 
-  font-size: 22px;
+  font-family: "HelveticaNeue"; 
+  font-size: 16px;
 }
 
 .button {
@@ -116,7 +122,7 @@ display: inline;
 
 
 #navtit {
-  font-family: Tahoma, Verdana, sans-serif;
+  font-family: Georgia, Verdana, sans-serif;
  font-weight: lighter;
  text-decoration: underline;
 }
@@ -195,7 +201,7 @@ display: inline;
 
 h1 {
   font-size: 54px;
-  font-family: Tahoma, Verdana, sans-serif; 
+  font-family: Georgia  , Verdana, sans-serif; 
   letter-spacing: .5px;
   margin-top: 25px;
 }
@@ -207,7 +213,7 @@ h1 {
 }
 
 .specialbeers {
-  font-family: georgia; 
+  font-family: "HelveticaNeue"; 
   font-size: 22px;
 }
 
