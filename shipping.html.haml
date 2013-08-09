@@ -1,28 +1,30 @@
-%h2 Shipping Information:
-%br
-%br
-= form_for @user do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.label :email
-  = f.email_field :email 
-  = f.label :phone
-  = f.text_field :phone
-  = f.label :street_address1
-  = f.text_field :street_address1
-  = f.label :street_address2 
-  = f.text_field :street_address2
-  = f.label :city
-  = f.text_field :city
-  = f.label :state
-  = f.text_field :state
-  = f.label :zip_code
-  = f.text_field :zip_code
-  %br
-  = f.submit "Update Address"
-= link_to "Continue to Checkout", billing_carts_path
-%br
-%br
-%br
-/ stringify keys error
+.container
+  .sixteen.columns
+    %h2 Shipping Information:
+    %br
+    %br
+    = form_for @user do |f|
+      = f.label :name
+      = f.text_field :name
+      = f.label :email
+      = f.email_field :email 
+      = f.label :phone
+      = f.text_field :phone
+      = f.label :street_address1
+      = f.text_field :street_address1
+      = f.label :street_address2 
+      = f.text_field :street_address2
+      = f.label :city
+      = f.text_field :city
+      = f.label :state
+      = f.text_field :state
+      = f.label :zip_code
+      = f.text_field :zip_code
+      %br
+      = f.submit "Update Address"
+    = link_to "Continue to Checkout", billing_carts_path
+    %br
+    %br
+    %br
+    / stringify keys error
 

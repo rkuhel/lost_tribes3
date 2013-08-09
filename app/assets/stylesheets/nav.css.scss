@@ -20,6 +20,7 @@
 .nav-list {
   height: 100%;
 
+
   li {
     display: inline;
     border: 1px solid black;
@@ -31,6 +32,7 @@
     // position: absolute;
     border-right: 1px solid gray;
     border-left: 1px solid gray;
+
 
     &:nth-child(1) {
       border-left: 2px solid gray;

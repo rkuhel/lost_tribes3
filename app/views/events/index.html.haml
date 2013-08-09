@@ -1,7 +1,7 @@
 .container
   .sixteen.columns
-  - if can? :create, @event 
-    %h4.new= link_to 'New Event', new_event_path
+    - if can? :create, @event 
+      %h4.new= link_to 'New Event', new_event_path
     %br
     %h4= paginate @events 
     %br

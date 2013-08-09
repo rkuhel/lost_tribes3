@@ -85,3 +85,17 @@ div .info {
 	padding: 5px 5px 0 0;
 	text-decoration: none;
 }
+
+#attended-events,#created-events {
+	width: 100%;
+	// background: orange;	
+	margin: 10px;
+}
+
+.attending,.created{
+	padding: 15px;
+	color: blue;
+	background: orange;
+	border: 2px solid black;
+	margin-top: 10px;
+}
