@@ -1,6 +1,6 @@
 <section class='container'>
   <div class='sixteen columns'>
-    <h1>Listing beers</h1>
+    <h1>Inventory</h1>
     <% if can? :manage, Beer %>
     <%= link_to 'New Beer', new_beer_path %>
     <% end %>
@@ -15,7 +15,6 @@
           <th>Description</th>
           <th>Image url</th>
           <th>Price</th>
-          <th></th>
           <th></th>
           <th></th>
         </tr>
