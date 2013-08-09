@@ -8,8 +8,8 @@
   %body{style: "margin-top: -0px"}
     .none{style: " margin-bottom: -20px;"}
       = render partial: "layouts/partials/nav"
-    %p.notice= notice
-    %p.alert= alert
+    #notice= notice
+    .alert= alert
     .section
       = yield
 

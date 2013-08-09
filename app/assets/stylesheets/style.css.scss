@@ -1,9 +1,12 @@
-.notice {
-  background: green;
+#notice {
+  background: rgba(0, 118, 0, 0.7);
   color: white;
   font-weight: bold;
   font-size: 1.8em;
   text-align: center;
+  line-height: 40px;
+  margin: 20px 0 0px 0  !important;
+  padding: 10px 0 -1px 0;
 }
 
 nav#top1.top-bar {  margin-bottom: 0px; }
