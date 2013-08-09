@@ -20,11 +20,12 @@
 	margin-top: 10px;
 	height: 300px;
 	opacity: .85;
-background-image: linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
-background-image: -o-linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
-background-image: -moz-linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
-background-image: -webkit-linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
-background-image: -ms-linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
+	background-image: linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
+	background-image: -o-linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
+	background-image: -moz-linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
+	background-image: -webkit-linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
+	background-image: -ms-linear-gradient(bottom, rgb(194,103,43) 19%, rgb(235,208,70) 68%, rgb(237,187,38) 84%);
+	border-radius: 5px;
 
 }
 .event_item:hover {
