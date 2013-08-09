@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: lost_tribes_3_development
   pool: 5
-  username: michaelreinhart
+  username: ryankuhel
   password:
   host: localhost
 
@@ -12,7 +12,7 @@ test:
   encoding: unicode
   database: lost_tribes_3_test
   pool: 5
-  username: michaelreinhart
+  username: ryankuhel
   password:
   host: localhost
 
@@ -21,6 +21,6 @@ production:
   adapter: postgresql
   encoding: unicode
   database: lost_tribes_3_production
-  username: michaelreinhart
+  username: ryankuhel
   password:
   host: localhost
