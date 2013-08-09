@@ -258,14 +258,13 @@ p.bfeatures {
 }
 
 }
+#mainsail {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgb(243, 141, 0)', endColorstr='rgb(200, 99, 0)'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(243, 141, 0)), to(rgb(200, 99, 0))); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  rgb(243, 141, 0),  rgb(200, 99, 0)); /* for firefox 3.6+ */
+  z-index: 40;
+  height: auto !important; 
+ height:100%
+}
 
-
-// #mainsail {
-//   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgb(243, 141, 0)', endColorstr='rgb(200, 99, 0)'); /* for IE */
-//   background: -webkit-gradient(linear, left top, left bottom, from(rgb(243, 141, 0)), to(rgb(200, 99, 0))); /* for webkit browsers */
-//   background: -moz-linear-gradient(top,  rgb(243, 141, 0),  rgb(200, 99, 0)); /* for firefox 3.6+ */
-//   z-index: 40;
-//   height: auto !important; 
-//  height:100%
-// }
 

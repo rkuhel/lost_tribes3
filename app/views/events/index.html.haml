@@ -1,31 +1,35 @@
 .container
   .sixteen.columns
-    = paginate @events 
-    .new_event= link_to 'New Event', new_event_path
+  - if can? :create, @event 
+    %h4.new= link_to 'New Event', new_event_path
+    %br
+    %h4= paginate @events 
+    %br
     - @events.each do |event|
-      .row
-        %div.event_item.container
-          .info.six.columns.alpha
-            %p.title= event.title
-            %p.start= event.start_date
-            %p.desc= event.description
-            %div
-              - if user_signed_in?
-                %button#add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)  
-          .four.columns
-            %img.event_img{:src => event.image_url}      
-            %div.nav
-              - if can? :update, @event
-                = link_to 'Edit', edit_event_path(event)
-              - if can? :destroy, @event
-                = link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
-                = link_to 'Show', event 
-          .location.four.columns.omega
-            .city= event.city
-            .street= event.street
-            .street2= event.street2
-            .state= event.state
-            .zip= event.zip
+      .container
+        .row
+          .event_item
+            .info.six.columns.alpha
+              %p.title= event.title
+              %p.start= event.start_date
+              %p.desc= event.description
+              %div
+                - if user_signed_in?
+                  %button#add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)  
+            .six.columns
+              %img.event_img{:src => event.image_url}      
+              %div.nav
+                - if can? :update, @event
+                  = link_to 'Edit', edit_event_path(event)
+                - if can? :destroy, @event
+                  = link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+                  = link_to 'Show', event 
+            %div.location.three.columns.omega
+              .city= event.city
+              .street= event.street
+              .street2= event.street2
+              .state= event.state
+              .zip= event.zip
 
 
 

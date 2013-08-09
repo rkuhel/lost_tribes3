@@ -40,10 +40,10 @@ FactoryGirl.define do
     role "admin"
   end
 
-  factory :invalid_user, class: User do
-    name nil
-    email nil
-  end
+  # factory :invalid_user, class: User do
+  #   name nil
+  #   email nil
+  # end
   factory :updated_user, class: User do
     name 'my updated name'
     email 'my_updated@email.com'
