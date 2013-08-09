@@ -30,7 +30,7 @@
           <td> &nbsp; &times; <%= li.quantity  %> quantity  </td>
           <td><%= button_to '+', add_line_item_path(li), :method=>:patch %></td>
           <td><%= button_to '-', subtract_line_item_path(li), :method=>:patch %></td>
-          <td><%= button_to 'Remove All', line_item_path(li), :method=>:delete %></td>
+          <td><%= button_to 'Delete', line_item_path(li), :method=>:delete %></td>
         </tr>
         <% end %>
         <% end %>
@@ -45,6 +45,7 @@
       <span id="cart_total">Cart Total: $<%= current_user.current_cart.total_up_cart %> | <%= link_to 'Checkout', shipping_carts_path %>
       </span>
     </label>
+<<<<<<< HEAD
     </article>
     <br />
     <br />
@@ -53,3 +54,11 @@
     <%= link_to 'Back', carts_path %>
   </div>
 </section>
+=======
+  </article>
+<br />
+<br />
+
+<% end %>
+
+>>>>>>> 5c20441903dd0587b5af99c529980a6bec1d9cf1

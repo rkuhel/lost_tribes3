@@ -36,7 +36,8 @@ class ChargesController < ApplicationController
       :currency    => 'usd'
     )
 
-    redirect_to beers_path
+    flash[:notice] = "Your order was successfully processed. Thank you for your purchase!"
+    redirect_to user_path(current_user)
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
