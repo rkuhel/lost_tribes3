@@ -1,7 +1,7 @@
 <div class="container">
   <div clacc="sixteen columns">
   <%= form_tag charges_path do %>
-    <article>
+    <article class="six columns">
       <label class="amount">
         <span id="cart_total">Cart Total: $<%= current_user.current_cart.total_up_cart %>
         </span>
@@ -10,12 +10,13 @@
 
     <br />
     <br />
-
-    <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-description="A month's subscription"
-            data-amount="<%= current_user.current_cart.total_up_cart*100 %>">
-    </script>
+    <div class="six columns">
+      <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="A month's subscription"
+              data-amount="<%= current_user.current_cart.total_up_cart*100 %>">
+      </script>
+    </div>
   <% end %>
   </div>
 </div>
