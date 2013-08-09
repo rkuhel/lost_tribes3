@@ -8,9 +8,6 @@
 
 nav#top1.top-bar {  margin-bottom: 0px; }
 
-#box1 { /*background-color: #421F28;*/
-height: 770px;
-}
 
 #sliders{
   height: 600px;
@@ -24,9 +21,6 @@ height: 770px;
 
 .sub-nav:hover { color: red; }
 
-div#data-magellan-expedition {
-  box-shadow: 10px 10px 5px #888888; 
-}
 
 i { color: black;}
 
@@ -142,34 +136,7 @@ display: inline;
   position: relative;
   z-index: 9;
   // top: 50px;
-  box-shadow: 4px 4px 3px #b86301;
-}
-
-#maparea {
-  background:url('./../old_map.jpg') no-repeat center center;
-}
-
-#behindmap{
-  background-color: #ECCEAC;
-}
-
-#smallerlt {
-  color: #111;
-  text-shadow: 2px 2px #222;
-  font-size: 28px;
-  width: 61%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 25px;
-  font-family: Georgia, serif;
-  font-weight: bold;
-  line-height: 1.3em;
-  // margin-top: 55px;
-  // margin-bottom: 55px;
-  // background: url(./../tiny.png);
-  border: 0px solid #FAD637;
-  // position: absolute;
-  background: url(./../tiny5.png);
+  // box-shadow: 4px 4px 3px #b86301;
 }
 
 #foam2 {
@@ -238,11 +205,6 @@ p.bfeatures {
     box-shadow: 6px 6px 3px #C75200;
 }
 
-.black {
-  color: black;
-  background-color: black;
-  z-index: 30;
-}
 /* Landscape phone to portrait tablet */
 @media (min-width: 481px) and (max-width: 767px)  {
 #topimage {
@@ -252,9 +214,7 @@ p.bfeatures {
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
-#topimage {
-  margin-top: 50px;
- }
+
  .darker.lighter.tejpic{
   size: 60%;
   display: block;
@@ -262,14 +222,79 @@ p.bfeatures {
   margin-left: auto;
    max-width: 80%;
 }
+}
+
+.black {
+  color: black;
+  background-color: black;
+  z-index: 30;
+  margin-bottom:-18px;
+}
+
+#box1 { /*background-color: #421F28;*/
+height: auto;
+}
+
+#smallerlt {
+  color: #111;
+  font-size: 28px;
+  width: 61%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  line-height: 1.3em;
+  // margin-top: 55px;
+  // margin-bottom: 55px;
+  // background: url(./../tiny.png);
+  border: 0px solid #FAD637;
+  // position: absolute;
+  // background: url(./../tiny5.png);
+  text-align: center;
+}
+
+#behindmap{
+  background-color: #ECCEAC;
+    margin-top: -20px;
+    margin-bottom: -18px;
+}
+
+#maparea {
+  background:url('./../old_map.jpg') no-repeat center center;
+  height: 360px;
+}
+
+#topimage {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 98px;
+  position: relative;
+  z-index: 9;
+}
+
+#foam_div {
+height: 15em;
+background: url('./../longfoam.png') repeat-x;
+}
+
+#foam_div.top_foam {
+  position: relative;
+  // top: 50px;
+}
+
+.bottom_foam {
 
 }
+
 #mainsail {
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgb(243, 141, 0)', endColorstr='rgb(200, 99, 0)'); /* for IE */
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(243, 141, 0)), to(rgb(200, 99, 0))); /* for webkit browsers */
-  background: -moz-linear-gradient(top,  rgb(243, 141, 0),  rgb(200, 99, 0)); /* for firefox 3.6+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgb(253, 174, 48)', endColorstr='rgb(200, 99, 0)'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(253, 174, 48)), to(rgb(200, 99, 0))); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  rgb(253, 174, 48),  rgb(200, 99, 0)); /* for firefox 3.6+ */
   z-index: 40;
   height: auto !important; 
- height:100%
+ height:100%;
 }
+
 
