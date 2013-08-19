@@ -1,11 +1,12 @@
 .container
-  .sixteen.columns
+  .fourteen.columns
+    %h4#edit-user
+      =link_to 'Edit', edit_user_path(@user)
+      Your Info
     %h2
       Hi, #{@user.name.capitalize}! 
-      %h4
-        =link_to 'Edit', edit_user_path(@user)
-        Your Info
-    .twelve.columns#attended-events
+  .sixteen.columns
+    .twelve.columns#attending-events
       = render partial: "users/partials/attending"
 
     .twelve.columns.omega#created-events

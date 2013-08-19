@@ -1,11 +1,15 @@
 .attending {
-	margin-top: 10px;
+	margin-top: 20px;
 	border: solid 1px;
 }
 .created {
 	margin-top: 10px;
 	border: solid 1px;
 
+}
+
+#edit-user{
+	float: right;
 }
 
 .attending:nth-child(even) {

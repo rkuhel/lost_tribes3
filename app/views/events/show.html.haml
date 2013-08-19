@@ -6,11 +6,12 @@
       %span{style: "font-weight: bold"}When: 
       #{@event.start_date.strftime("%A, %B %d, %Y")} at #{@event.start_time.strftime("%I:%M %p")}
       %br
-      %span{style: "font-weight: bold"}Till: 
-      - if @event.start_date == @event.end_date
-        #{@event.end_time.strftime("%I:%M %p")}
-      -else
-        #{@event.end_date.strftime("%A, %B %d, %Y")} at #{@event.end_time.strftime("%I:%M %p")}
+      - if @event.end_date
+        %span{style: "font-weight: bold"}Till: 
+        - if @event.start_date == @event.end_date
+          #{@event.end_time.strftime("%I:%M %p")}
+        -else
+          #{@event.end_date.strftime("%A, %B %d, %Y")} at #{@event.end_time.strftime("%I:%M %p")}
       %br
       %br
       %span{style: "font-weight: bold"}Details:
