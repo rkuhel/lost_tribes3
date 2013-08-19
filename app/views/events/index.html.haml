@@ -9,11 +9,15 @@
       .container
         .row
           .event_item
-            .info.six.columns.alpha
+            .info.five.columns.alpha
               %p.title= event.title
-              %p.start= event.start_date
+              %p.start= event.start_date.asctime
               %p.desc= event.description
-              %p= number_to_currency(event.price)
+              %p
+                - if number_to_currency(event.price) != "$0.00"
+                  = number_to_currency(event.price)
+                - else
+                  = "Free!"
               - if user_signed_in?
                 #add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)  
             .six.columns
@@ -24,12 +28,10 @@
                 - if can? :destroy, @event
                   = link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
                   = link_to 'Show', event 
-            %div.location.three.columns.omega
-              .city= event.city
-              .street= event.street
-              .street2= event.street2
-              .state= event.state
-              .zip= event.zip
+            %div.location.four.columns.omega
+              = "#{event.street} #{event.street2}"
+              %br
+              = "#{event.city}, #{event.state} #{event.zip}"
 
 
 
