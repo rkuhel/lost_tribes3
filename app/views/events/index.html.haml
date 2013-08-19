@@ -10,7 +10,7 @@
         .row
           .event_item
             .info.five.columns.alpha
-              %p.title= event.title
+              %p.title= link_to "#{event.title}", event_path(event)
               %p.start= event.start_date.asctime
               %p.desc= event.description
               %p
@@ -18,8 +18,7 @@
                   = number_to_currency(event.price)
                 - else
                   = "Free!"
-              - if user_signed_in?
-                #add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)  
+              #add-to-user=link_to("Register", register_event_path(event.id), method: :post, data: current_user)  
             .six.columns
               %img.event_img{:src => event.image_url}      
               %div.nav

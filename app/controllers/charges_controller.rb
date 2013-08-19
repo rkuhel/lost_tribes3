@@ -1,12 +1,6 @@
 class ChargesController < ApplicationController
-  # should be unnecessary
-  # def new
-  # end
 
   def create
-    # current_user.current_cart.current = false 
-    # current_user.save!
-
     old_cart_id = current_user.current_cart.id
     old_cart = current_user.carts.find(old_cart_id)
     old_cart.current = false
@@ -16,7 +10,6 @@ class ChargesController < ApplicationController
     #email is .delivered to user and admin
     # OrderNotifier.order_confirmation(current_user).deliver 
 
-    #
     current_user.carts.push(Cart.new)
 
     # Amount in cents
