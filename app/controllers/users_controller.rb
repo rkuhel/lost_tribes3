@@ -20,15 +20,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
   end
 
   def edit
-    # @user = User.find(params[:id])
   end
 
   def update
-    # @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       sign_in(current_user, :bypass => true)
       flash[:notice] = "Account Updated!"
@@ -41,7 +38,6 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    # render json: @user
     if current_user.admin?
       redirect_to users_path
     else
@@ -50,11 +46,9 @@ class UsersController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def user_params
-    params.require(:user).permit(:role, :name, :email, :zip_code, :phone, 
-      :street_address1, :street_address2, :city, :state, :admin, :password, 
-      :password_confirmation)
-  end
+    def user_params
+      params.require(:user).permit(:role, :name, :email, :zip_code, :phone, 
+        :street_address1, :street_address2, :city, :state, :admin, :password, 
+        :password_confirmation)
+    end
 end

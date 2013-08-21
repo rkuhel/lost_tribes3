@@ -1,11 +1,15 @@
 .attending {
-	margin-top: 10px;
+	margin-top: 20px;
 	border: solid 1px;
 }
 .created {
 	margin-top: 10px;
 	border: solid 1px;
 
+}
+
+#edit-user{
+	float: right;
 }
 
 .attending:nth-child(even) {
@@ -36,3 +40,21 @@
 
 }
 
+#edit-submit {
+	margin: -30px 0 15px 0;
+}
+
+.user-table{
+	th {
+		padding: 10px;	
+		text-align: center;
+		border-bottom: 3px solid black;
+		border-top: 3px solid black;
+	}
+
+	td {
+		border-bottom: 1px dashed black;
+		padding: 10px 0 5px 0;
+		text-align: center;
+	}
+}

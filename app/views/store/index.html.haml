@@ -1,9 +1,12 @@
-%h1 Our Collection
-- @beers.each do |beer|
-  .entry
-    %h3= beer.title
-    = image_tag(beer.image_url)
-    %p= sanitize(beer.description)
-    .price_line
-      %span.price= number_to_currency(beer.price)
-      = button_to 'Add to Cart', line_items_path(beer_id: beer)
+%section.container
+  .sixteen.columns
+    .store
+      %h1 Beer Store! Is this illegal?
+      - @beers.each do |beer|
+        .entry
+          %h3= beer.title
+          = image_tag(beer.image_url)
+          %p= sanitize(beer.description)
+          .price_line
+            %span.price= number_to_currency(beer.price)
+            = button_to 'Add to Cart', line_items_path(beer_id: beer)

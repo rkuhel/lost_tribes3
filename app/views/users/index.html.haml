@@ -1,8 +1,10 @@
 .container
-  .sixteen.columns
+  .fourteen.columns
+    %h1{style: "text-align: center; margin-bottom: 40px"}
+      Users
     %table
       %thead
-        %tr
+        %tr.user-table
           %th Name
           %th Email
           %th Phone Number
@@ -10,12 +12,13 @@
           %th Address 2
           %th City
           %th State
-          %th Zip 
+          %th Zip
+          %th Show
           %th Edit
           %th Delete
       %tbody
         - @users.each do |user|
-          %tr{:'data-user-id' => user.id}
+          %tr.user-table{:'data-user-id' => user.id}
             %td
               = user.name
             %td
@@ -32,6 +35,8 @@
               = user.state
             %td
               = user.zip_code
+            %td 
+              = link_to 'Show', user_path(user)
             %td
               = link_to 'Edit', "#", class: "edit-user-button"
             %td

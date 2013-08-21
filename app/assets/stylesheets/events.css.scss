@@ -49,6 +49,7 @@
 	text-transform: uppercase;
 	padding: 0 0 15px 0;
 	margin: 0;
+	text-decoration: none;
 }
 p.start {
 	margin-top: 5px;
@@ -70,7 +71,7 @@ p.start {
 	margin: 0;
 }
 div .location {
-	padding-left: 20px;
+	// padding-left: 20px;
 	padding-top: 50px;
 }
 div .info {
@@ -87,7 +88,7 @@ div .info {
 	text-decoration: none;
 }
 
-#attended-events,#created-events {
+#attending-events,#created-events {
 	width: 100%;
 	// background: orange;	
 	margin: 10px;
@@ -99,4 +100,8 @@ div .info {
 	background: orange;
 	border: 2px solid black;
 	margin-top: 10px;
+}
+
+.hidden {
+	display: none;
 }

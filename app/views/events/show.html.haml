@@ -1,0 +1,44 @@
+.container
+  .sixteen.columns
+    .six.columns
+      %h1 #{@event.title}
+      %br
+      %span{style: "font-weight: bold"}When: 
+      #{@event.start_date.strftime("%A, %B %d, %Y")} at #{@event.start_time.strftime("%I:%M %p")}
+      %br
+      - if @event.end_date
+        %span{style: "font-weight: bold"}Till: 
+        - if @event.start_date == @event.end_date
+          #{@event.end_time.strftime("%I:%M %p")}
+        -else
+          #{@event.end_date.strftime("%A, %B %d, %Y")} at #{@event.end_time.strftime("%I:%M %p")}
+      %br
+      %br
+      %span{style: "font-weight: bold"}Details:
+      #{@event.description}
+      %br
+      %br
+      %span{style: "font-weight: bold"}Where:
+      #{@event.street} #{@event.street2}
+      %br
+      #{@event.city}, #{@event.state} #{@event.zip}
+      - if current_user && current_user.admin?
+        %br
+        #{@event.creator.name.capitalize}
+      %br
+      %br
+      %span{style: "font-weight: bold"}Fee:
+      = number_to_currency("#{@event.price}") 
+      %br
+      %br
+      - if current_user && current_user.events.include?(@event)
+        = "You're going!"
+        / = link_to("Cancel Your Attendance", remove_event_path(@event), confirm: "Are you sure you don\'t want to attend #{@event.title} anymore?", method: :patch, remote: true)
+      -else
+        = button_to("Register to Attend", register_event_path(@event.id), method: :post, data: current_user)
+      %br
+      %br
+      = link_to "Edit", edit_event_path(@event)
+      = link_to "Events", events_path
+    .six.columns
+      = image_tag(@event.image_url)

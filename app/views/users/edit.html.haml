@@ -24,9 +24,11 @@
         - if current_user.admin?
           = f.label :role
           = f.text_field :role
+          %br
         %br
 
-        = f.submit "Update"
+        #edit-submit
+          = f.submit "Update"
 
         %h5
           Or, if you really want to:
