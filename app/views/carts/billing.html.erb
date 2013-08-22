@@ -1,22 +1,56 @@
 <div class="container">
-  <div clacc="sixteen columns">
-  <%= form_tag charges_path do %>
-    <article class="six columns">
-      <label class="amount">
-        <span id="cart_total">Cart Total: $<%= current_user.current_cart.total_up_cart %>
-        </span>
-      </label>
-    </article>
+  <div class='sixteen columns'>
+    <h1>Checkout:</h1>
+    <div class="eight columns final-cart">
+      <tbody>
+        <% current_user.current_cart.line_items.order(:created_at).each do |li| %>
+          <% if li.beer_id == nil %>
+            <% li.event_id %>
+            <% event = Event.find li.event_id %>
+            <p id='item'><tr>
+              <td> <%= number_to_currency(event.price * li.quantity) %> </td>
+              <!-- <td> <%= li.quantity  %></td> -->
+              <td> - <%= event.title %> </td>
+            </tr></p>
 
-    <br />
-    <br />
-    <div class="six columns">
-      <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-description="A month's subscription"
-              data-amount="<%= current_user.current_cart.total_up_cart*100 %>">
-      </script>
+            <br>
+
+          <% else %>
+            <% li.beer_id %>
+            <% beer = Beer.find li.beer_id %>
+            <p id='item'><tr>
+              <td> <%= number_to_currency(beer.price * li.quantity) %> </td>
+              <!-- <td> <%= li.quantity  %></td> -->
+              <td> - <%= beer.title %> </td>
+            </tr></p>
+
+            <br>
+
+          <% end %>
+        <% end %>
+
+        <p><%= link_to "Edit Your Cart", cart_path(current_user.current_cart) %></p>
+      </tbody>
+
+    <%= form_tag charges_path do %>
+      <article class="six columns">
+        <label class="amount">
+          <span id="cart_total">Cart Total: $<%= current_user.current_cart.total_up_cart %>
+          </span>
+        </label>
+      </article>
+
+      <br />
+      <br />
+      <br />
+      <div class="six columns">
+        <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Please enter your information:"
+                data-amount="<%= current_user.current_cart.total_up_cart*100 %>">
+        </script>
+      </div>
+    <% end %>
     </div>
-  <% end %>
   </div>
 </div>
