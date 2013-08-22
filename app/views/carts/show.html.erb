@@ -30,7 +30,7 @@
           <td> &nbsp; &times; <%= li.quantity  %> quantity  </td>
           <td><%= button_to '+', add_line_item_path(li), :method=>:patch %></td>
           <td><%= button_to '-', subtract_line_item_path(li), :method=>:patch %></td>
-          <td><%= button_to 'Delete', line_item_path(li), :method=>:delete %></td>
+          <td><%= button_to 'Remove All', line_item_path(li), :method=>:delete %></td>
         </tr>
         <% end %>
         <% end %>
