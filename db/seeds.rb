@@ -13,7 +13,7 @@ e1 = Event.create(
 	end_time: '23:59:00 EST',
   street: '123 German Way', street2: 'Apt C',
   city: 'Brooklyn', state: 'NY', zip: '12345',
-  description: %{Ja, Ich trinke Bier! Und du! Whilst du mit mier trinken? Allen trinken Bier heute!},
+  description: %{Ja, Ich trinke Bier! Und du! Whilst du mit mir trinken? Alle trinken Bier heute!},
   image_url: "http://londondrinkup.files.wordpress.com/2013/01/oktoberfest-beer-party.jpg",
   price: '45.00')
 e2 = Event.create(
